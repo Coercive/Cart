@@ -15,7 +15,7 @@
         "php": ">=7.0"
     },
     "autoload": {
-        "psr-4": { "Coercive\\Security\\Cart\\": "dist/" }
+        "psr-4": { "Coercive\\Shop\\Cart\\": "dist/" }
     },
     "minimum-stability" : "dev",
     "prefer-stable" : true,
