@@ -16,6 +16,9 @@ Usage
 <?php
 use Coercive\Shop\Cart\Cart;
 use Coercive\Shop\Cart\Item;
+use Coercive\Shop\Cart\Store\Session;
+
+include __DIR__ . "/dist/Store/Session.php";
 
 include __DIR__ . "/dist/Ext/Entity.php";
 include __DIR__ . "/dist/Ext/Collection.php";
@@ -109,6 +112,13 @@ foreach ($oCart->Items()->keys() as $mId):
 
 endforeach ?>
 <br /><br />
-<h1># EXAMPLE END #</h1>
+<h1># EXAMPLE END #</h1><?php
+
+# Storage in session
+$oSession = new Session;
+$oSession->store($oCart);
+
+# Retrieve from session
+$oCart = $oSession->retrieve();
 
 ```
