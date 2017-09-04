@@ -90,6 +90,9 @@ class Item extends Entity {
     private $_sType = '';
 
     /** @var string|callable */
+	private $_sMedium = '';
+
+    /** @var string|callable */
     private $_sImage = '';
 
     /** @var string|callable */
@@ -359,6 +362,25 @@ class Item extends Entity {
     public function setType($sType) {
         return $this->_set($this->_sType, $sType);
     }
+
+    /**
+	 * GET MEDIUM
+	 *
+	 * @return string
+	 */
+	public function getMedium() {
+		return $this->_call($this->_sMedium);
+	}
+
+	/**
+	 * SET MEDIUM
+	 *
+	 * @param string|callable $sMedium
+	 * @return $this
+	 */
+	public function setMedium($sMedium) {
+		return $this->_set($this->_sMedium, $sMedium);
+	}
 
     /**
      * GET IMAGE
