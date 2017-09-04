@@ -38,6 +38,9 @@ class Cart extends Entity {
     /** @var Promo */
     private $_oPromo = null;
 
+    /** @var Payment */
+    private $_oPayment = null;
+
     /**
      * SINGLETON USER
      *
@@ -90,6 +93,15 @@ class Cart extends Entity {
      */
     public function Promo() {
         return null === $this->_oPromo ? $this->_oPromo = new Promo : $this->_oPromo;
+    }
+
+    /**
+     * SINGLETON PAYMENT
+     *
+     * @return Payment
+     */
+    public function Payment() {
+        return null === $this->_oPayment ? $this->_oPayment = new Payment : $this->_oPayment;
     }
 
 ###########################################################################################################
