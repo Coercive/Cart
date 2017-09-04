@@ -92,4 +92,164 @@ class Cart extends Entity {
         return null === $this->_oPromo ? $this->_oPromo = new Promo : $this->_oPromo;
     }
 
+###########################################################################################################
+# PROPERTIES
+
+	/** @var string|callable */
+	private $_sTitle = '';
+
+	/** @var int|string|callable */
+	private $_mRef = '';
+
+	/** @var float|callable */
+	private $_fAmount = 0;
+
+	/** @var float|callable */
+	private $_fAmountExcludingTaxes = 0;
+
+	/** @var float|callable */
+	private $_fAmountIncludingTaxes = 0;
+
+	/** @var float|callable */
+	private $_fAmountVat = 0;
+
+	/** @var int|callable */
+	private $_iQuantity = 0;
+
+###########################################################################################################
+# ACCESSORS
+
+	/**
+	 * GET TITLE
+	 *
+	 * @return string
+	 */
+	public function getTitle() {
+		return $this->_call($this->_sTitle);
+	}
+
+	/**
+	 * SET TITLE
+	 *
+	 * @param string|callable $sTitle
+	 * @return $this
+	 */
+	public function setTitle($sTitle) {
+		return $this->_set($this->_sTitle, $sTitle);
+	}
+
+	/**
+	 * GET REF
+	 *
+	 * @return int|string
+	 */
+	public function getRef() {
+		return $this->_call($this->_mRef);
+	}
+
+	/**
+	 * SET REF
+	 *
+	 * @param int|string|callable $mRef
+	 * @return $this
+	 */
+	public function setRef($mRef) {
+		return $this->_set($this->_mRef, $mRef);
+	}
+
+	/**
+	 * GET AMOUNT
+	 *
+	 * @return float
+	 */
+	public function getAmount() {
+		return $this->_call($this->_fAmount);
+	}
+
+	/**
+	 * SET AMOUNT
+	 *
+	 * @param float|callable $fAmount
+	 * @return $this
+	 */
+	public function setAmount($fAmount) {
+		return $this->_set($this->_fAmount, $fAmount);
+	}
+
+	/**
+	 * GET AMOUNT EXCLUDING TAXES
+	 *
+	 * @return float
+	 */
+	public function getAmountExcludingTaxes() {
+		return $this->_call($this->_fAmountExcludingTaxes);
+	}
+
+	/**
+	 * SET AMOUNT EXCLUDING TAXES
+	 *
+	 * @param float|callable $fAmountExcludingTaxes
+	 * @return $this
+	 */
+	public function setAmountExcludingTaxes($fAmountExcludingTaxes) {
+		return $this->_set($this->_fAmountExcludingTaxes, $fAmountExcludingTaxes);
+	}
+
+	/**
+	 * GET AMOUNT INCLUDING TAXES
+	 *
+	 * @return float
+	 */
+	public function getAmountIncludingTaxes() {
+		return $this->_call($this->_fAmountIncludingTaxes);
+	}
+
+	/**
+	 * SET AMOUNT INCLUDING TAXES
+	 *
+	 * @param float|callable $fAmountIncludingTaxes
+	 * @return $this
+	 */
+	public function setPriceIncludingTaxes($fAmountIncludingTaxes) {
+		return $this->_set($this->_fAmountIncludingTaxes, $fAmountIncludingTaxes);
+	}
+
+	/**
+	 * GET AMOUNT VAT
+	 *
+	 * @return float
+	 */
+	public function getAmountVat() {
+		return $this->_call($this->_fAmountVat);
+	}
+
+	/**
+	 * SET AMOUNT VAT
+	 *
+	 * @param float|callable $fAmountVat
+	 * @return $this
+	 */
+	public function setAmountVat($fAmountVat) {
+		return $this->_set($this->_fAmountVat, $fAmountVat);
+	}
+
+	/**
+	 * GET QUANTITY
+	 *
+	 * @return int
+	 */
+	public function getQuantity() {
+		return $this->_call($this->_iQuantity);
+	}
+
+	/**
+	 * SET QUANTITY
+	 *
+	 * @param int|callable $iQuantity
+	 * @return $this
+	 */
+	public function setQuantity($iQuantity) {
+		return $this->_set($this->_iQuantity, $iQuantity);
+	}
+
 }
