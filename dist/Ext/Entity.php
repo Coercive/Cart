@@ -1,6 +1,9 @@
 <?php
 namespace Coercive\Shop\Cart\Ext;
 
+use Closure;
+use Coercive\Shop\Cart\Store\HandleClosure;
+
 /**
  * @see |Coercive\Shop\Cart\Cart
  */
@@ -80,7 +83,7 @@ abstract class Entity {
      * @return $this
      */
     protected function _set(&$mField, $mDatas) {
-        $mField = $mDatas;
+        $mField = $mDatas instanceOf Closure ? new HandleClosure($mDatas) : $mDatas;
         $this->_bIsModified = true;
         return $this;
     }
