@@ -102,6 +102,9 @@ class Item extends Entity {
     private $_sUrl = '';
 
     /** @var string|callable */
+    private $_sSlug = '';
+
+    /** @var string|callable */
     private $_sStartDate = '';
 
     /** @var string|callable */
@@ -438,6 +441,25 @@ class Item extends Entity {
     public function setUrl($sUrl) {
         return $this->_set($this->_sUrl, $sUrl);
     }
+
+    /**
+	 * GET SLUG
+	 *
+	 * @return string
+	 */
+	public function getSlug() {
+		return $this->_call($this->_sSlug);
+	}
+
+	/**
+	 * SET SLUG
+	 *
+	 * @param string|callable $sSlug
+	 * @return $this
+	 */
+	public function setSlug($sSlug) {
+		return $this->_set($this->_sSlug, $sSlug);
+	}
 
     /**
      * GET START DATE
