@@ -103,6 +103,9 @@ class Cart extends Entity {
 
 	/** @var float|callable */
 	private $_fAmount = 0;
+    
+    /** @var float|callable */
+	private $_fFullAmount = 0;
 
 	/** @var float|callable */
 	private $_fAmountExcludingTaxes = 0;
@@ -174,6 +177,25 @@ class Cart extends Entity {
 	 */
 	public function setAmount($fAmount) {
 		return $this->_set($this->_fAmount, $fAmount);
+	}
+    
+    /**
+	 * GET FULL AMOUNT
+	 *
+	 * @return float
+	 */
+	public function getFullAmount() {
+		return $this->_call($this->_fFullAmount);
+	}
+
+	/**
+	 * SET FULL AMOUNT
+	 *
+	 * @param float|callable $fFullAmount
+	 * @return $this
+	 */
+	public function setFullAmount($fFullAmount) {
+		return $this->_set($this->_fFullAmount, $fFullAmount);
 	}
 
 	/**
