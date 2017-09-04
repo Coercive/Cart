@@ -65,6 +65,22 @@ class Collection extends Entity {
     }
 
     /**
+	 * DELETE ALL ITEMS
+	 *
+	 * @return $this
+	 * @throws Exception
+	 */
+	public function deleteAll() {
+
+		# Reset empty array
+		$this->_aItems = [];
+
+		# Maintain chainability
+		return $this;
+
+	}
+
+    /**
      * GET ITEM
      *
      * @param int|string $mKey
