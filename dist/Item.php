@@ -80,6 +80,21 @@ class Item extends Entity {
     /** @var float|callable */
     private $_fVatRate = 0;
 
+    /** @var float|callable */
+	private $_fShippingCost = 0;
+
+	/** @var float|callable */
+	private $_fShippingUnitCost = 0;
+
+	/** @var string|callable */
+	private $_fShippingGeoArea = '';
+
+	/** @var string|callable */
+	private $_fShippingZone = '';
+
+	/** @var string|callable */
+	private $_fShippingRef = '';
+
     /** @var int|callable */
     private $_iQuantity = 0;
 
@@ -308,6 +323,101 @@ class Item extends Entity {
     public function setVatRate($fVatRate) {
         return $this->_set($this->_fVatRate, $fVatRate);
     }
+
+    /**
+	 * GET SHIPPING COST
+	 *
+	 * @return float
+	 */
+	public function getShippingCost() {
+		return $this->_call($this->_fShippingCost);
+	}
+
+	/**
+	 * SET SHIPPING COST
+	 *
+	 * @param float|callable $fShippingCost
+	 * @return $this
+	 */
+	public function setShippingCost($fShippingCost) {
+		return $this->_set($this->_fShippingCost, $fShippingCost);
+	}
+
+	/**
+	 * GET SHIPPING UNIT COST
+	 *
+	 * @return float
+	 */
+	public function getShippingUnitCost() {
+		return $this->_call($this->_fShippingUnitCost);
+	}
+
+	/**
+	 * SET SHIPPING UNIT COST
+	 *
+	 * @param float|callable $fShippingUnitCost
+	 * @return $this
+	 */
+	public function setShippingUnitCost($fShippingUnitCost) {
+		return $this->_set($this->_fShippingUnitCost, $fShippingUnitCost);
+	}
+
+	/**
+	 * GET SHIPPING GEO AREA
+	 *
+	 * @return float
+	 */
+	public function getShippingGeoArea() {
+		return $this->_call($this->_fShippingGeoArea);
+	}
+
+	/**
+	 * SET SHIPPING GEO AREA
+	 *
+	 * @param float|callable $fShippingGeoArea
+	 * @return $this
+	 */
+	public function setShippingGeoArea($fShippingGeoArea) {
+		return $this->_set($this->_fShippingGeoArea, $fShippingGeoArea);
+	}
+
+	/**
+	 * GET SHIPPING ZONE
+	 *
+	 * @return float
+	 */
+	public function getShippingZone() {
+		return $this->_call($this->_fShippingZone);
+	}
+
+	/**
+	 * SET SHIPPING ZONE
+	 *
+	 * @param float|callable $fShippingZone
+	 * @return $this
+	 */
+	public function setShippingZone($fShippingZone) {
+		return $this->_set($this->_fShippingZone, $fShippingZone);
+	}
+
+	/**
+	 * GET SHIPPING REF
+	 *
+	 * @return float
+	 */
+	public function getShippingRef() {
+		return $this->_call($this->_fShippingRef);
+	}
+
+	/**
+	 * SET SHIPPING REF
+	 *
+	 * @param float|callable $fShippingRef
+	 * @return $this
+	 */
+	public function setShippingRef($fShippingRef) {
+		return $this->_set($this->_fShippingRef, $fShippingRef);
+	}
 
     /**
      * GET QUANTITY
