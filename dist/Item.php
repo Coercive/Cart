@@ -87,13 +87,13 @@ class Item extends Entity {
 	private $_fShippingUnitCost = 0;
 
 	/** @var string|callable */
-	private $_fShippingGeoArea = '';
+	private $_sShippingGeoArea = '';
 
 	/** @var string|callable */
-	private $_fShippingZone = '';
+	private $_sShippingZone = '';
 
 	/** @var string|callable */
-	private $_fShippingRef = '';
+	private $_sShippingRef = '';
 
     /** @var int|callable */
     private $_iQuantity = 0;
@@ -365,58 +365,58 @@ class Item extends Entity {
 	/**
 	 * GET SHIPPING GEO AREA
 	 *
-	 * @return float
+	 * @return string
 	 */
 	public function getShippingGeoArea() {
-		return $this->_call($this->_fShippingGeoArea);
+		return $this->_call($this->_sShippingGeoArea);
 	}
 
 	/**
 	 * SET SHIPPING GEO AREA
 	 *
-	 * @param float|callable $fShippingGeoArea
+	 * @param string|callable $sShippingGeoArea
 	 * @return $this
 	 */
-	public function setShippingGeoArea($fShippingGeoArea) {
-		return $this->_set($this->_fShippingGeoArea, $fShippingGeoArea);
+	public function setShippingGeoArea($sShippingGeoArea) {
+		return $this->_set($this->_sShippingGeoArea, $sShippingGeoArea);
 	}
 
 	/**
 	 * GET SHIPPING ZONE
 	 *
-	 * @return float
+	 * @return string
 	 */
 	public function getShippingZone() {
-		return $this->_call($this->_fShippingZone);
+		return $this->_call($this->_sShippingZone);
 	}
 
 	/**
 	 * SET SHIPPING ZONE
 	 *
-	 * @param float|callable $fShippingZone
+	 * @param string|callable $fShippingZone
 	 * @return $this
 	 */
 	public function setShippingZone($fShippingZone) {
-		return $this->_set($this->_fShippingZone, $fShippingZone);
+		return $this->_set($this->_sShippingZone, $fShippingZone);
 	}
 
 	/**
 	 * GET SHIPPING REF
 	 *
-	 * @return float
+	 * @return string
 	 */
 	public function getShippingRef() {
-		return $this->_call($this->_fShippingRef);
+		return $this->_call($this->_sShippingRef);
 	}
 
 	/**
 	 * SET SHIPPING REF
 	 *
-	 * @param float|callable $fShippingRef
+	 * @param string|callable $fShippingRef
 	 * @return $this
 	 */
 	public function setShippingRef($fShippingRef) {
-		return $this->_set($this->_fShippingRef, $fShippingRef);
+		return $this->_set($this->_sShippingRef, $fShippingRef);
 	}
 
     /**
