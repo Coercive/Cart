@@ -47,4 +47,15 @@ class Session {
         return empty($_SESSION[$sName]) ? new Cart : unserialize($_SESSION[$sName]);
     }
 
+    /**
+	 * DELETE CART SESSION
+	 *
+	 * @param string $sName [optional]
+	 * @return $this
+	 */
+	public function delete($sName = self::SESSION_CART) {
+		$_SESSION[$sName] = null;
+		return $this;
+	}
+
 }
