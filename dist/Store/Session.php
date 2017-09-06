@@ -48,14 +48,24 @@ class Session {
     }
 
     /**
-	 * DELETE CART SESSION
-	 *
-	 * @param string $sName [optional]
-	 * @return $this
-	 */
-	public function delete($sName = self::SESSION_CART) {
-		$_SESSION[$sName] = null;
-		return $this;
-	}
+     * DELETE CART SESSION
+     *
+     * @param string $sName [optional]
+     * @return $this
+     */
+    public function delete($sName = self::SESSION_CART) {
+        $_SESSION[$sName] = null;
+        return $this;
+    }
+
+    /**
+     * EXIST CART IN SESSION
+     *
+     * @param string $sName [optional]
+     * @return Cart
+     */
+    public function exist($sName = self::SESSION_CART) {
+        return !empty($_SESSION[$sName]) && $_SESSION[$sName] instanceof Cart;
+    }
 
 }
