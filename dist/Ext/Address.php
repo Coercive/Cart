@@ -4,7 +4,7 @@ namespace Coercive\Shop\Cart\Ext;
 /**
  * @see |Coercive\Shop\Cart\Cart
  */
-abstract class Address extends Entity {
+class Address extends Entity {
 
 ###########################################################################################################
 # PROPERTIES
