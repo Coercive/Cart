@@ -16,6 +16,9 @@ class Address extends Entity {
     private $_mRef = '';
 
     /** @var string|callable */
+	private $_sType = '';
+
+    /** @var string|callable */
     private $_sGender = '';
 
     /** @var string|callable */
@@ -103,6 +106,25 @@ class Address extends Entity {
     public function setRef($mRef) {
         return $this->_set($this->_mRef, $mRef);
     }
+
+    /**
+	 * GET TYPE
+	 *
+	 * @return string
+	 */
+	public function getType() {
+		return $this->_call($this->_sType);
+	}
+
+	/**
+	 * SET TYPE
+	 *
+	 * @param string|callable $sType
+	 * @return $this
+	 */
+	public function setType($sType) {
+		return $this->_set($this->_sType, $sType);
+	}
 
     /**
      * GET GENDER
