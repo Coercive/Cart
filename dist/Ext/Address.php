@@ -5,6 +5,21 @@ namespace Coercive\Shop\Cart\Ext;
  * @see |Coercive\Shop\Cart\Cart
  */
 class Address extends Entity {
+    
+###########################################################################################################
+# BIND ITEMS
+
+	/** @var User */
+	private $_oUser = null;
+
+	/**
+	 * SINGLETON USER
+	 *
+	 * @return User
+	 */
+	public function User() {
+		return null === $this->_oUser ? $this->_oUser = new User : $this->_oUser;
+	}
 
 ###########################################################################################################
 # PROPERTIES
