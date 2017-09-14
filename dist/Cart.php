@@ -146,6 +146,12 @@ class Cart extends Entity {
 	/** @var string|callable */
 	private $_sShippingRef = '';
 
+    /** @var bool|callable */
+	private $_bTermsOfSales = false;
+
+	/** @var bool|callable */
+	private $_bTermsOfUse = false;
+
 ###########################################################################################################
 # ACCESSORS
 
@@ -394,6 +400,44 @@ class Cart extends Entity {
 	 */
 	public function setShippingRef($fShippingRef) {
 		return $this->_set($this->_sShippingRef, $fShippingRef);
+	}
+    
+    /**
+	 * GET TERMS OF SALES
+	 *
+	 * @return bool
+	 */
+	public function getTermsOfSales() {
+		return $this->_call($this->_bTermsOfSales);
+	}
+
+	/**
+	 * SET TERMS OF SALES
+	 *
+	 * @param bool|callable $bTermsOfSales
+	 * @return $this
+	 */
+	public function setTermsOfSales($bTermsOfSales) {
+		return $this->_set($this->_bTermsOfSales, $bTermsOfSales);
+	}
+
+	/**
+	 * GET TERMS OF USE
+	 *
+	 * @return bool
+	 */
+	public function getTermsOfUse() {
+		return $this->_call($this->_bTermsOfUse);
+	}
+
+	/**
+	 * SET TERMS OF USE
+	 *
+	 * @param bool|callable $bTermsOfUse
+	 * @return $this
+	 */
+	public function setTermsOfUse($bTermsOfUse) {
+		return $this->_set($this->_bTermsOfUse, $bTermsOfUse);
 	}
 
 }
