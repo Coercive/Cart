@@ -44,63 +44,77 @@ class Cart extends Entity {
     /**
      * SINGLETON USER
      *
+     * @param User $oUser [optional]
      * @return User
      */
-    public function User() {
+    public function User(User $oUser = null) {
+    	if($oUser) { return $this->_oUser = $oUser; }
         return null === $this->_oUser ? $this->_oUser = new User : $this->_oUser;
     }
 
     /**
      * SINGLETON COLLECTION
      *
+     * @param Collection $oCollection [optional]
      * @return Collection
      */
-    public function Items() {
+    public function Items(Collection $oCollection = null) {
+	    if($oCollection) { return $this->_oUser = $oCollection; }
         return null === $this->_oCollection ? $this->_oCollection = new Collection : $this->_oCollection;
     }
 
     /**
      * SINGLETON SHIPPING
      *
-     * @return Shipping
+     * @param Address $oShipping [optional]
+     * @return Address|Shipping
      */
-    public function Shipping() {
+    public function Shipping(Address $oShipping = null) {
+	    if($oShipping) { return $this->_oShipping = $oShipping; }
         return null === $this->_oShipping ? $this->_oShipping = new Shipping : $this->_oShipping;
     }
 
     /**
      * SINGLETON BILLING
      *
-     * @return Billing
+     * @param Address $oBilling [optional]
+     * @return Address|Billing
      */
-    public function Billing() {
+    public function Billing(Address $oBilling = null) {
+	    if($oBilling) { return $this->_oBilling = $oBilling; }
         return null === $this->_oBilling ? $this->_oBilling = new Billing : $this->_oBilling;
     }
 
     /**
      * SINGLETON GIFT
      *
+     * @param Gift $oGift [optional]
      * @return Gift
      */
-    public function Gift() {
+    public function Gift(Gift $oGift = null) {
+	    if($oGift) { return $this->_oGift = $oGift; }
         return null === $this->_oGift ? $this->_oGift = new Gift : $this->_oGift;
     }
 
     /**
      * SINGLETON PROMO
      *
+     * @param Promo $oPromo [optional]
      * @return Promo
      */
-    public function Promo() {
+    public function Promo(Promo $oPromo = null) {
+	    if($oPromo) { return $this->_oPromo = $oPromo; }
         return null === $this->_oPromo ? $this->_oPromo = new Promo : $this->_oPromo;
     }
 
     /**
      * SINGLETON PAYMENT
      *
+     * @param Payment $oPayment [optional]
      * @return Payment
      */
-    public function Payment() {
+    public function Payment(Payment $oPayment = null) {
+	    if($oPayment) { return $this->_oPayment = $oPayment; }
         return null === $this->_oPayment ? $this->_oPayment = new Payment : $this->_oPayment;
     }
 
