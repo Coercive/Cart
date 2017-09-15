@@ -23,27 +23,33 @@ class Item extends Entity {
     /**
      * SINGLETON SHIPPING
      *
-     * @return Shipping
+     * @param Address $oShipping [optional]
+     * @return Address|Shipping
      */
-    public function Shipping() {
+    public function Shipping(Address $oShipping = null) {
+	    if($oShipping) { return $this->_oShipping = $oShipping; }
         return null === $this->_oShipping ? $this->_oShipping = new Shipping : $this->_oShipping;
     }
 
     /**
      * SINGLETON GIFT
      *
+     * @param Gift $oGift [optional]
      * @return Gift
      */
-    public function Gift() {
+    public function Gift(Gift $oGift = null) {
+	    if($oGift) { return $this->_oGift = $oGift; }
         return null === $this->_oGift ? $this->_oGift = new Gift : $this->_oGift;
     }
 
     /**
      * SINGLETON PROMO
      *
+     * @param Promo $oPromo [optional]
      * @return Promo
      */
-    public function Promo() {
+    public function Promo(Promo $oPromo = null) {
+	    if($oPromo) { return $this->_oPromo = $oPromo; }
         return null === $this->_oPromo ? $this->_oPromo = new Promo : $this->_oPromo;
     }
 
