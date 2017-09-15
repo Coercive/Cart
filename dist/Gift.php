@@ -17,9 +17,11 @@ class Gift extends Entity {
     /**
      * SINGLETON USER
      *
+     * @param User $oUser [optional]
      * @return User
      */
-    public function User() {
+    public function User(User $oUser = null) {
+    	if($oUser) { return $this->_oUser = $oUser; }
         return null === $this->_oUser ? $this->_oUser = new User : $this->_oUser;
     }
 
