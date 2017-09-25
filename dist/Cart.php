@@ -2,6 +2,7 @@
 namespace Coercive\Shop\Cart;
 
 use Coercive\Shop\Cart\Ext\Collection;
+use Coercive\Shop\Cart\Ext\Address;
 use Coercive\Shop\Cart\Ext\Entity;
 
 /**
