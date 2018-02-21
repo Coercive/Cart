@@ -25,7 +25,7 @@ class Promo extends Entity {
         }
 
         # PERCENT
-        if($fPercent = $this->getPriceCut()) {
+        if($fPercent = $this->getPercent()) {
             return $fPrice - $fPrice * $fPercent;
         }
 
