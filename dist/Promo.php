@@ -43,6 +43,9 @@ class Promo extends Entity {
     /** @var string|callable */
     private $_sToken = '';
 
+	/** @var string|callable */
+	private $_sType = '';
+
     /** @var string|callable */
     private $_sTitle = '';
 
@@ -98,6 +101,25 @@ class Promo extends Entity {
     public function setToken($sToken) {
         return $this->_set($this->_sToken, $sToken);
     }
+
+	/**
+	 * GET TYPE
+	 *
+	 * @return string
+	 */
+	public function getType() {
+		return $this->_call($this->_sType);
+	}
+
+	/**
+	 * SET TYPE
+	 *
+	 * @param string|callable $sType
+	 * @return $this
+	 */
+	public function setType($sType) {
+		return $this->_set($this->_sType, $sType);
+	}
 
     /**
      * GET TITLE
