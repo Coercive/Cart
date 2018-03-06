@@ -19,6 +19,16 @@ abstract class Entity {
     protected $_bEnabled = false;
 
     /**
+	 * VERIFY IF IS CLOSURE
+	 *
+	 * @param mixed $function
+	 * @return bool
+	 */
+	protected function isClosure($function) {
+		return is_object($function) && ($function instanceof Closure || $function instanceof HandleClosure);
+	}
+
+    /**
      * IS MODIFIED
      *
      * @return bool
@@ -72,7 +82,7 @@ abstract class Entity {
      * @return mixed
      */
     protected function _call($mField) {
-        return is_callable($mField) ? call_user_func($mField, $this) : $mField;
+        return $this->isClosure($mField) ? call_user_func($mField, $this) : $mField;
     }
 
     /**
