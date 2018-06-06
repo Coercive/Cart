@@ -7,165 +7,171 @@ use Coercive\Shop\Cart\Ext\Entity;
 
 /**
  * Class Cart
- * PHP Version 	7
  *
  * @package		Coercive\Shop\Cart
  * @link		@link https://github.com/Coercive/Cart
  *
  * @author  	Anthony Moral <contact@coercive.fr>
- * @copyright   (c) 2017 - 2018 Anthony Moral
+ * @copyright   (c) 2018 Anthony Moral
  * @license 	http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-class Cart extends Entity {
-
+class Cart extends Entity
+{
 ###########################################################################################################
 # BIND ITEMS
 
     /** @var User */
-    private $_oUser = null;
+    private $user = null;
 
     /** @var Collection */
-    private $_oCollection = null;
+    private $collection = null;
 
     /** @var Shipping */
-    private $_oShipping = null;
+    private $shipping = null;
 
     /** @var Billing */
-    private $_oBilling = null;
+    private $billing = null;
 
     /** @var Gift */
-    private $_oGift = null;
+    private $gift = null;
 
     /** @var Promo */
-    private $_oPromo = null;
+    private $promo = null;
 
     /** @var Payment */
-    private $_oPayment = null;
+    private $payment = null;
 
     /**
      * SINGLETON USER
      *
-     * @param User $oUser [optional]
+     * @param User $user [optional]
      * @return User
      */
-    public function User(User $oUser = null) {
-    	if($oUser) { return $this->_oUser = $oUser; }
-        return null === $this->_oUser ? $this->_oUser = new User : $this->_oUser;
+    public function User(User $user = null): User
+	{
+    	if($user) { return $this->user = $user; }
+        return null === $this->user ? $this->user = new User : $this->user;
     }
 
     /**
      * SINGLETON COLLECTION
      *
-     * @param Collection $oCollection [optional]
+     * @param Collection $collection [optional]
      * @return Collection
      */
-    public function Items(Collection $oCollection = null) {
-	    if($oCollection) { return $this->_oUser = $oCollection; }
-        return null === $this->_oCollection ? $this->_oCollection = new Collection : $this->_oCollection;
+    public function Items(Collection $collection = null): Collection
+	{
+	    if($collection) { return $this->user = $collection; }
+        return null === $this->collection ? $this->collection = new Collection : $this->collection;
     }
 
     /**
      * SINGLETON SHIPPING
      *
-     * @param Address $oShipping [optional]
+     * @param Address $shipping [optional]
      * @return Address|Shipping
      */
-    public function Shipping(Address $oShipping = null) {
-	    if($oShipping) { return $this->_oShipping = $oShipping; }
-        return null === $this->_oShipping ? $this->_oShipping = new Shipping : $this->_oShipping;
+    public function Shipping(Address $shipping = null): Address
+	{
+	    if($shipping) { return $this->shipping = $shipping; }
+        return null === $this->shipping ? $this->shipping = new Shipping : $this->shipping;
     }
 
     /**
      * SINGLETON BILLING
      *
-     * @param Address $oBilling [optional]
+     * @param Address $billing [optional]
      * @return Address|Billing
      */
-    public function Billing(Address $oBilling = null) {
-	    if($oBilling) { return $this->_oBilling = $oBilling; }
-        return null === $this->_oBilling ? $this->_oBilling = new Billing : $this->_oBilling;
+    public function Billing(Address $billing = null): Address
+	{
+	    if($billing) { return $this->billing = $billing; }
+        return null === $this->billing ? $this->billing = new Billing : $this->billing;
     }
 
     /**
      * SINGLETON GIFT
      *
-     * @param Gift $oGift [optional]
+     * @param Gift $gift [optional]
      * @return Gift
      */
-    public function Gift(Gift $oGift = null) {
-	    if($oGift) { return $this->_oGift = $oGift; }
-        return null === $this->_oGift ? $this->_oGift = new Gift : $this->_oGift;
+    public function Gift(Gift $gift = null): Gift
+	{
+	    if($gift) { return $this->gift = $gift; }
+        return null === $this->gift ? $this->gift = new Gift : $this->gift;
     }
 
     /**
      * SINGLETON PROMO
      *
-     * @param Promo $oPromo [optional]
+     * @param Promo $promo [optional]
      * @return Promo
      */
-    public function Promo(Promo $oPromo = null) {
-	    if($oPromo) { return $this->_oPromo = $oPromo; }
-        return null === $this->_oPromo ? $this->_oPromo = new Promo : $this->_oPromo;
+    public function Promo(Promo $promo = null): Promo
+	{
+	    if($promo) { return $this->promo = $promo; }
+        return null === $this->promo ? $this->promo = new Promo : $this->promo;
     }
 
     /**
      * SINGLETON PAYMENT
      *
-     * @param Payment $oPayment [optional]
+     * @param Payment $payment [optional]
      * @return Payment
      */
-    public function Payment(Payment $oPayment = null) {
-	    if($oPayment) { return $this->_oPayment = $oPayment; }
-        return null === $this->_oPayment ? $this->_oPayment = new Payment : $this->_oPayment;
+    public function Payment(Payment $payment = null): Payment
+	{
+	    if($payment) { return $this->payment = $payment; }
+        return null === $this->payment ? $this->payment = new Payment : $this->payment;
     }
 
 ###########################################################################################################
 # PROPERTIES
 
 	/** @var string|callable */
-	private $_sTitle = '';
+	private $title = '';
 
 	/** @var int|string|callable */
-	private $_mRef = '';
+	private $ref = '';
 
 	/** @var float|callable */
-	private $_fAmount = 0;
+	private $amount = 0;
     
     /** @var float|callable */
-	private $_fShippingAmount = 0;
+	private $shippingAmount = 0;
     
     /** @var float|callable */
-	private $_fFullAmount = 0;
+	private $fullAmount = 0;
 
 	/** @var float|callable */
-	private $_fAmountExcludingTaxes = 0;
+	private $amountExcludingTaxes = 0;
 
 	/** @var float|callable */
-	private $_fAmountIncludingTaxes = 0;
+	private $amountIncludingTaxes = 0;
 
 	/** @var float|callable */
-	private $_fAmountVat = 0;
+	private $amountVat = 0;
 
 	/** @var int|callable */
-	private $_iQuantity = 0;
+	private $quantity = 0;
 
 	/** @var float|callable */
-	private $_fShippingUnitCost = 0;
+	private $shippingUnitCost = 0;
 
 	/** @var string|callable */
-	private $_sShippingGeoArea = '';
+	private $shippingGeoArea = '';
 
 	/** @var string|callable */
-	private $_sShippingZone = '';
+	private $shippingZone = '';
 
 	/** @var string|callable */
-	private $_sShippingRef = '';
+	private $shippingRef = '';
 
     /** @var bool|callable */
-	private $_bTermsOfSales = false;
+	private $termsOfSales = false;
 
 	/** @var bool|callable */
-	private $_bTermsOfUse = false;
+	private $termsOfUse = false;
 
 ###########################################################################################################
 # ACCESSORS
@@ -175,18 +181,20 @@ class Cart extends Entity {
 	 *
 	 * @return string
 	 */
-	public function getTitle() {
-		return $this->_call($this->_sTitle);
+	public function getTitle(): string
+	{
+		return $this->_call($this->title);
 	}
 
 	/**
 	 * SET TITLE
 	 *
-	 * @param string|callable $sTitle
+	 * @param string|callable $title
 	 * @return $this
 	 */
-	public function setTitle($sTitle) {
-		return $this->_set($this->_sTitle, $sTitle);
+	public function setTitle($title): Cart
+	{
+		return $this->_set($this->title, $title);
 	}
 
 	/**
@@ -194,18 +202,20 @@ class Cart extends Entity {
 	 *
 	 * @return int|string
 	 */
-	public function getRef() {
-		return $this->_call($this->_mRef);
+	public function getRef()
+	{
+		return $this->_call($this->ref);
 	}
 
 	/**
 	 * SET REF
 	 *
-	 * @param int|string|callable $mRef
+	 * @param int|string|callable $ref
 	 * @return $this
 	 */
-	public function setRef($mRef) {
-		return $this->_set($this->_mRef, $mRef);
+	public function setRef($ref): Cart
+	{
+		return $this->_set($this->ref, $ref);
 	}
 
 	/**
@@ -213,18 +223,20 @@ class Cart extends Entity {
 	 *
 	 * @return float
 	 */
-	public function getAmount() {
-		return $this->_call($this->_fAmount);
+	public function getAmount(): float
+	{
+		return $this->_call($this->amount);
 	}
 
 	/**
 	 * SET AMOUNT
 	 *
-	 * @param float|callable $fAmount
+	 * @param float|callable $amount
 	 * @return $this
 	 */
-	public function setAmount($fAmount) {
-		return $this->_set($this->_fAmount, $fAmount);
+	public function setAmount($amount): Cart
+	{
+		return $this->_set($this->amount, $amount);
 	}
 
     /**
@@ -232,18 +244,20 @@ class Cart extends Entity {
 	 *
 	 * @return float
 	 */
-	public function getShippingAmount() {
-		return $this->_call($this->_fShippingAmount);
+	public function getShippingAmount(): float
+	{
+		return $this->_call($this->shippingAmount);
 	}
 
 	/**
 	 * SET SHIPPING AMOUNT
 	 *
-	 * @param float|callable $fShippingAmount
+	 * @param float|callable $shippingAmount
 	 * @return $this
 	 */
-	public function setShippingAmount($fShippingAmount) {
-		return $this->_set($this->_fShippingAmount, $fShippingAmount);
+	public function setShippingAmount($shippingAmount): Cart
+	{
+		return $this->_set($this->shippingAmount, $shippingAmount);
 	}
     
     /**
@@ -251,18 +265,20 @@ class Cart extends Entity {
 	 *
 	 * @return float
 	 */
-	public function getFullAmount() {
-		return $this->_call($this->_fFullAmount);
+	public function getFullAmount(): float
+	{
+		return $this->_call($this->fullAmount);
 	}
 
 	/**
 	 * SET FULL AMOUNT
 	 *
-	 * @param float|callable $fFullAmount
+	 * @param float|callable $fullAmount
 	 * @return $this
 	 */
-	public function setFullAmount($fFullAmount) {
-		return $this->_set($this->_fFullAmount, $fFullAmount);
+	public function setFullAmount($fullAmount): Cart
+	{
+		return $this->_set($this->fullAmount, $fullAmount);
 	}
 
 	/**
@@ -270,18 +286,20 @@ class Cart extends Entity {
 	 *
 	 * @return float
 	 */
-	public function getAmountExcludingTaxes() {
-		return $this->_call($this->_fAmountExcludingTaxes);
+	public function getAmountExcludingTaxes(): float
+	{
+		return $this->_call($this->amountExcludingTaxes);
 	}
 
 	/**
 	 * SET AMOUNT EXCLUDING TAXES
 	 *
-	 * @param float|callable $fAmountExcludingTaxes
+	 * @param float|callable $amountExcludingTaxes
 	 * @return $this
 	 */
-	public function setAmountExcludingTaxes($fAmountExcludingTaxes) {
-		return $this->_set($this->_fAmountExcludingTaxes, $fAmountExcludingTaxes);
+	public function setAmountExcludingTaxes($amountExcludingTaxes): Cart
+	{
+		return $this->_set($this->amountExcludingTaxes, $amountExcludingTaxes);
 	}
 
 	/**
@@ -289,18 +307,20 @@ class Cart extends Entity {
 	 *
 	 * @return float
 	 */
-	public function getAmountIncludingTaxes() {
-		return $this->_call($this->_fAmountIncludingTaxes);
+	public function getAmountIncludingTaxes(): float
+	{
+		return $this->_call($this->amountIncludingTaxes);
 	}
 
 	/**
 	 * SET AMOUNT INCLUDING TAXES
 	 *
-	 * @param float|callable $fAmountIncludingTaxes
+	 * @param float|callable $amountIncludingTaxes
 	 * @return $this
 	 */
-	public function setPriceIncludingTaxes($fAmountIncludingTaxes) {
-		return $this->_set($this->_fAmountIncludingTaxes, $fAmountIncludingTaxes);
+	public function setPriceIncludingTaxes($amountIncludingTaxes): Cart
+	{
+		return $this->_set($this->amountIncludingTaxes, $amountIncludingTaxes);
 	}
 
 	/**
@@ -308,18 +328,20 @@ class Cart extends Entity {
 	 *
 	 * @return float
 	 */
-	public function getAmountVat() {
-		return $this->_call($this->_fAmountVat);
+	public function getAmountVat(): float
+	{
+		return $this->_call($this->amountVat);
 	}
 
 	/**
 	 * SET AMOUNT VAT
 	 *
-	 * @param float|callable $fAmountVat
+	 * @param float|callable $amountVat
 	 * @return $this
 	 */
-	public function setAmountVat($fAmountVat) {
-		return $this->_set($this->_fAmountVat, $fAmountVat);
+	public function setAmountVat($amountVat): Cart
+	{
+		return $this->_set($this->amountVat, $amountVat);
 	}
 
 	/**
@@ -327,18 +349,20 @@ class Cart extends Entity {
 	 *
 	 * @return int
 	 */
-	public function getQuantity() {
-		return $this->_call($this->_iQuantity);
+	public function getQuantity(): int
+	{
+		return $this->_call($this->quantity);
 	}
 
 	/**
 	 * SET QUANTITY
 	 *
-	 * @param int|callable $iQuantity
+	 * @param int|callable $quantity
 	 * @return $this
 	 */
-	public function setQuantity($iQuantity) {
-		return $this->_set($this->_iQuantity, $iQuantity);
+	public function setQuantity($quantity): Cart
+	{
+		return $this->_set($this->quantity, $quantity);
 	}
 
 	/**
@@ -346,18 +370,20 @@ class Cart extends Entity {
 	 *
 	 * @return float
 	 */
-	public function getShippingUnitCost() {
-		return $this->_call($this->_fShippingUnitCost);
+	public function getShippingUnitCost(): float
+	{
+		return $this->_call($this->shippingUnitCost);
 	}
 
 	/**
 	 * SET SHIPPING UNIT COST
 	 *
-	 * @param float|callable $fShippingUnitCost
+	 * @param float|callable $shippingUnitCost
 	 * @return $this
 	 */
-	public function setShippingUnitCost($fShippingUnitCost) {
-		return $this->_set($this->_fShippingUnitCost, $fShippingUnitCost);
+	public function setShippingUnitCost($shippingUnitCost): Cart
+	{
+		return $this->_set($this->shippingUnitCost, $shippingUnitCost);
 	}
 
 	/**
@@ -365,18 +391,20 @@ class Cart extends Entity {
 	 *
 	 * @return string
 	 */
-	public function getShippingGeoArea() {
-		return $this->_call($this->_sShippingGeoArea);
+	public function getShippingGeoArea(): string
+	{
+		return $this->_call($this->shippingGeoArea);
 	}
 
 	/**
 	 * SET SHIPPING GEO AREA
 	 *
-	 * @param string|callable $sShippingGeoArea
+	 * @param string|callable $shippingGeoArea
 	 * @return $this
 	 */
-	public function setShippingGeoArea($sShippingGeoArea) {
-		return $this->_set($this->_sShippingGeoArea, $sShippingGeoArea);
+	public function setShippingGeoArea($shippingGeoArea): Cart
+	{
+		return $this->_set($this->shippingGeoArea, $shippingGeoArea);
 	}
 
 	/**
@@ -384,18 +412,20 @@ class Cart extends Entity {
 	 *
 	 * @return string
 	 */
-	public function getShippingZone() {
-		return $this->_call($this->_sShippingZone);
+	public function getShippingZone(): string
+	{
+		return $this->_call($this->shippingZone);
 	}
 
 	/**
 	 * SET SHIPPING ZONE
 	 *
-	 * @param string|callable $fShippingZone
+	 * @param string|callable $shippingZone
 	 * @return $this
 	 */
-	public function setShippingZone($fShippingZone) {
-		return $this->_set($this->_sShippingZone, $fShippingZone);
+	public function setShippingZone($shippingZone): Cart
+	{
+		return $this->_set($this->shippingZone, $shippingZone);
 	}
 
 	/**
@@ -403,18 +433,20 @@ class Cart extends Entity {
 	 *
 	 * @return string
 	 */
-	public function getShippingRef() {
-		return $this->_call($this->_sShippingRef);
+	public function getShippingRef(): string
+	{
+		return $this->_call($this->shippingRef);
 	}
 
 	/**
 	 * SET SHIPPING REF
 	 *
-	 * @param string|callable $fShippingRef
+	 * @param string|callable $shippingRef
 	 * @return $this
 	 */
-	public function setShippingRef($fShippingRef) {
-		return $this->_set($this->_sShippingRef, $fShippingRef);
+	public function setShippingRef($shippingRef): Cart
+	{
+		return $this->_set($this->shippingRef, $shippingRef);
 	}
     
     /**
@@ -422,18 +454,20 @@ class Cart extends Entity {
 	 *
 	 * @return bool
 	 */
-	public function getTermsOfSales() {
-		return $this->_call($this->_bTermsOfSales);
+	public function getTermsOfSales(): bool
+	{
+		return $this->_call($this->termsOfSales);
 	}
 
 	/**
 	 * SET TERMS OF SALES
 	 *
-	 * @param bool|callable $bTermsOfSales
+	 * @param bool|callable $termsOfSales
 	 * @return $this
 	 */
-	public function setTermsOfSales($bTermsOfSales) {
-		return $this->_set($this->_bTermsOfSales, $bTermsOfSales);
+	public function setTermsOfSales($termsOfSales): Cart
+	{
+		return $this->_set($this->termsOfSales, $termsOfSales);
 	}
 
 	/**
@@ -441,18 +475,19 @@ class Cart extends Entity {
 	 *
 	 * @return bool
 	 */
-	public function getTermsOfUse() {
-		return $this->_call($this->_bTermsOfUse);
+	public function getTermsOfUse(): bool
+	{
+		return $this->_call($this->termsOfUse);
 	}
 
 	/**
 	 * SET TERMS OF USE
 	 *
-	 * @param bool|callable $bTermsOfUse
+	 * @param bool|callable $termsOfUse
 	 * @return $this
 	 */
-	public function setTermsOfUse($bTermsOfUse) {
-		return $this->_set($this->_bTermsOfUse, $bTermsOfUse);
+	public function setTermsOfUse($termsOfUse): Cart
+	{
+		return $this->_set($this->termsOfUse, $termsOfUse);
 	}
-
 }
