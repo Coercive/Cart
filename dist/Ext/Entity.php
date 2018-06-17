@@ -7,25 +7,51 @@ use Coercive\Shop\Cart\Store\HandleClosure;
 /**
  * @see |Coercive\Shop\Cart\Cart
  */
-abstract class Entity {
-
+abstract class Entity
+{
 ###########################################################################################################
 # SYSTEM
 
     /** @var bool */
-    protected $_bIsModified = false;
+    protected $modified = false;
 
     /** @var bool */
-    protected $_bEnabled = false;
+    protected $enabled = false;
 
     /**
 	 * VERIFY IF IS CLOSURE
 	 *
-	 * @param mixed $function
+	 * @param mixed $mixed
 	 * @return bool
 	 */
-	protected function isClosure($function) {
-		return is_object($function) && ($function instanceof Closure || $function instanceof HandleClosure);
+	protected function _isClosure($mixed): bool
+	{
+		return is_object($mixed) && ($mixed instanceof Closure || $mixed instanceof HandleClosure);
+	}
+
+	/**
+	 * CALL FIELD
+	 *
+	 * @param mixed $field
+	 * @return mixed
+	 */
+	protected function _call($field)
+	{
+		return $this->_isClosure($field) ? call_user_func($field, $this) : $field;
+	}
+
+	/**
+	 * SET FIELD
+	 *
+	 * @param mixed $field
+	 * @param mixed $datas
+	 * @return $this
+	 */
+	protected function _set(&$field, $datas)
+	{
+		$field = $datas instanceOf Closure ? new HandleClosure($datas) : $datas;
+		$this->modified = true;
+		return $this;
 	}
 
     /**
@@ -33,8 +59,9 @@ abstract class Entity {
      *
      * @return bool
      */
-    public function isModified() {
-        return $this->_bIsModified;
+    public function isModified(): bool
+	{
+        return $this->modified;
     }
 
     /**
@@ -42,8 +69,9 @@ abstract class Entity {
      *
      * @return bool
      */
-    public function isEnabled() {
-        return $this->_bEnabled;
+    public function isEnabled(): bool
+	{
+        return $this->enabled;
     }
 
     /**
@@ -51,8 +79,9 @@ abstract class Entity {
      *
      * @return bool
      */
-    public function isDisabled() {
-        return !$this->_bEnabled;
+    public function isDisabled(): bool
+	{
+        return !$this->enabled;
     }
 
     /**
@@ -60,8 +89,9 @@ abstract class Entity {
      *
      * @return $this
      */
-    public function enable() {
-        $this->_bEnabled = true;
+    public function enable()
+	{
+        $this->enabled = true;
         return $this;
     }
 
@@ -70,31 +100,9 @@ abstract class Entity {
      *
      * @return $this
      */
-    public function disable() {
-        $this->_bEnabled = false;
-        return $this;
-    }
-
-    /**
-     * CALL FIELD
-     *
-     * @param mixed $mField
-     * @return mixed
-     */
-    protected function _call($mField) {
-        return $this->isClosure($mField) ? call_user_func($mField, $this) : $mField;
-    }
-
-    /**
-     * SET FIELD
-     *
-     * @param mixed $mField
-     * @param mixed $mDatas
-     * @return $this
-     */
-    protected function _set(&$mField, $mDatas) {
-        $mField = $mDatas instanceOf Closure ? new HandleClosure($mDatas) : $mDatas;
-        $this->_bIsModified = true;
+    public function disable()
+	{
+        $this->enabled = false;
         return $this;
     }
 
@@ -102,16 +110,16 @@ abstract class Entity {
 # PROPERTIES
 
     /** @var mixed */
-    protected $_mOptionalField1 = null;
-    protected $_mOptionalField2 = null;
-    protected $_mOptionalField3 = null;
-    protected $_mOptionalField4 = null;
-    protected $_mOptionalField5 = null;
-    protected $_mOptionalField6 = null;
-    protected $_mOptionalField7 = null;
-    protected $_mOptionalField8 = null;
-    protected $_mOptionalField9 = null;
-    protected $_mOptionalField10 = null;
+    protected $optField1 = null;
+    protected $optField2 = null;
+    protected $optField3 = null;
+    protected $optField4 = null;
+    protected $optField5 = null;
+    protected $optField6 = null;
+    protected $optField7 = null;
+    protected $optField8 = null;
+    protected $optField9 = null;
+    protected $optField10 = null;
 
 ###########################################################################################################
 # ACCESSORS
@@ -119,191 +127,209 @@ abstract class Entity {
     /**
      * GET OPTIONAL FIELD 1
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField1() {
-        return $this->_call($this->_mOptionalField1);
+    public function getOptionalField1()
+	{
+        return $this->_call($this->optField1);
     }
 
     /**
      * SET OPTIONAL FIELD 1
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField1($mData) {
-        return $this->_set($this->_mOptionalField1, $mData);
+    public function setOptionalField1($datas) {
+        return $this->_set($this->optField1, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 2
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField2() {
-        return $this->_call($this->_mOptionalField2);
+    public function getOptionalField2()
+	{
+        return $this->_call($this->optField2);
     }
 
     /**
      * SET OPTIONAL FIELD 2
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField2($mData) {
-        return $this->_set($this->_mOptionalField2, $mData);
+    public function setOptionalField2($datas)
+	{
+        return $this->_set($this->optField2, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 3
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField3() {
-        return $this->_call($this->_mOptionalField3);
+    public function getOptionalField3()
+	{
+        return $this->_call($this->optField3);
     }
 
     /**
      * SET OPTIONAL FIELD 3
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField3($mData) {
-        return $this->_set($this->_mOptionalField3, $mData);
+    public function setOptionalField3($datas)
+	{
+        return $this->_set($this->optField3, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 4
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField4() {
-        return $this->_call($this->_mOptionalField4);
+    public function getOptionalField4()
+	{
+        return $this->_call($this->optField4);
     }
 
     /**
      * SET OPTIONAL FIELD 4
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField4($mData) {
-        return $this->_set($this->_mOptionalField4, $mData);
+    public function setOptionalField4($datas)
+	{
+        return $this->_set($this->optField4, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 5
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField5() {
-        return $this->_call($this->_mOptionalField5);
+    public function getOptionalField5()
+	{
+        return $this->_call($this->optField5);
     }
 
     /**
      * SET OPTIONAL FIELD 5
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField5($mData) {
-        return $this->_set($this->_mOptionalField5, $mData);
+    public function setOptionalField5($datas)
+	{
+        return $this->_set($this->optField5, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 6
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField6() {
-        return $this->_call($this->_mOptionalField6);
+    public function getOptionalField6()
+	{
+        return $this->_call($this->optField6);
     }
 
     /**
      * SET OPTIONAL FIELD 6
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField6($mData) {
-        return $this->_set($this->_mOptionalField6, $mData);
+    public function setOptionalField6($datas)
+	{
+        return $this->_set($this->optField6, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 7
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField7() {
-        return $this->_call($this->_mOptionalField7);
+    public function getOptionalField7()
+	{
+        return $this->_call($this->optField7);
     }
 
     /**
      * SET OPTIONAL FIELD 7
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField7($mData) {
-        return $this->_set($this->_mOptionalField7, $mData);
+    public function setOptionalField7($datas)
+	{
+        return $this->_set($this->optField7, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 8
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField8() {
-        return $this->_call($this->_mOptionalField8);
+    public function getOptionalField8()
+	{
+        return $this->_call($this->optField8);
     }
 
     /**
      * SET OPTIONAL FIELD 8
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField8($mData) {
-        return $this->_set($this->_mOptionalField8, $mData);
+    public function setOptionalField8($datas)
+	{
+        return $this->_set($this->optField8, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 9
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField9() {
-        return $this->_call($this->_mOptionalField9);
+    public function getOptionalField9()
+	{
+        return $this->_call($this->optField9);
     }
 
     /**
      * SET OPTIONAL FIELD 9
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField9($mData) {
-        return $this->_set($this->_mOptionalField9, $mData);
+    public function setOptionalField9($datas)
+	{
+        return $this->_set($this->optField9, $datas);
     }
 
     /**
      * GET OPTIONAL FIELD 10
      *
-     * @return string
+     * @return mixed
      */
-    public function getOptionalField10() {
-        return $this->_call($this->_mOptionalField10);
+    public function getOptionalField10()
+	{
+        return $this->_call($this->optField10);
     }
 
     /**
      * SET OPTIONAL FIELD 10
      *
-     * @param mixed|callable $mData
+     * @param mixed|callable $datas
      * @return $this
      */
-    public function setOptionalField10($mData) {
-        return $this->_set($this->_mOptionalField10, $mData);
+    public function setOptionalField10($datas)
+	{
+        return $this->_set($this->optField10, $datas);
     }
-
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Coercive\Shop\Cart;
+namespace Coercive\Shop\Cart\Entity;
 
 use Coercive\Shop\Cart\Ext\Address;
 

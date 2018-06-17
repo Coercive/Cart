@@ -1,9 +1,16 @@
 <?php
 namespace Coercive\Shop\Cart;
 
-use Coercive\Shop\Cart\Ext\Collection;
+use Coercive\Shop\Cart\Collection\Promos;
+use Coercive\Shop\Cart\Entity\Billing;
+use Coercive\Shop\Cart\Entity\Gift;
+use Coercive\Shop\Cart\Entity\Payment;
+use Coercive\Shop\Cart\Entity\Promo;
+use Coercive\Shop\Cart\Entity\Shipping;
+use Coercive\Shop\Cart\Entity\User;
 use Coercive\Shop\Cart\Ext\Address;
 use Coercive\Shop\Cart\Ext\Entity;
+use Coercive\Shop\Cart\Collection\Items;
 
 /**
  * Class Cart
@@ -23,8 +30,8 @@ class Cart extends Entity
     /** @var User */
     private $user = null;
 
-    /** @var Collection */
-    private $collection = null;
+    /** @var Items */
+    private $items = null;
 
     /** @var Shipping */
     private $shipping = null;
@@ -34,6 +41,9 @@ class Cart extends Entity
 
     /** @var Gift */
     private $gift = null;
+
+	/** @var Promos */
+	private $promos = null;
 
     /** @var Promo */
     private $promo = null;
@@ -54,15 +64,15 @@ class Cart extends Entity
     }
 
     /**
-     * SINGLETON COLLECTION
+     * SINGLETON COLLECTION ITEMS
      *
-     * @param Collection $collection [optional]
-     * @return Collection
+     * @param Items $items [optional]
+     * @return Items
      */
-    public function Items(Collection $collection = null): Collection
+    public function Items(Items $items = null): Items
 	{
-	    if($collection) { return $this->user = $collection; }
-        return null === $this->collection ? $this->collection = new Collection : $this->collection;
+	    if($items) { return $this->items = $items; }
+        return null === $this->items ? $this->items = new Items : $this->items;
     }
 
     /**
@@ -101,7 +111,19 @@ class Cart extends Entity
         return null === $this->gift ? $this->gift = new Gift : $this->gift;
     }
 
-    /**
+	/**
+	 * SINGLETON COLLECTION PROMOS
+	 *
+	 * @param Promos $promos [optional]
+	 * @return Promos
+	 */
+	public function Promos(Promos $promos = null): Promos
+	{
+		if($promos) { return $this->promos = $promos; }
+		return null === $this->promos ? $this->promos = new Promos : $this->promos;
+	}
+
+	/**
      * SINGLETON PROMO
      *
      * @param Promo $promo [optional]

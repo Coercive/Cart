@@ -1,40 +1,58 @@
 <?php
-namespace Coercive\Shop\Cart\Ext;
+namespace Coercive\Shop\Cart\Entity;
 
-use Coercive\Shop\Cart\User;
+use Coercive\Shop\Cart\Ext\Address;
+use Coercive\Shop\Cart\Ext\Entity;
 
 /**
  * @see |Coercive\Shop\Cart\Cart
  */
-class Address extends Entity
+class User extends Entity
 {
 ###########################################################################################################
 # BIND ITEMS
 
-	/** @var User */
-	private $user = null;
+	/** @var Billing */
+	private $billing = null;
+
+	/** @var Shipping */
+	private $shipping = null;
 
 	/**
-	 * SINGLETON USER
+	 * SINGLETON BILLING
 	 *
-	 * @return User
+	 * @param Address $billing [optional]
+	 * @return Address|Billing
 	 */
-	public function User(): User
+	public function Billing(Address $billing = null): Address
 	{
-		return null === $this->user ? $this->user = new User : $this->user;
+		if($billing) { return $this->billing = $billing; }
+		return null === $this->billing ? $this->billing = new Billing : $this->billing;
+	}
+
+	/**
+	 * SINGLETON SHIPPING
+	 *
+	 * @param Address $shipping [optional]
+	 * @return Address|Shipping
+	 */
+	public function Shipping(Address $shipping = null): Address
+	{
+		if($shipping) { return $this->shipping = $shipping; }
+		return null === $this->shipping ? $this->shipping = new Shipping : $this->shipping;
 	}
 
 ###########################################################################################################
 # PROPERTIES
 
-    /** @var string|callable */
-    private $title = '';
+    /** @var int|string|callable */
+    private $language = '';
 
     /** @var int|string|callable */
     private $ref = '';
 
-    /** @var string|callable */
-	private $type = '';
+    /** @var int|string|callable */
+    private $subscriberCode = '';
 
     /** @var string|callable */
     private $gender = '';
@@ -60,25 +78,25 @@ class Address extends Entity
     /** @var string|callable */
     private $additionalAddress2 = '';
 
-    /** @var string|callable */
+    /** @var int|string|callable */
     private $zip = '';
 
     /** @var string|callable */
     private $town = '';
 
-    /** @var string|callable */
+    /** @var int|string|callable */
     private $country = '';
 
-    /** @var string|callable */
+    /** @var int|string|callable */
     private $isoCountry = '';
 
-    /** @var string|callable */
+    /** @var int|string|callable */
     private $phone = '';
 
-    /** @var string|callable */
+    /** @var int|string|callable */
     private $mobile = '';
 
-    /** @var string|callable */
+    /** @var int|string|callable */
     private $fax = '';
 
     /** @var string|callable */
@@ -88,24 +106,24 @@ class Address extends Entity
 # ACCESSORS
 
     /**
-     * GET TITLE
+     * GET LANGUAGE
      *
-     * @return string
+     * @return int|string
      */
-    public function getTitle(): string
+    public function getLanguage()
 	{
-        return $this->_call($this->title);
+        return $this->_call($this->language);
     }
 
     /**
-     * SET TITLE
+     * SET LANGUAGE
      *
-     * @param string|callable $title
+     * @param int|string|callable $language
      * @return $this
      */
-    public function setTitle($title)
+    public function setLanguage($language): User
 	{
-        return $this->_set($this->title, $title);
+        return $this->_set($this->language, $language);
     }
 
     /**
@@ -124,31 +142,31 @@ class Address extends Entity
      * @param int|string|callable $ref
      * @return $this
      */
-    public function setRef($ref)
+    public function setRef($ref): User
 	{
         return $this->_set($this->ref, $ref);
     }
 
     /**
-	 * GET TYPE
-	 *
-	 * @return string
-	 */
-	public function getType(): string
+     * GET SUBSCRIBER CODE
+     *
+     * @return int|string
+     */
+    public function getSubscriberCode()
 	{
-		return $this->_call($this->type);
-	}
+        return $this->_call($this->subscriberCode);
+    }
 
-	/**
-	 * SET TYPE
-	 *
-	 * @param string|callable $type
-	 * @return $this
-	 */
-	public function setType($type)
+    /**
+     * SET SUBSCRIBER CODE
+     *
+     * @param int|string|callable $subscriberCode
+     * @return $this
+     */
+    public function setSubscriberCode($subscriberCode): User
 	{
-		return $this->_set($this->type, $type);
-	}
+        return $this->_set($this->subscriberCode, $subscriberCode);
+    }
 
     /**
      * GET GENDER
@@ -166,7 +184,7 @@ class Address extends Entity
      * @param string|callable $gender
      * @return $this
      */
-    public function setGender($gender)
+    public function setGender($gender): User
 	{
         return $this->_set($this->gender, $gender);
     }
@@ -187,7 +205,7 @@ class Address extends Entity
      * @param string|callable $company
      * @return $this
      */
-    public function setCompany($company)
+    public function setCompany($company): User
 	{
         return $this->_set($this->company, $company);
     }
@@ -208,7 +226,7 @@ class Address extends Entity
      * @param string|callable $firstName
      * @return $this
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName): User
 	{
         return $this->_set($this->firstName, $firstName);
     }
@@ -229,7 +247,7 @@ class Address extends Entity
      * @param string|callable $lastName
      * @return $this
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName): User
 	{
         return $this->_set($this->lastName, $lastName);
     }
@@ -250,7 +268,7 @@ class Address extends Entity
      * @param string|callable $additionalName
      * @return $this
      */
-    public function setAdditionalName($additionalName)
+    public function setAdditionalName($additionalName): User
 	{
         return $this->_set($this->additionalName, $additionalName);
     }
@@ -271,7 +289,7 @@ class Address extends Entity
      * @param string|callable $address
      * @return $this
      */
-    public function setAddress($address)
+    public function setAddress($address): User
 	{
         return $this->_set($this->address, $address);
     }
@@ -292,7 +310,7 @@ class Address extends Entity
      * @param string|callable $additionalAddress1
      * @return $this
      */
-    public function setAdditionalAddress1($additionalAddress1)
+    public function setAdditionalAddress1($additionalAddress1): User
 	{
         return $this->_set($this->additionalAddress1, $additionalAddress1);
     }
@@ -313,7 +331,7 @@ class Address extends Entity
      * @param string|callable $additionalAddress2
      * @return $this
      */
-    public function setAdditionalAddress2($additionalAddress2)
+    public function setAdditionalAddress2($additionalAddress2): User
 	{
         return $this->_set($this->additionalAddress2, $additionalAddress2);
     }
@@ -321,9 +339,9 @@ class Address extends Entity
     /**
      * GET ZIP
      *
-     * @return string
+     * @return int|string
      */
-    public function getZip(): string
+    public function getZip()
 	{
         return $this->_call($this->zip);
     }
@@ -331,10 +349,10 @@ class Address extends Entity
     /**
      * SET ZIP
      *
-     * @param string|callable $zip
+     * @param int|string|callable $zip
      * @return $this
      */
-    public function setZip($zip)
+    public function setZip($zip): User
 	{
         return $this->_set($this->zip, $zip);
     }
@@ -355,7 +373,7 @@ class Address extends Entity
      * @param string|callable $town
      * @return $this
      */
-    public function setTown($town)
+    public function setTown($town): User
 	{
         return $this->_set($this->town, $town);
     }
@@ -363,9 +381,9 @@ class Address extends Entity
     /**
      * GET COUNTRY
      *
-     * @return string
+     * @return int|string
      */
-    public function getCountry(): string
+    public function getCountry()
 	{
         return $this->_call($this->country);
     }
@@ -373,10 +391,10 @@ class Address extends Entity
     /**
      * SET COUNTRY
      *
-     * @param string|callable $country
+     * @param int|string|callable $country
      * @return $this
      */
-    public function setCountry($country)
+    public function setCountry($country): User
 	{
         return $this->_set($this->country, $country);
     }
@@ -384,9 +402,9 @@ class Address extends Entity
     /**
      * GET ISO COUNTRY
      *
-     * @return string
+     * @return int|string
      */
-    public function getIsoCountry(): string
+    public function getIsoCountry()
 	{
         return $this->_call($this->isoCountry);
     }
@@ -394,10 +412,10 @@ class Address extends Entity
     /**
      * SET ISO COUNTRY
      *
-     * @param string|callable $isoCountry
+     * @param int|string|callable $isoCountry
      * @return $this
      */
-    public function setIsoCountry($isoCountry)
+    public function setIsoCountry($isoCountry): User
 	{
         return $this->_set($this->isoCountry, $isoCountry);
     }
@@ -405,9 +423,9 @@ class Address extends Entity
     /**
      * GET PHONE
      *
-     * @return string
+     * @return int|string
      */
-    public function getPhone(): string
+    public function getPhone()
 	{
         return $this->_call($this->phone);
     }
@@ -415,10 +433,10 @@ class Address extends Entity
     /**
      * SET PHONE
      *
-     * @param string|callable $phone
+     * @param int|string|callable $phone
      * @return $this
      */
-    public function setPhone($phone)
+    public function setPhone($phone): User
 	{
         return $this->_set($this->phone, $phone);
     }
@@ -426,9 +444,9 @@ class Address extends Entity
     /**
      * GET MOBILE
      *
-     * @return string
+     * @return int|string
      */
-    public function getMobile(): string
+    public function getMobile()
 	{
         return $this->_call($this->mobile);
     }
@@ -436,10 +454,10 @@ class Address extends Entity
     /**
      * SET MOBILE
      *
-     * @param string|callable $mobile
+     * @param int|string|callable $mobile
      * @return $this
      */
-    public function setMobile($mobile)
+    public function setMobile($mobile): User
 	{
         return $this->_set($this->mobile, $mobile);
     }
@@ -447,9 +465,9 @@ class Address extends Entity
     /**
      * GET FAX
      *
-     * @return string
+     * @return int|string
      */
-    public function getFax(): string
+    public function getFax()
 	{
         return $this->_call($this->fax);
     }
@@ -457,10 +475,10 @@ class Address extends Entity
     /**
      * SET FAX
      *
-     * @param string|callable $fax
+     * @param int|string|callable $fax
      * @return $this
      */
-    public function setFax($fax)
+    public function setFax($fax): User
 	{
         return $this->_set($this->fax, $fax);
     }
@@ -481,7 +499,7 @@ class Address extends Entity
      * @param string|callable $email
      * @return $this
      */
-    public function setEmail($email)
+    public function setEmail($email): User
 	{
         return $this->_set($this->email, $email);
     }
