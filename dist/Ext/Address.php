@@ -1,7 +1,7 @@
 <?php
 namespace Coercive\Shop\Cart\Ext;
 
-use Coercive\Shop\Cart\User;
+use Coercive\Shop\Cart\Entity\User;
 
 /**
  * @see |Coercive\Shop\Cart\Cart
