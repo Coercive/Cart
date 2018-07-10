@@ -182,7 +182,7 @@ class Item extends Entity
      */
     public function getTitle(): string
 	{
-        return $this->_call($this->title);
+        return (string) $this->_call($this->title);
     }
 
     /**
@@ -203,7 +203,7 @@ class Item extends Entity
      */
     public function getResume(): string
 	{
-        return $this->_call($this->resume);
+        return (string) $this->_call($this->resume);
     }
 
     /**
@@ -224,7 +224,7 @@ class Item extends Entity
      */
     public function getDescription(): string
 	{
-        return $this->_call($this->description);
+        return (string) $this->_call($this->description);
     }
 
     /**
@@ -245,7 +245,7 @@ class Item extends Entity
      */
     public function getPrice(): float
 	{
-        return $this->_call($this->price);
+        return (float) $this->_call($this->price);
     }
 
     /**
@@ -266,7 +266,7 @@ class Item extends Entity
      */
     public function getPriceExcludingTaxes(): float
 	{
-        return $this->_call($this->priceExcludingTaxes);
+        return (float) $this->_call($this->priceExcludingTaxes);
     }
 
     /**
@@ -287,7 +287,7 @@ class Item extends Entity
      */
     public function getPriceIncludingTaxes(): float
 	{
-        return $this->_call($this->priceIncludingTaxes);
+        return (float) $this->_call($this->priceIncludingTaxes);
     }
 
     /**
@@ -308,7 +308,7 @@ class Item extends Entity
      */
     public function getUnitPrice(): float
 	{
-        return $this->_call($this->unitPrice);
+        return (float) $this->_call($this->unitPrice);
     }
 
     /**
@@ -329,7 +329,7 @@ class Item extends Entity
      */
     public function getUnitPriceExcludingTaxes(): float
 	{
-        return $this->_call($this->unitPriceExcludingTaxes);
+        return (float) $this->_call($this->unitPriceExcludingTaxes);
     }
 
     /**
@@ -350,7 +350,7 @@ class Item extends Entity
      */
     public function getUnitPriceIncludingTaxes(): float
 	{
-        return $this->_call($this->unitPriceIncludingTaxes);
+        return (float) $this->_call($this->unitPriceIncludingTaxes);
     }
 
     /**
@@ -371,7 +371,7 @@ class Item extends Entity
      */
     public function getTaxesRate(): float
 	{
-        return $this->_call($this->taxesRate);
+        return (float) $this->_call($this->taxesRate);
     }
 
     /**
@@ -392,7 +392,7 @@ class Item extends Entity
 	 */
 	public function getShippingCost(): float
 	{
-		return $this->_call($this->shippingCost);
+		return (float) $this->_call($this->shippingCost);
 	}
 
 	/**
@@ -413,7 +413,7 @@ class Item extends Entity
 	 */
 	public function getShippingUnitCost(): float
 	{
-		return $this->_call($this->shippingUnitCost);
+		return (float) $this->_call($this->shippingUnitCost);
 	}
 
 	/**
@@ -497,7 +497,7 @@ class Item extends Entity
      */
     public function getQuantity(): int
 	{
-        return $this->_call($this->quantity);
+        return (int) $this->_call($this->quantity);
     }
 
     /**
@@ -581,7 +581,7 @@ class Item extends Entity
      */
     public function getImage(): string
 	{
-        return $this->_call($this->image);
+        return (string) $this->_call($this->image);
     }
 
     /**
@@ -602,7 +602,7 @@ class Item extends Entity
      */
     public function getThumbnail(): string
 	{
-        return $this->_call($this->thumbnail);
+        return (string) $this->_call($this->thumbnail);
     }
 
     /**
@@ -621,9 +621,9 @@ class Item extends Entity
      *
      * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
 	{
-        return $this->_call($this->url);
+        return (string) $this->_call($this->url);
     }
 
     /**
@@ -644,7 +644,7 @@ class Item extends Entity
 	 */
 	public function getSlug(): string
 	{
-		return $this->_call($this->slug);
+		return (string) $this->_call($this->slug);
 	}
 
 	/**
