@@ -312,7 +312,7 @@ class Payment extends Entity
 	 */
 	public function getBic(): string
 	{
-		return $this->_call($this->iban);
+		return $this->_call($this->bic);
 	}
 
 	/**
