@@ -142,6 +142,9 @@ class Item extends Entity
     /** @var int|string|callable */
     private $ref = '';
 
+	/** @var int|string|callable */
+	private $id = '';
+
     /** @var string|callable */
     private $type = '';
 
@@ -531,6 +534,25 @@ class Item extends Entity
 	{
         return $this->_set($this->ref, $ref);
     }
+
+	/**
+	 * GET ID
+	 *
+	 * @return int|string
+	 */
+	public function getId() {
+		return $this->_call($this->id);
+	}
+
+	/**
+	 * SET ID
+	 *
+	 * @param int|string|callable $id
+	 * @return $this
+	 */
+	public function setId($id) {
+		return $this->_set($this->id, $id);
+	}
 
     /**
      * GET TYPE
