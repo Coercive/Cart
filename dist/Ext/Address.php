@@ -132,9 +132,9 @@ class Address extends Entity
     /**
 	 * GET TYPE
 	 *
-	 * @return string
+	 * @return int|string
 	 */
-	public function getType(): string
+	public function getType()
 	{
 		return $this->_call($this->type);
 	}
@@ -142,7 +142,7 @@ class Address extends Entity
 	/**
 	 * SET TYPE
 	 *
-	 * @param string|callable $type
+	 * @param int|string|callable $type
 	 * @return $this
 	 */
 	public function setType($type)
