@@ -109,6 +109,9 @@ abstract class Entity
 ###########################################################################################################
 # PROPERTIES
 
+	/** @var array */
+	protected $customs = [];
+
     /** @var mixed */
     protected $optField1 = null;
     protected $optField2 = null;
@@ -123,6 +126,28 @@ abstract class Entity
 
 ###########################################################################################################
 # ACCESSORS
+
+	/**
+	 * GET CUSTOM
+	 *
+	 * @param mixed $key
+	 * @return mixed
+	 */
+	public function get($key)
+	{
+		return $this->_call($this->customs[$key] ?? null);
+	}
+
+	/**
+	 * SET CUSTOM
+	 *
+	 * @param mixed $key
+	 * @param mixed|callable $datas
+	 * @return $this
+	 */
+	public function set($key, $datas) {
+		return $this->_set($this->customs[$key], $datas);
+	}
 
     /**
      * GET OPTIONAL FIELD 1
