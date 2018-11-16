@@ -178,6 +178,12 @@ class Item extends Entity
 	/** @var bool|callable */
 	private $recurrent = false;
 
+	/** @var int|string|callable */
+	private $recurrentDelay = 0;
+
+	/** @var int|string|callable */
+	private $recurrentUnit = '';
+
 	/** @var float|callable */
 	private $amount = 0;
 
@@ -795,6 +801,48 @@ class Item extends Entity
 	public function setRecurrent($recurrent): Item
 	{
 		return $this->_set($this->recurrent, $recurrent);
+	}
+
+	/**
+	 * GET RECURRENT DELAY
+	 *
+	 * @return int|string
+	 */
+	public function getRecurrentDelay()
+	{
+		return $this->_call($this->recurrentDelay);
+	}
+
+	/**
+	 * SET ECURRENT DELAY
+	 *
+	 * @param int|string|callable $recurrentDelay
+	 * @return $this
+	 */
+	public function setRecurrentDelay($recurrentDelay): Item
+	{
+		return $this->_set($this->recurrentDelay, $recurrentDelay);
+	}
+
+	/**
+	 * GET RECURRENT UNIT
+	 *
+	 * @return int|string
+	 */
+	public function getRecurrentUnit()
+	{
+		return $this->_call($this->recurrentUnit);
+	}
+
+	/**
+	 * SET ECURRENT UNIT
+	 *
+	 * @param int|string|callable $recurrentUnit
+	 * @return $this
+	 */
+	public function setRecurrentUnit($recurrentUnit): Item
+	{
+		return $this->_set($this->recurrentUnit, $recurrentUnit);
 	}
 
 	/**
