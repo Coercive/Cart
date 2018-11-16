@@ -175,6 +175,18 @@ class Item extends Entity
     /** @var int|string|callable */
     private $endId = '';
 
+	/** @var bool|callable */
+	private $recurrent = false;
+
+	/** @var float|callable */
+	private $amount = 0;
+
+	/** @var float|callable */
+	private $firstAmount = 0;
+
+	/** @var float|callable */
+	private $recurrentAmount = 0;
+
 ###########################################################################################################
 # ACCESSORS
 
@@ -763,4 +775,88 @@ class Item extends Entity
 	{
         return $this->_set($this->endId, $endId);
     }
+
+	/**
+	 * GET RECURRENT
+	 *
+	 * @return bool
+	 */
+	public function getRecurrent()
+	{
+		return $this->_call($this->recurrent);
+	}
+
+	/**
+	 * SET RECURRENT
+	 *
+	 * @param bool|callable $recurrent
+	 * @return $this
+	 */
+	public function setRecurrent($recurrent): Item
+	{
+		return $this->_set($this->recurrent, $recurrent);
+	}
+
+	/**
+	 * GET AMOUNT
+	 *
+	 * @return float
+	 */
+	public function getAmount(): float
+	{
+		return (float) $this->_call($this->amount);
+	}
+
+	/**
+	 * SET AMOUNT
+	 *
+	 * @param float|callable $amount
+	 * @return $this
+	 */
+	public function setAmount($amount): Item
+	{
+		return $this->_set($this->amount, $amount);
+	}
+
+	/**
+	 * GET FIRST AMOUNT
+	 *
+	 * @return float
+	 */
+	public function getFirstAmount(): float
+	{
+		return (float) $this->_call($this->firstAmount);
+	}
+
+	/**
+	 * SET FIRST AMOUNT
+	 *
+	 * @param float|callable $firstAmount
+	 * @return $this
+	 */
+	public function setFirstAmount($firstAmount): Item
+	{
+		return $this->_set($this->firstAmount, $firstAmount);
+	}
+
+	/**
+	 * GET RECURENT AMOUNT
+	 *
+	 * @return float
+	 */
+	public function getRecurrentAmount(): float
+	{
+		return (float) $this->_call($this->recurrentAmount);
+	}
+
+	/**
+	 * SET RECURENT AMOUNT
+	 *
+	 * @param float|callable $recurrentAmount
+	 * @return $this
+	 */
+	public function setRecurrentAmount($recurrentAmount): Item
+	{
+		return $this->_set($this->recurrentAmount, $recurrentAmount);
+	}
 }
