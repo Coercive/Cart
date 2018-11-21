@@ -193,6 +193,9 @@ class Item extends Entity
 	/** @var float|callable */
 	private $recurrentAmount = 0;
 
+	/** @var string|callable */
+	private $recurrentStart = '';
+
 ###########################################################################################################
 # ACCESSORS
 
@@ -906,5 +909,26 @@ class Item extends Entity
 	public function setRecurrentAmount($recurrentAmount): Item
 	{
 		return $this->_set($this->recurrentAmount, $recurrentAmount);
+	}
+
+	/**
+	 * GET RECURENT START
+	 *
+	 * @return string
+	 */
+	public function getRecurrentStart(): string
+	{
+		return (float) $this->_call($this->recurrentStart);
+	}
+
+	/**
+	 * SET RECURENT START
+	 *
+	 * @param string|callable $start
+	 * @return $this
+	 */
+	public function setRecurrentStart($start): Item
+	{
+		return $this->_set($this->recurrentStart, $start);
 	}
 }
