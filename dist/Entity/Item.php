@@ -918,7 +918,7 @@ class Item extends Entity
 	 */
 	public function getRecurrentStart(): string
 	{
-		return (float) $this->_call($this->recurrentStart);
+		return (string) $this->_call($this->recurrentStart);
 	}
 
 	/**
