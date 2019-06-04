@@ -7,65 +7,71 @@ use Coercive\Shop\Cart\Cart;
 /**
  * @see |Coercive\Shop\Cart\Cart
  */
-class Session {
-
+class Session
+{
     const SESSION_CART = 'Coercive_Cart';
+
+    /** @var string */
+    private $name;
 
     /**
      * Session constructor.
      *
+	 * @param string $name [optional]
+	 * @return void
      * @throws Exception
      */
-    public function __construct() {
-
+    public function __construct(string $name = self::SESSION_CART)
+	{
         # Session alert
         if(session_status() !== PHP_SESSION_ACTIVE || session_id() === '') {
             throw new Exception("You have to create session before use store options");
         }
 
+        # Session name
+		$this->name = $name;
     }
 
     /**
      * STORE CART IN SESSION
      *
-     * @param Cart $oObject
-     * @param string $sName [optional]
+     * @param Cart $cart
      * @return $this
      */
-    public function store(Cart $oObject, $sName = self::SESSION_CART) {
-        $_SESSION[$sName] = serialize($oObject);
+    public function store(Cart $cart): Session
+	{
+        $_SESSION[$this->name] = serialize($cart);
         return $this;
     }
 
     /**
      * RETRIEVE CART FROM SESSION
      *
-     * @param string $sName [optional]
      * @return Cart
      */
-    public function retrieve($sName = self::SESSION_CART) {
-        return empty($_SESSION[$sName]) ? new Cart : unserialize($_SESSION[$sName]);
+    public function retrieve(): Cart
+	{
+        return empty($_SESSION[$this->name]) ? new Cart : unserialize($_SESSION[$this->name]);
     }
 
     /**
      * DELETE CART SESSION
      *
-     * @param string $sName [optional]
-     * @return $this
+	 * @return $this
      */
-    public function delete($sName = self::SESSION_CART) {
-        $_SESSION[$sName] = null;
+    public function delete(): Session
+	{
+        $_SESSION[$this->name] = null;
         return $this;
     }
 
     /**
      * EXIST CART IN SESSION
      *
-     * @param string $sName [optional]
-     * @return Cart
+     * @return bool
      */
-    public function exist($sName = self::SESSION_CART) {
-        return !empty($_SESSION[$sName]) && $_SESSION[$sName] instanceof Cart;
+    public function exist(): bool
+	{
+        return !empty($_SESSION[$this->name]) && $_SESSION[$this->name] instanceof Cart;
     }
-
 }
