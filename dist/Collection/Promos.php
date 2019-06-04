@@ -1,9 +1,9 @@
 <?php
 namespace Coercive\Shop\Cart\Collection;
 
-use Coercive\Shop\Cart\Entity\Promo;
 use Exception;
 use Coercive\Shop\Cart\Ext\Entity;
+use Coercive\Shop\Cart\Entity\Promo;
 
 /**
  * @see |Coercive\Shop\Cart\Cart
@@ -47,19 +47,12 @@ class Promos extends Entity
      *
      * @param int|string $key
      * @return $this
-     * @throws Exception
      */
     public function delete($key): Promos
 	{
-        # Try delete
-        if (isset($this->promos[$key])) {
+        if (array_key_exists($key, $this->promos)) {
             unset($this->promos[$key]);
         }
-        else {
-            throw new Exception("Invalid key $key.");
-        }
-
-        # Maintain chainability
         return $this;
     }
 
@@ -71,10 +64,7 @@ class Promos extends Entity
 	 */
 	public function clear(): Promos
 	{
-		# Reset empty array
 		$this->promos = [];
-
-		# Maintain chainability
 		return $this;
 	}
 
@@ -87,7 +77,6 @@ class Promos extends Entity
      */
     public function get($key): Promo
 	{
-        # Load if exist
         if (isset($this->promos[$key])) {
             return $this->promos[$key];
         }
