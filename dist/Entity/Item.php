@@ -212,12 +212,13 @@ class Item extends Entity
     /**
      * SET TITLE
      *
-     * @param string|callable $title
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setTitle($title): Item
+    public function setTitle($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->title, $title);
+        return $this->_set($this->title, $datas, $type);
     }
 
     /**
@@ -233,12 +234,13 @@ class Item extends Entity
     /**
      * SET RESUME
      *
-     * @param string|callable $resume
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setResume($resume): Item
+    public function setResume($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->resume, $resume);
+        return $this->_set($this->resume, $datas, $type);
     }
 
     /**
@@ -254,12 +256,13 @@ class Item extends Entity
     /**
      * SET DESCRIPTION
      *
-     * @param string|callable $description
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setDescription($description): Item
+    public function setDescription($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->description, $description);
+        return $this->_set($this->description, $datas, $type);
     }
 
     /**
@@ -275,12 +278,13 @@ class Item extends Entity
     /**
      * SET PRICE
      *
-     * @param float|callable $price
+     * @param float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setPrice($price): Item
+    public function setPrice($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->price, $price);
+        return $this->_set($this->price, $datas, $type);
     }
 
     /**
@@ -296,12 +300,13 @@ class Item extends Entity
     /**
      * SET PRICE EXCLUDING TAXES
      *
-     * @param float|callable $priceExcludingTaxes
+     * @param float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setPriceExcludingTaxes($priceExcludingTaxes): Item
+    public function setPriceExcludingTaxes($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->priceExcludingTaxes, $priceExcludingTaxes);
+        return $this->_set($this->priceExcludingTaxes, $datas, $type);
     }
 
     /**
@@ -317,12 +322,13 @@ class Item extends Entity
     /**
      * SET PRICE INCLUDING TAXES
      *
-     * @param float|callable $priceIncludingTaxes
+     * @param float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setPriceIncludingTaxes($priceIncludingTaxes): Item
+    public function setPriceIncludingTaxes($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->priceIncludingTaxes, $priceIncludingTaxes);
+        return $this->_set($this->priceIncludingTaxes, $datas, $type);
     }
 
     /**
@@ -338,12 +344,13 @@ class Item extends Entity
     /**
      * SET UNIT PRICE
      *
-     * @param string|callable $unitPrice
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setUnitPrice($unitPrice): Item
+    public function setUnitPrice($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->unitPrice, $unitPrice);
+        return $this->_set($this->unitPrice, $datas, $type);
     }
 
     /**
@@ -359,12 +366,13 @@ class Item extends Entity
     /**
      * SET UNIT PRICE EXCLUDING TAXES
      *
-     * @param float|callable $unitPriceExcludingTaxes
+     * @param float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setUnitPriceExcludingTaxes($unitPriceExcludingTaxes): Item
+    public function setUnitPriceExcludingTaxes($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->unitPriceExcludingTaxes, $unitPriceExcludingTaxes);
+        return $this->_set($this->unitPriceExcludingTaxes, $datas, $type);
     }
 
     /**
@@ -380,12 +388,13 @@ class Item extends Entity
     /**
      * SET UNIT PRICE INCLUDING TAXES
      *
-     * @param float|callable $unitPriceIncludingTaxes
+     * @param float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setUnitPriceIncludingTaxes($unitPriceIncludingTaxes): Item
+    public function setUnitPriceIncludingTaxes($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->unitPriceIncludingTaxes, $unitPriceIncludingTaxes);
+        return $this->_set($this->unitPriceIncludingTaxes, $datas, $type);
     }
 
     /**
@@ -401,12 +410,13 @@ class Item extends Entity
     /**
      * SET TAXES RATE
      *
-     * @param float|callable $taxesRate
+     * @param float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setTaxesRate($taxesRate): Item
+    public function setTaxesRate($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->taxesRate, $taxesRate);
+        return $this->_set($this->taxesRate, $datas, $type);
     }
 
     /**
@@ -422,12 +432,13 @@ class Item extends Entity
 	/**
 	 * SET SHIPPING COST
 	 *
-	 * @param float|callable $shippingCost
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingCost($shippingCost): Item
+	public function setShippingCost($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->shippingCost, $shippingCost);
+		return $this->_set($this->shippingCost, $datas, $type);
 	}
 
 	/**
@@ -443,12 +454,13 @@ class Item extends Entity
 	/**
 	 * SET SHIPPING UNIT COST
 	 *
-	 * @param float|callable $shippingUnitCost
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingUnitCost($shippingUnitCost): Item
+	public function setShippingUnitCost($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->shippingUnitCost, $shippingUnitCost);
+		return $this->_set($this->shippingUnitCost, $datas, $type);
 	}
 
 	/**
@@ -464,12 +476,13 @@ class Item extends Entity
 	/**
 	 * SET SHIPPING GEO AREA
 	 *
-	 * @param int|string|callable $shippingGeoArea
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingGeoArea($shippingGeoArea)
+	public function setShippingGeoArea($datas, string $type = self::TYPE_AUTO)
 	{
-		return $this->_set($this->shippingGeoArea, $shippingGeoArea);
+		return $this->_set($this->shippingGeoArea, $datas, $type);
 	}
 
 	/**
@@ -485,12 +498,13 @@ class Item extends Entity
 	/**
 	 * SET SHIPPING ZONE
 	 *
-	 * @param int|string|callable $shippingZone
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingZone($shippingZone): Item
+	public function setShippingZone($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->shippingZone, $shippingZone);
+		return $this->_set($this->shippingZone, $datas, $type);
 	}
 
 	/**
@@ -506,12 +520,13 @@ class Item extends Entity
 	/**
 	 * SET SHIPPING REF
 	 *
-	 * @param int|string|callable $shippingRef
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingRef($shippingRef): Item
+	public function setShippingRef($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->shippingRef, $shippingRef);
+		return $this->_set($this->shippingRef, $datas, $type);
 	}
 
     /**
@@ -527,12 +542,13 @@ class Item extends Entity
     /**
      * SET QUANTITY
      *
-     * @param int|callable $quantity
+     * @param int|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setQuantity($quantity): Item
+    public function setQuantity($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->quantity, $quantity);
+        return $this->_set($this->quantity, $datas, $type);
     }
 
     /**
@@ -548,12 +564,13 @@ class Item extends Entity
     /**
      * SET REF
      *
-     * @param int|string|callable $ref
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setRef($ref): Item
+    public function setRef($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->ref, $ref);
+        return $this->_set($this->ref, $datas, $type);
     }
 
 	/**
@@ -561,18 +578,21 @@ class Item extends Entity
 	 *
 	 * @return int|string
 	 */
-	public function getId() {
+	public function getId()
+	{
 		return $this->_call($this->id);
 	}
 
 	/**
 	 * SET ID
 	 *
-	 * @param int|string|callable $id
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setId($id) {
-		return $this->_set($this->id, $id);
+	public function setId($datas, string $type = self::TYPE_AUTO)
+	{
+		return $this->_set($this->id, $datas, $type);
 	}
 
     /**
@@ -588,12 +608,13 @@ class Item extends Entity
     /**
      * SET TYPE
      *
-     * @param int|string|callable $type
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setType($type): Item
+    public function setType($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->type, $type);
+        return $this->_set($this->type, $datas, $type);
     }
 
     /**
@@ -609,12 +630,13 @@ class Item extends Entity
 	/**
 	 * SET MEDIUM
 	 *
-	 * @param string|callable $medium
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setMedium($medium): Item
+	public function setMedium($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->medium, $medium);
+		return $this->_set($this->medium, $datas, $type);
 	}
 
     /**
@@ -630,12 +652,13 @@ class Item extends Entity
     /**
      * SET IMAGE
      *
-     * @param string|callable $image
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setImage($image): Item
+    public function setImage($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->image, $image);
+        return $this->_set($this->image, $datas, $type);
     }
 
     /**
@@ -651,12 +674,13 @@ class Item extends Entity
     /**
      * SET THUMBNAIL
      *
-     * @param string|callable $thumbnail
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setThumbnail($thumbnail): Item
+    public function setThumbnail($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->thumbnail, $thumbnail);
+        return $this->_set($this->thumbnail, $datas, $type);
     }
 
     /**
@@ -672,12 +696,13 @@ class Item extends Entity
     /**
      * SET URL
      *
-     * @param string|callable $url
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setUrl($url): Item
+    public function setUrl($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->url, $url);
+        return $this->_set($this->url, $datas, $type);
     }
 
     /**
@@ -693,12 +718,13 @@ class Item extends Entity
 	/**
 	 * SET SLUG
 	 *
-	 * @param string|callable $slug
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setSlug($slug): Item
+	public function setSlug($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->slug, $slug);
+		return $this->_set($this->slug, $datas, $type);
 	}
 
     /**
@@ -714,12 +740,13 @@ class Item extends Entity
     /**
      * SET START DATE
      *
-     * @param string|callable $startDate
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setStartDate($startDate): Item
+    public function setStartDate($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->startDate, $startDate);
+        return $this->_set($this->startDate, $datas, $type);
     }
 
     /**
@@ -735,12 +762,13 @@ class Item extends Entity
     /**
      * SET END DATE
      *
-     * @param string|callable $endDate
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setEndDate($endDate): Item
+    public function setEndDate($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->endDate, $endDate);
+        return $this->_set($this->endDate, $datas, $type);
     }
 
     /**
@@ -756,12 +784,13 @@ class Item extends Entity
     /**
      * SET START ID
      *
-     * @param string|callable $startId
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setStartId($startId): Item
+    public function setStartId($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->startId, $startId);
+        return $this->_set($this->startId, $datas, $type);
     }
 
     /**
@@ -777,12 +806,13 @@ class Item extends Entity
     /**
      * SET END ID
      *
-     * @param string|callable $endId
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setEndId($endId): Item
+    public function setEndId($datas, string $type = self::TYPE_AUTO): Item
 	{
-        return $this->_set($this->endId, $endId);
+        return $this->_set($this->endId, $datas, $type);
     }
 
 	/**
@@ -798,12 +828,13 @@ class Item extends Entity
 	/**
 	 * SET RECURRENT
 	 *
-	 * @param bool|callable $recurrent
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setRecurrent($recurrent): Item
+	public function setRecurrent($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->recurrent, $recurrent);
+		return $this->_set($this->recurrent, $datas, $type);
 	}
 
 	/**
@@ -819,12 +850,13 @@ class Item extends Entity
 	/**
 	 * SET ECURRENT DELAY
 	 *
-	 * @param int|string|callable $recurrentDelay
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setRecurrentDelay($recurrentDelay): Item
+	public function setRecurrentDelay($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->recurrentDelay, $recurrentDelay);
+		return $this->_set($this->recurrentDelay, $datas, $type);
 	}
 
 	/**
@@ -840,12 +872,13 @@ class Item extends Entity
 	/**
 	 * SET ECURRENT UNIT
 	 *
-	 * @param int|string|callable $recurrentUnit
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setRecurrentUnit($recurrentUnit): Item
+	public function setRecurrentUnit($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->recurrentUnit, $recurrentUnit);
+		return $this->_set($this->recurrentUnit, $datas, $type);
 	}
 
 	/**
@@ -861,12 +894,13 @@ class Item extends Entity
 	/**
 	 * SET AMOUNT
 	 *
-	 * @param float|callable $amount
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setAmount($amount): Item
+	public function setAmount($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->amount, $amount);
+		return $this->_set($this->amount, $datas, $type);
 	}
 
 	/**
@@ -882,12 +916,13 @@ class Item extends Entity
 	/**
 	 * SET FIRST AMOUNT
 	 *
-	 * @param float|callable $firstAmount
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setFirstAmount($firstAmount): Item
+	public function setFirstAmount($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->firstAmount, $firstAmount);
+		return $this->_set($this->firstAmount, $datas, $type);
 	}
 
 	/**
@@ -903,12 +938,13 @@ class Item extends Entity
 	/**
 	 * SET RECURENT AMOUNT
 	 *
-	 * @param float|callable $recurrentAmount
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setRecurrentAmount($recurrentAmount): Item
+	public function setRecurrentAmount($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->recurrentAmount, $recurrentAmount);
+		return $this->_set($this->recurrentAmount, $datas, $type);
 	}
 
 	/**
@@ -924,11 +960,12 @@ class Item extends Entity
 	/**
 	 * SET RECURENT START
 	 *
-	 * @param string|callable $start
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setRecurrentStart($start): Item
+	public function setRecurrentStart($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->recurrentStart, $start);
+		return $this->_set($this->recurrentStart, $datas, $type);
 	}
 }

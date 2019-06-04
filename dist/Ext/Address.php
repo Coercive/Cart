@@ -100,12 +100,13 @@ class Address extends Entity
     /**
      * SET TITLE
      *
-     * @param string|callable $title
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setTitle($title)
+    public function setTitle($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->title, $title);
+        return $this->_set($this->title, $datas, $type);
     }
 
     /**
@@ -121,12 +122,13 @@ class Address extends Entity
     /**
      * SET REF
      *
-     * @param int|string|callable $ref
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setRef($ref)
+    public function setRef($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->ref, $ref);
+        return $this->_set($this->ref, $datas, $type);
     }
 
     /**
@@ -142,12 +144,13 @@ class Address extends Entity
 	/**
 	 * SET TYPE
 	 *
-	 * @param int|string|callable $type
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setType($type)
+	public function setType($datas, string $type = self::TYPE_AUTO)
 	{
-		return $this->_set($this->type, $type);
+		return $this->_set($this->type, $datas, $type);
 	}
 
     /**
@@ -163,12 +166,13 @@ class Address extends Entity
     /**
      * SET GENDER
      *
-     * @param string|callable $gender
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setGender($gender)
+    public function setGender($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->gender, $gender);
+        return $this->_set($this->gender, $datas, $type);
     }
 
     /**
@@ -184,12 +188,13 @@ class Address extends Entity
     /**
      * SET COMPANY
      *
-     * @param string|callable $company
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setCompany($company)
+    public function setCompany($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->company, $company);
+        return $this->_set($this->company, $datas, $type);
     }
 
     /**
@@ -205,12 +210,13 @@ class Address extends Entity
     /**
      * SET FIRST NAME
      *
-     * @param string|callable $firstName
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setFirstName($firstName)
+    public function setFirstName($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->firstName, $firstName);
+        return $this->_set($this->firstName, $datas, $type);
     }
 
     /**
@@ -226,12 +232,13 @@ class Address extends Entity
     /**
      * SET LAST NAME
      *
-     * @param string|callable $lastName
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setLastName($lastName)
+    public function setLastName($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->lastName, $lastName);
+        return $this->_set($this->lastName, $datas, $type);
     }
 
     /**
@@ -247,12 +254,13 @@ class Address extends Entity
     /**
      * SET ADDITIONAL NAME
      *
-     * @param string|callable $additionalName
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setAdditionalName($additionalName)
+    public function setAdditionalName($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->additionalName, $additionalName);
+        return $this->_set($this->additionalName, $datas, $type);
     }
 
     /**
@@ -268,12 +276,13 @@ class Address extends Entity
     /**
      * SET ADDITIONAL NAME
      *
-     * @param string|callable $address
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setAddress($address)
+    public function setAddress($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->address, $address);
+        return $this->_set($this->address, $datas, $type);
     }
 
     /**
@@ -289,12 +298,13 @@ class Address extends Entity
     /**
      * SET ADDITIONAL ADDRESS 1
      *
-     * @param string|callable $additionalAddress1
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setAdditionalAddress1($additionalAddress1)
+    public function setAdditionalAddress1($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->additionalAddress1, $additionalAddress1);
+        return $this->_set($this->additionalAddress1, $datas, $type);
     }
 
     /**
@@ -310,12 +320,13 @@ class Address extends Entity
     /**
      * SET ADDITIONAL ADDRESS 2
      *
-     * @param string|callable $additionalAddress2
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setAdditionalAddress2($additionalAddress2)
+    public function setAdditionalAddress2($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->additionalAddress2, $additionalAddress2);
+        return $this->_set($this->additionalAddress2, $datas, $type);
     }
 
     /**
@@ -331,12 +342,13 @@ class Address extends Entity
     /**
      * SET ZIP
      *
-     * @param string|callable $zip
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setZip($zip)
+    public function setZip($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->zip, $zip);
+        return $this->_set($this->zip, $datas, $type);
     }
 
     /**
@@ -352,12 +364,13 @@ class Address extends Entity
     /**
      * SET TOWN
      *
-     * @param string|callable $town
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setTown($town)
+    public function setTown($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->town, $town);
+        return $this->_set($this->town, $datas, $type);
     }
 
     /**
@@ -373,12 +386,13 @@ class Address extends Entity
     /**
      * SET COUNTRY
      *
-     * @param string|callable $country
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setCountry($country)
+    public function setCountry($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->country, $country);
+        return $this->_set($this->country, $datas, $type);
     }
 
     /**
@@ -394,12 +408,13 @@ class Address extends Entity
     /**
      * SET ISO COUNTRY
      *
-     * @param string|callable $isoCountry
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setIsoCountry($isoCountry)
+    public function setIsoCountry($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->isoCountry, $isoCountry);
+        return $this->_set($this->isoCountry, $datas, $type);
     }
 
     /**
@@ -415,12 +430,13 @@ class Address extends Entity
     /**
      * SET PHONE
      *
-     * @param string|callable $phone
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setPhone($phone)
+    public function setPhone($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->phone, $phone);
+        return $this->_set($this->phone, $datas, $type);
     }
 
     /**
@@ -436,12 +452,13 @@ class Address extends Entity
     /**
      * SET MOBILE
      *
-     * @param string|callable $mobile
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setMobile($mobile)
+    public function setMobile($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->mobile, $mobile);
+        return $this->_set($this->mobile, $datas, $type);
     }
 
     /**
@@ -457,12 +474,13 @@ class Address extends Entity
     /**
      * SET FAX
      *
-     * @param string|callable $fax
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setFax($fax)
+    public function setFax($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->fax, $fax);
+        return $this->_set($this->fax, $datas, $type);
     }
 
     /**
@@ -478,11 +496,12 @@ class Address extends Entity
     /**
      * SET EMAIL
      *
-     * @param string|callable $email
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setEmail($email)
+    public function setEmail($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->email, $email);
+        return $this->_set($this->email, $datas, $type);
     }
 }

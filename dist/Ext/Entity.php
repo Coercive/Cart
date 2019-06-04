@@ -14,6 +14,7 @@ abstract class Entity
 ###########################################################################################################
 # SYSTEM
 
+	const TYPE_AUTO = 'TYPE_AUTO';
 	const TYPE_RAW = 'TYPE_RAW';
 	const TYPE_CLOSURE = 'TYPE_CLOSURE';
 	const TYPE_CLASS = 'TYPE_CLASS';
@@ -32,7 +33,7 @@ abstract class Entity
 	 */
 	protected function _call($field)
 	{
-		switch ($field['type']) {
+		switch ($field['type'] ?? '') {
 			case self::TYPE_RAW:
 				return $field['data'];
 			case self::TYPE_CLOSURE:
@@ -56,15 +57,23 @@ abstract class Entity
 	 *
 	 * @param mixed $field
 	 * @param mixed $datas
-	 * @param string $type [optional]
+	 * @param string $type
 	 * @return $this
 	 */
-	protected function _set(&$field, $datas, string $type = self::TYPE_RAW)
+	protected function _set(&$field, $datas, string $type)
 	{
 		try {
-			if($datas instanceOf Closure) {
-				$type = self::TYPE_CLOSURE;
-				$datas = new HandleClosure($datas);
+			if($type === self::TYPE_AUTO) {
+				if($datas instanceOf Closure) {
+					$type = self::TYPE_CLOSURE;
+					$datas = new HandleClosure($datas);
+				}
+				elseif(preg_match('`^([\\\a-z0-9_]+)::([a-z0-9_]+)$`i', $datas)) {
+					$type = self::TYPE_CLASS;
+				}
+				else {
+					$type = self::TYPE_RAW;
+				}
 			}
 			switch ($type) {
 				case self::TYPE_RAW:
@@ -193,10 +202,12 @@ abstract class Entity
 	 *
 	 * @param mixed $key
 	 * @param mixed|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function set($key, $datas) {
-		return $this->_set($this->customs[$key], $datas);
+	public function set($key, $datas, string $type = self::TYPE_AUTO)
+	{
+		return $this->_set($this->customs[$key], $datas, $type);
 	}
 
     /**
@@ -213,10 +224,11 @@ abstract class Entity
      * SET OPTIONAL FIELD 1
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField1($datas) {
-        return $this->_set($this->optField1, $datas);
+    public function setOptionalField1($datas, string $type = self::TYPE_AUTO) {
+        return $this->_set($this->optField1, $datas, $type);
     }
 
     /**
@@ -233,11 +245,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 2
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField2($datas)
+    public function setOptionalField2($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField2, $datas);
+        return $this->_set($this->optField2, $datas, $type);
     }
 
     /**
@@ -254,11 +267,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 3
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField3($datas)
+    public function setOptionalField3($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField3, $datas);
+        return $this->_set($this->optField3, $datas, $type);
     }
 
     /**
@@ -275,11 +289,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 4
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField4($datas)
+    public function setOptionalField4($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField4, $datas);
+        return $this->_set($this->optField4, $datas, $type);
     }
 
     /**
@@ -296,11 +311,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 5
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField5($datas)
+    public function setOptionalField5($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField5, $datas);
+        return $this->_set($this->optField5, $datas, $type);
     }
 
     /**
@@ -317,11 +333,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 6
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField6($datas)
+    public function setOptionalField6($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField6, $datas);
+        return $this->_set($this->optField6, $datas, $type);
     }
 
     /**
@@ -338,11 +355,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 7
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField7($datas)
+    public function setOptionalField7($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField7, $datas);
+        return $this->_set($this->optField7, $datas, $type);
     }
 
     /**
@@ -359,11 +377,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 8
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField8($datas)
+    public function setOptionalField8($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField8, $datas);
+        return $this->_set($this->optField8, $datas, $type);
     }
 
     /**
@@ -380,11 +399,12 @@ abstract class Entity
      * SET OPTIONAL FIELD 9
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField9($datas)
+    public function setOptionalField9($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField9, $datas);
+        return $this->_set($this->optField9, $datas, $type);
     }
 
     /**
@@ -401,10 +421,11 @@ abstract class Entity
      * SET OPTIONAL FIELD 10
      *
      * @param mixed|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setOptionalField10($datas)
+    public function setOptionalField10($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->optField10, $datas);
+        return $this->_set($this->optField10, $datas, $type);
     }
 }

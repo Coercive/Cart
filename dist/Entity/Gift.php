@@ -54,12 +54,13 @@ class Gift extends Entity
     /**
      * SET REF
      *
-     * @param int|string|callable $ref
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setRef($ref)
+    public function setRef($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->ref, $ref);
+        return $this->_set($this->ref, $datas, $type);
     }
 
     /**
@@ -75,12 +76,13 @@ class Gift extends Entity
     /**
      * SET FROM
      *
-     * @param int|string|callable $from
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setFrom($from)
+    public function setFrom($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->from, $from);
+        return $this->_set($this->from, $datas, $type);
     }
 
     /**
@@ -96,11 +98,12 @@ class Gift extends Entity
     /**
      * SET MESSAGE
      *
-     * @param string|callable $message
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setMessage($message)
+    public function setMessage($datas, string $type = self::TYPE_AUTO)
 	{
-        return $this->_set($this->message, $message);
+        return $this->_set($this->message, $datas, $type);
     }
 }

@@ -76,12 +76,13 @@ class Promo extends Entity
     /**
      * SET REF
      *
-     * @param int|string|callable $ref
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setRef($ref): Promo
+    public function setRef($datas, string $type = self::TYPE_AUTO): Promo
 	{
-        return $this->_set($this->ref, $ref);
+        return $this->_set($this->ref, $datas, $type);
     }
 
     /**
@@ -97,12 +98,13 @@ class Promo extends Entity
     /**
      * SET TOKEN
      *
-     * @param int|string|callable $token
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setToken($token): Promo
+    public function setToken($datas, string $type = self::TYPE_AUTO): Promo
 	{
-        return $this->_set($this->token, $token);
+        return $this->_set($this->token, $datas, $type);
     }
 
 	/**
@@ -118,12 +120,13 @@ class Promo extends Entity
 	/**
 	 * SET TYPE
 	 *
-	 * @param int|string|callable $type
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setType($type): Promo
+	public function setType($datas, string $type = self::TYPE_AUTO): Promo
 	{
-		return $this->_set($this->type, $type);
+		return $this->_set($this->type, $datas, $type);
 	}
 
     /**
@@ -139,12 +142,13 @@ class Promo extends Entity
     /**
      * SET TITLE
      *
-     * @param string|callable $title
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setTitle($title): Promo
+    public function setTitle($datas, string $type = self::TYPE_AUTO): Promo
 	{
-        return $this->_set($this->title, $title);
+        return $this->_set($this->title, $datas, $type);
     }
 
     /**
@@ -160,12 +164,13 @@ class Promo extends Entity
     /**
      * SET RESUME
      *
-     * @param string|callable $resume
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setResume($resume): Promo
+    public function setResume($datas, string $type = self::TYPE_AUTO): Promo
 	{
-        return $this->_set($this->resume, $resume);
+        return $this->_set($this->resume, $datas, $type);
     }
 
     /**
@@ -181,12 +186,13 @@ class Promo extends Entity
     /**
      * SET DESCRIPTION
      *
-     * @param string|callable $description
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setDescription($description): Promo
+    public function setDescription($datas, string $type = self::TYPE_AUTO): Promo
 	{
-        return $this->_set($this->description, $description);
+        return $this->_set($this->description, $datas, $type);
     }
 
     /**
@@ -202,12 +208,13 @@ class Promo extends Entity
     /**
      * SET PERCENT
      *
-     * @param int|float|callable $percent
+     * @param int|float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setPercent($percent): Promo
+    public function setPercent($datas, string $type = self::TYPE_AUTO): Promo
 	{
-        return $this->_set($this->percent, $percent);
+        return $this->_set($this->percent, $datas, $type);
     }
 
     /**
@@ -223,11 +230,12 @@ class Promo extends Entity
     /**
      * SET PRICE CUT
      *
-     * @param int|float|callable $priceCut
+     * @param int|float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setPriceCut($priceCut): Promo
+    public function setPriceCut($datas, string $type = self::TYPE_AUTO): Promo
 	{
-        return $this->_set($this->priceCut, $priceCut);
+        return $this->_set($this->priceCut, $datas, $type);
     }
 }

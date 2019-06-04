@@ -108,12 +108,13 @@ class Payment extends Entity
     /**
      * SET REF
      *
-     * @param int|string|callable $ref
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setRef($ref): Payment
+    public function setRef($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->ref, $ref);
+        return $this->_set($this->ref, $datas, $type);
     }
 
     /**
@@ -129,12 +130,13 @@ class Payment extends Entity
     /**
      * SET TOKEN
      *
-     * @param string|callable $token
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setToken($token): Payment
+    public function setToken($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->token, $token);
+        return $this->_set($this->token, $datas, $type);
     }
 
     /**
@@ -150,12 +152,13 @@ class Payment extends Entity
     /**
      * SET TITLE
      *
-     * @param string|callable $title
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setTitle($title): Payment
+    public function setTitle($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->title, $title);
+        return $this->_set($this->title, $datas, $type);
     }
 
     /**
@@ -171,12 +174,13 @@ class Payment extends Entity
     /**
      * SET RESUME
      *
-     * @param string|callable $resume
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setResume($resume): Payment
+    public function setResume($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->resume, $resume);
+        return $this->_set($this->resume, $datas, $type);
     }
 
     /**
@@ -192,12 +196,13 @@ class Payment extends Entity
     /**
      * SET DESCRIPTION
      *
-     * @param string|callable $description
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setDescription($description): Payment
+    public function setDescription($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->description, $description);
+        return $this->_set($this->description, $datas, $type);
     }
 
     /**
@@ -213,12 +218,13 @@ class Payment extends Entity
     /**
      * SET MODE
      *
-     * @param int|string|callable $mode
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setMode($mode): Payment
+    public function setMode($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->mode, $mode);
+        return $this->_set($this->mode, $datas, $type);
     }
 
     /**
@@ -234,12 +240,13 @@ class Payment extends Entity
     /**
      * SET TYPE
      *
-     * @param int|string|callable $type
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setType($type): Payment
+    public function setType($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->type, $type);
+        return $this->_set($this->type, $datas, $type);
     }
 
     /**
@@ -255,12 +262,13 @@ class Payment extends Entity
     /**
      * SET CURRENCY
      *
-     * @param string|callable $currency
+     * @param string|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setCurrency($currency): Payment
+    public function setCurrency($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->currency, $currency);
+        return $this->_set($this->currency, $datas, $type);
     }
 
     /**
@@ -276,12 +284,13 @@ class Payment extends Entity
     /**
      * SET RATE
      *
-     * @param float|callable $rate
+     * @param float|callable $datas
+	 * @param string $type [optional]
      * @return $this
      */
-    public function setRate($rate): Payment
+    public function setRate($datas, string $type = self::TYPE_AUTO): Payment
 	{
-        return $this->_set($this->rate, $rate);
+        return $this->_set($this->rate, $datas, $type);
     }
 
 	/**
@@ -297,12 +306,13 @@ class Payment extends Entity
 	/**
 	 * SET IBAN
 	 *
-	 * @param string|callable $iban
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setIban($iban): Payment
+	public function setIban($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->iban, $iban);
+		return $this->_set($this->iban, $datas, $type);
 	}
 
 	/**
@@ -318,12 +328,13 @@ class Payment extends Entity
 	/**
 	 * SET BIC
 	 *
-	 * @param string|callable $bic
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setBic($bic): Payment
+	public function setBic($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->bic, $bic);
+		return $this->_set($this->bic, $datas, $type);
 	}
 
 	/**
@@ -339,12 +350,13 @@ class Payment extends Entity
 	/**
 	 * SET ACCOUNT
 	 *
-	 * @param string|callable $account
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setAccount($account): Payment
+	public function setAccount($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->account, $account);
+		return $this->_set($this->account, $datas, $type);
 	}
 
 	/**
@@ -360,12 +372,13 @@ class Payment extends Entity
 	/**
 	 * SET BANK
 	 *
-	 * @param string|callable $bank
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setBank($bank): Payment
+	public function setBank($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->bank, $bank);
+		return $this->_set($this->bank, $datas, $type);
 	}
 
 	/**
@@ -381,12 +394,13 @@ class Payment extends Entity
 	/**
 	 * SET BRANCH
 	 *
-	 * @param string|callable $branch
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setBranch($branch): Payment
+	public function setBranch($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->branch, $branch);
+		return $this->_set($this->branch, $datas, $type);
 	}
 
 	/**
@@ -402,12 +416,13 @@ class Payment extends Entity
 	/**
 	 * SET ADDRESS
 	 *
-	 * @param string|callable $address
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setAddress($address): Payment
+	public function setAddress($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->address, $address);
+		return $this->_set($this->address, $datas, $type);
 	}
 
 	/**
@@ -423,12 +438,13 @@ class Payment extends Entity
 	/**
 	 * SET ZIP
 	 *
-	 * @param string|callable $zip
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setZip($zip): Payment
+	public function setZip($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->zip, $zip);
+		return $this->_set($this->zip, $datas, $type);
 	}
 
 	/**
@@ -444,12 +460,13 @@ class Payment extends Entity
 	/**
 	 * SET CITY
 	 *
-	 * @param string|callable $city
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setCity($city): Payment
+	public function setCity($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->city, $city);
+		return $this->_set($this->city, $datas, $type);
 	}
 
 	/**
@@ -465,12 +482,13 @@ class Payment extends Entity
 	/**
 	 * SET COUNTRY
 	 *
-	 * @param string|callable $country
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setCountry($country): Payment
+	public function setCountry($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->country, $country);
+		return $this->_set($this->country, $datas, $type);
 	}
 
 	/**
@@ -486,12 +504,13 @@ class Payment extends Entity
 	/**
 	 * SET ISO COUNTRY
 	 *
-	 * @param string|callable $isoCountry
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setIsoCountry($isoCountry): Payment
+	public function setIsoCountry($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->isoCountry, $isoCountry);
+		return $this->_set($this->isoCountry, $datas, $type);
 	}
 
 	/**
@@ -507,12 +526,13 @@ class Payment extends Entity
 	/**
 	 * SET STATE
 	 *
-	 * @param string|callable $state
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setState($state): Payment
+	public function setState($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->state, $state);
+		return $this->_set($this->state, $datas, $type);
 	}
 
 	/**
@@ -528,12 +548,13 @@ class Payment extends Entity
 	/**
 	 * SET PHONE
 	 *
-	 * @param string|callable $phone
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setPhone($phone): Payment
+	public function setPhone($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->phone, $phone);
+		return $this->_set($this->phone, $datas, $type);
 	}
 
 	/**
@@ -549,12 +570,13 @@ class Payment extends Entity
 	/**
 	 * SET MOBILE
 	 *
-	 * @param string|callable $mobile
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setMobile($mobile): Payment
+	public function setMobile($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->mobile, $mobile);
+		return $this->_set($this->mobile, $datas, $type);
 	}
 
 	/**
@@ -570,12 +592,13 @@ class Payment extends Entity
 	/**
 	 * SET FAX
 	 *
-	 * @param string|callable $fax
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setFax($fax): Payment
+	public function setFax($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->fax, $fax);
+		return $this->_set($this->fax, $datas, $type);
 	}
 
 	/**
@@ -591,12 +614,13 @@ class Payment extends Entity
 	/**
 	 * SET EMAIL
 	 *
-	 * @param string|callable $email
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setEmail($email): Payment
+	public function setEmail($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->email, $email);
+		return $this->_set($this->email, $datas, $type);
 	}
 
 	/**
@@ -612,12 +636,13 @@ class Payment extends Entity
 	/**
 	 * SET WEB SITE
 	 *
-	 * @param string|callable $website
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setWebSite($website): Payment
+	public function setWebSite($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->website, $website);
+		return $this->_set($this->website, $datas, $type);
 	}
 
 	/**
@@ -633,11 +658,12 @@ class Payment extends Entity
 	/**
 	 * SET STATUS
 	 *
-	 * @param bool|callable $status
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setStatus($status): Payment
+	public function setStatus($datas, string $type = self::TYPE_AUTO): Payment
 	{
-		return $this->_set($this->status, $status);
+		return $this->_set($this->status, $datas, $type);
 	}
 }
