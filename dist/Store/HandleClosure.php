@@ -2,6 +2,7 @@
 namespace Coercive\Shop\Cart\Store;
 
 use Closure;
+use Exception;
 use ReflectionFunction;
 use SuperClosure\Serializer;
 use SuperClosure\Analyzer\AstAnalyzer;
@@ -9,53 +10,65 @@ use SuperClosure\Analyzer\AstAnalyzer;
 /**
  * @see |Coercive\Shop\Cart\Cart
  */
-class HandleClosure {
+class HandleClosure
+{
+	/** @var AstAnalyzer */
+	protected $analyzer = null;
+
+	/** @var Serializer */
+	protected $serializer = null;
 
 	/** @var Closure */
-	protected $_oClosure = null;
+	protected $closure = null;
 	
 	/** @var ReflectionFunction */
-	protected $_oReflection = null;
+	protected $reflection = null;
 	
 	/** @var string */
-	protected $_sSerialized = '';
+	protected $serialized = '';
 
 	/**
 	 * HandleClosure constructor.
 	 *
-	 * @param Closure $oFunction
+	 * @param Closure $function
+	 * @return void
+	 * @throws Exception
 	 */
-	public function __construct(Closure $oFunction) {
-
+	public function __construct(Closure $function)
+	{
 		# Store for invoke
-		$this->_oClosure = $oFunction;
-		$this->_oReflection = new ReflectionFunction($oFunction);
+		$this->closure = $function;
+		$this->reflection = new ReflectionFunction($function);
 
 		# Parse datas for serialize
-		$this->_sSerialized = (new Serializer(new AstAnalyzer))->serialize($oFunction);
-
+		$this->analyzer = new AstAnalyzer;
+		$this->serializer = new Serializer($this->analyzer);
+		$this->serialized = $this->serializer->serialize($function);
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function __invoke() {
-		return $this->_oReflection->invokeArgs(func_get_args());
+	public function __invoke()
+	{
+		return $this->reflection->invokeArgs(func_get_args());
 	}
 
 	/**
 	 * @return array
 	 */
-	public function __sleep() {
-		return ['_sSerialized'];
+	public function __sleep()
+	{
+		return ['serialized'];
 	}
 
 	/**
 	 * @return void
+	 * @throws Exception
 	 */
-	public function __wakeup() {
-		$this->_oClosure = (new Serializer(new AstAnalyzer))->unserialize($this->_sSerialized);
-		$this->_oReflection = new ReflectionFunction($this->_oClosure);
+	public function __wakeup()
+	{
+		$this->closure = $this->serializer->unserialize($this->serialized);
+		$this->reflection = new ReflectionFunction($this->closure);
 	}
-
 }
