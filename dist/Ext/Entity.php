@@ -68,7 +68,7 @@ abstract class Entity
 					$type = self::TYPE_CLOSURE;
 					$datas = new HandleClosure($datas);
 				}
-				elseif(preg_match('`^([\\\a-z0-9_]+)::([a-z0-9_]+)$`i', $datas)) {
+				elseif(is_string($datas) && preg_match('`^([\\\a-z0-9_]+)::([a-z0-9_]+)$`i', $datas)) {
 					$type = self::TYPE_CLASS;
 				}
 				else {
