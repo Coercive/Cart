@@ -38,11 +38,13 @@ abstract class Entity
 			case self::TYPE_CLOSURE:
 				return call_user_func($field['data'], $this);
 			case self::TYPE_CLASS:
+				$class = $field['class'];
+				$method = $field['method'];
 				if($field['static']) {
-					return ($field['class'])::{$field['method']}();
+					return $class::{$method}();
 				}
 				else {
-					return (new ($field['class'])())->{$field['method']}();
+					return (new $class())->{$method}();
 				}
 			default:
 				return null;
