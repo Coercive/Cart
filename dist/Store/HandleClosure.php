@@ -12,12 +12,6 @@ use SuperClosure\Analyzer\AstAnalyzer;
  */
 class HandleClosure
 {
-	/** @var AstAnalyzer */
-	protected $analyzer = null;
-
-	/** @var Serializer */
-	protected $serializer = null;
-
 	/** @var Closure */
 	protected $closure = null;
 	
@@ -36,14 +30,9 @@ class HandleClosure
 	 */
 	public function __construct(Closure $function)
 	{
-		# Store for invoke
 		$this->closure = $function;
 		$this->reflection = new ReflectionFunction($function);
-
-		# Parse datas for serialize
-		$this->analyzer = new AstAnalyzer;
-		$this->serializer = new Serializer($this->analyzer);
-		$this->serialized = $this->serializer->serialize($function);
+		$this->serialized = (new Serializer(new AstAnalyzer))->serialize($function);
 	}
 
 	/**
@@ -68,7 +57,7 @@ class HandleClosure
 	 */
 	public function __wakeup()
 	{
-		$this->closure = $this->serializer->unserialize($this->serialized);
+		$this->closure = (new Serializer(new AstAnalyzer))->unserialize($this->serialized);
 		$this->reflection = new ReflectionFunction($this->closure);
 	}
 }
