@@ -19,8 +19,8 @@ use Coercive\Shop\Cart\Collection\Items;
  * @link		@link https://github.com/Coercive/Cart
  *
  * @author  	Anthony Moral <contact@coercive.fr>
- * @copyright   (c) 2018 Anthony Moral
- * @license 	http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @copyright   2019 Anthony Moral
+ * @license 	MIT
  */
 class Cart extends Entity
 {
