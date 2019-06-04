@@ -42,10 +42,10 @@ abstract class Entity
 				$class = $field['class'];
 				$method = $field['method'];
 				if($field['static']) {
-					return $class::{$method}();
+					return $class::{$method}($this);
 				}
 				else {
-					return (new $class())->{$method}();
+					return (new $class())->{$method}($this);
 				}
 			default:
 				return null;
