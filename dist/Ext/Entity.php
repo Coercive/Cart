@@ -93,7 +93,7 @@ abstract class Entity
 					$class = $matches['class'] ?? '';
 					$method = $matches['method'] ?? '';
 					$field = [
-						'type' => self::TYPE_CLOSURE,
+						'type' => self::TYPE_CLASS,
 						'static' => (new ReflectionMethod($class, $method))->isStatic(),
 						'class' => $class,
 						'method' => $method
