@@ -47,19 +47,12 @@ class Items extends Entity
      *
      * @param int|string $key
      * @return $this
-     * @throws Exception
      */
     public function delete($key): Items
 	{
-        # Try delete
-        if (isset($this->items[$key])) {
+        if (array_key_exists($key, $this->items)) {
             unset($this->items[$key]);
         }
-        else {
-            throw new Exception("Invalid key $key.");
-        }
-
-        # Maintain chainability
         return $this;
     }
 
@@ -67,14 +60,10 @@ class Items extends Entity
 	 * DELETE ALL ITEMS
 	 *
 	 * @return $this
-	 * @throws Exception
 	 */
 	public function clear(): Items
 	{
-		# Reset empty array
 		$this->items = [];
-
-		# Maintain chainability
 		return $this;
 	}
 
@@ -87,7 +76,6 @@ class Items extends Entity
      */
     public function get($key): Item
 	{
-        # Load if exist
         if (isset($this->items[$key])) {
             return $this->items[$key];
         }
