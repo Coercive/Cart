@@ -2,6 +2,7 @@
 namespace Coercive\Shop\Cart\Ext;
 
 use Closure;
+use Exception;
 use Coercive\Shop\Cart\Store\HandleClosure;
 
 /**
@@ -49,7 +50,12 @@ abstract class Entity
 	 */
 	protected function _set(&$field, $datas)
 	{
-		$field = $datas instanceOf Closure ? new HandleClosure($datas) : $datas;
+		try {
+			$field = $datas instanceOf Closure ? new HandleClosure($datas) : $datas;
+		}
+		catch (Exception $e) {
+			$field = null;
+		}
 		$this->modified = true;
 		return $this;
 	}
