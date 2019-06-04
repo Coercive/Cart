@@ -211,12 +211,13 @@ class Cart extends Entity
 	/**
 	 * SET TITLE
 	 *
-	 * @param string|callable $title
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setTitle($title): Cart
+	public function setTitle($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->title, $title);
+		return $this->_set($this->title, $datas, $type);
 	}
 
 	/**
@@ -232,12 +233,13 @@ class Cart extends Entity
 	/**
 	 * SET REF
 	 *
-	 * @param int|string|callable $ref
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setRef($ref): Cart
+	public function setRef($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->ref, $ref);
+		return $this->_set($this->ref, $datas, $type);
 	}
 
 	/**
@@ -253,12 +255,13 @@ class Cart extends Entity
 	/**
 	 * SET AMOUNT
 	 *
-	 * @param float|callable $amount
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setAmount($amount): Cart
+	public function setAmount($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->amount, $amount);
+		return $this->_set($this->amount, $datas, $type);
 	}
 
     /**
@@ -274,12 +277,13 @@ class Cart extends Entity
 	/**
 	 * SET SHIPPING AMOUNT
 	 *
-	 * @param float|callable $shippingAmount
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingAmount($shippingAmount): Cart
+	public function setShippingAmount($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->shippingAmount, $shippingAmount);
+		return $this->_set($this->shippingAmount, $datas, $type);
 	}
     
     /**
@@ -295,12 +299,13 @@ class Cart extends Entity
 	/**
 	 * SET FULL AMOUNT
 	 *
-	 * @param float|callable $fullAmount
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setFullAmount($fullAmount): Cart
+	public function setFullAmount($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->fullAmount, $fullAmount);
+		return $this->_set($this->fullAmount, $datas, $type);
 	}
 
 	/**
@@ -316,12 +321,13 @@ class Cart extends Entity
 	/**
 	 * SET AMOUNT EXCLUDING TAXES
 	 *
-	 * @param float|callable $amountExcludingTaxes
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setAmountExcludingTaxes($amountExcludingTaxes): Cart
+	public function setAmountExcludingTaxes($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->amountExcludingTaxes, $amountExcludingTaxes);
+		return $this->_set($this->amountExcludingTaxes, $datas, $type);
 	}
 
 	/**
@@ -337,12 +343,13 @@ class Cart extends Entity
 	/**
 	 * SET AMOUNT INCLUDING TAXES
 	 *
-	 * @param float|callable $amountIncludingTaxes
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setPriceIncludingTaxes($amountIncludingTaxes): Cart
+	public function setPriceIncludingTaxes($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->amountIncludingTaxes, $amountIncludingTaxes);
+		return $this->_set($this->amountIncludingTaxes, $datas, $type);
 	}
 
 	/**
@@ -358,12 +365,13 @@ class Cart extends Entity
 	/**
 	 * SET AMOUNT VAT
 	 *
-	 * @param float|callable $amountVat
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setAmountVat($amountVat): Cart
+	public function setAmountVat($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->amountVat, $amountVat);
+		return $this->_set($this->amountVat, $datas, $type);
 	}
 
 	/**
@@ -379,12 +387,13 @@ class Cart extends Entity
 	/**
 	 * SET QUANTITY
 	 *
-	 * @param int|callable $quantity
+	 * @param int|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setQuantity($quantity): Cart
+	public function setQuantity($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->quantity, $quantity);
+		return $this->_set($this->quantity, $datas, $type);
 	}
 
 	/**
@@ -400,12 +409,13 @@ class Cart extends Entity
 	/**
 	 * SET SHIPPING UNIT COST
 	 *
-	 * @param float|callable $shippingUnitCost
+	 * @param float|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingUnitCost($shippingUnitCost): Cart
+	public function setShippingUnitCost($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->shippingUnitCost, $shippingUnitCost);
+		return $this->_set($this->shippingUnitCost, $datas, $type);
 	}
 
 	/**
@@ -421,12 +431,13 @@ class Cart extends Entity
 	/**
 	 * SET SHIPPING GEO AREA
 	 *
-	 * @param string|callable $shippingGeoArea
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingGeoArea($shippingGeoArea): Cart
+	public function setShippingGeoArea($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->shippingGeoArea, $shippingGeoArea);
+		return $this->_set($this->shippingGeoArea, $datas, $type);
 	}
 
 	/**
@@ -442,12 +453,13 @@ class Cart extends Entity
 	/**
 	 * SET SHIPPING ZONE
 	 *
-	 * @param string|callable $shippingZone
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingZone($shippingZone): Cart
+	public function setShippingZone($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->shippingZone, $shippingZone);
+		return $this->_set($this->shippingZone, $datas, $type);
 	}
 
 	/**
@@ -463,12 +475,13 @@ class Cart extends Entity
 	/**
 	 * SET SHIPPING REF
 	 *
-	 * @param string|callable $shippingRef
+	 * @param string|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setShippingRef($shippingRef): Cart
+	public function setShippingRef($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->shippingRef, $shippingRef);
+		return $this->_set($this->shippingRef, $datas, $type);
 	}
     
     /**
@@ -484,12 +497,13 @@ class Cart extends Entity
 	/**
 	 * SET TERMS OF SALES
 	 *
-	 * @param bool|callable $termsOfSales
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setTermsOfSales($termsOfSales): Cart
+	public function setTermsOfSales($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->termsOfSales, $termsOfSales);
+		return $this->_set($this->termsOfSales, $datas, $type);
 	}
 
 	/**
@@ -505,11 +519,12 @@ class Cart extends Entity
 	/**
 	 * SET TERMS OF USE
 	 *
-	 * @param bool|callable $termsOfUse
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setTermsOfUse($termsOfUse): Cart
+	public function setTermsOfUse($datas, string $type = self::TYPE_AUTO): Cart
 	{
-		return $this->_set($this->termsOfUse, $termsOfUse);
+		return $this->_set($this->termsOfUse, $datas, $type);
 	}
 }
