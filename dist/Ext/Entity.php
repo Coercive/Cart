@@ -3,6 +3,7 @@ namespace Coercive\Shop\Cart\Ext;
 
 use Closure;
 use Exception;
+use ReflectionMethod;
 use Coercive\Shop\Cart\Store\HandleClosure;
 
 /**
@@ -13,22 +14,15 @@ abstract class Entity
 ###########################################################################################################
 # SYSTEM
 
+	const TYPE_RAW = 'TYPE_RAW';
+	const TYPE_CLOSURE = 'TYPE_CLOSURE';
+	const TYPE_CLASS = 'TYPE_CLASS';
+
     /** @var bool */
     protected $modified = false;
 
     /** @var bool */
     protected $enabled = false;
-
-    /**
-	 * VERIFY IF IS CLOSURE
-	 *
-	 * @param mixed $mixed
-	 * @return bool
-	 */
-	protected function _isClosure($mixed): bool
-	{
-		return is_object($mixed) && ($mixed instanceof Closure || $mixed instanceof HandleClosure);
-	}
 
 	/**
 	 * CALL FIELD
@@ -38,7 +32,21 @@ abstract class Entity
 	 */
 	protected function _call($field)
 	{
-		return $this->_isClosure($field) ? call_user_func($field, $this) : $field;
+		switch ($field['type']) {
+			case self::TYPE_RAW:
+				return $field['data'];
+			case self::TYPE_CLOSURE:
+				return call_user_func($field['data'], $this);
+			case self::TYPE_CLASS:
+				if($field['static']) {
+					return ($field['class'])::{$field['method']}();
+				}
+				else {
+					return (new ($field['class'])())->{$field['method']}();
+				}
+			default:
+				return null;
+		}
 	}
 
 	/**
@@ -46,15 +54,49 @@ abstract class Entity
 	 *
 	 * @param mixed $field
 	 * @param mixed $datas
+	 * @param string $type [optional]
 	 * @return $this
 	 */
-	protected function _set(&$field, $datas)
+	protected function _set(&$field, $datas, string $type = self::TYPE_RAW)
 	{
 		try {
-			$field = $datas instanceOf Closure ? new HandleClosure($datas) : $datas;
+			if($datas instanceOf Closure) {
+				$type = self::TYPE_CLOSURE;
+				$datas = new HandleClosure($datas);
+			}
+			switch ($type) {
+				case self::TYPE_RAW:
+					$field = [
+						'type' => self::TYPE_RAW,
+						'data' => $datas
+					];
+					break;
+				case self::TYPE_CLOSURE:
+					$field = [
+						'type' => self::TYPE_CLOSURE,
+						'data' => $datas
+					];
+					break;
+				case self::TYPE_CLASS:
+					preg_match('`^(?P<class>[\\\a-z0-9_]+)::(?P<method>[a-z0-9_]+)$`i', $datas, $matches);
+					$class = $matches['class'] ?? '';
+					$method = $matches['method'] ?? '';
+					$field = [
+						'type' => self::TYPE_CLOSURE,
+						'static' => (new ReflectionMethod($class, $method))->isStatic(),
+						'class' => $class,
+						'method' => $method
+					];
+					break;
+				default:
+					throw new Exception;
+			}
 		}
 		catch (Exception $e) {
-			$field = null;
+			$field = [
+				'type' => self::TYPE_RAW,
+				'data' => null
+			];
 		}
 		$this->modified = true;
 		return $this;
