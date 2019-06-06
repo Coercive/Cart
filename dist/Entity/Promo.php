@@ -136,7 +136,7 @@ class Promo extends Entity
      */
     public function getTitle(): string
 	{
-        return $this->_call($this->title);
+        return (string) $this->_call($this->title);
     }
 
     /**
@@ -158,7 +158,7 @@ class Promo extends Entity
      */
     public function getResume(): string
 	{
-        return $this->_call($this->resume);
+        return (string) $this->_call($this->resume);
     }
 
     /**
@@ -180,7 +180,7 @@ class Promo extends Entity
      */
     public function getDescription(): string
 	{
-        return $this->_call($this->description);
+        return (string) $this->_call($this->description);
     }
 
     /**
