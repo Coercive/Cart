@@ -146,7 +146,7 @@ class Payment extends Entity
      */
     public function getTitle(): string
 	{
-        return $this->_call($this->title);
+        return (string) $this->_call($this->title);
     }
 
     /**
@@ -168,7 +168,7 @@ class Payment extends Entity
      */
     public function getResume(): string
 	{
-        return $this->_call($this->resume);
+        return (string) $this->_call($this->resume);
     }
 
     /**
@@ -190,7 +190,7 @@ class Payment extends Entity
      */
     public function getDescription(): string
 	{
-        return $this->_call($this->description);
+        return (string) $this->_call($this->description);
     }
 
     /**
@@ -278,7 +278,7 @@ class Payment extends Entity
      */
     public function getRate(): float
 	{
-        return $this->_call($this->rate);
+        return (float) $this->_call($this->rate);
     }
 
     /**
@@ -300,7 +300,7 @@ class Payment extends Entity
 	 */
 	public function getIban(): string
 	{
-		return $this->_call($this->iban);
+		return (string) $this->_call($this->iban);
 	}
 
 	/**
@@ -322,7 +322,7 @@ class Payment extends Entity
 	 */
 	public function getBic(): string
 	{
-		return $this->_call($this->bic);
+		return (string) $this->_call($this->bic);
 	}
 
 	/**
@@ -344,7 +344,7 @@ class Payment extends Entity
 	 */
 	public function getAccount(): string
 	{
-		return $this->_call($this->account);
+		return (string) $this->_call($this->account);
 	}
 
 	/**
@@ -366,7 +366,7 @@ class Payment extends Entity
 	 */
 	public function getBank(): string
 	{
-		return $this->_call($this->bank);
+		return (string) $this->_call($this->bank);
 	}
 
 	/**
@@ -388,7 +388,7 @@ class Payment extends Entity
 	 */
 	public function getBranch(): string
 	{
-		return $this->_call($this->branch);
+		return (string) $this->_call($this->branch);
 	}
 
 	/**
@@ -410,7 +410,7 @@ class Payment extends Entity
 	 */
 	public function getAddress(): string
 	{
-		return $this->_call($this->address);
+		return (string) $this->_call($this->address);
 	}
 
 	/**
@@ -432,7 +432,7 @@ class Payment extends Entity
 	 */
 	public function getZip(): string
 	{
-		return $this->_call($this->zip);
+		return (string) $this->_call($this->zip);
 	}
 
 	/**
@@ -454,7 +454,7 @@ class Payment extends Entity
 	 */
 	public function getCity(): string
 	{
-		return $this->_call($this->city);
+		return (string) $this->_call($this->city);
 	}
 
 	/**
@@ -476,7 +476,7 @@ class Payment extends Entity
 	 */
 	public function getCountry(): string
 	{
-		return $this->_call($this->country);
+		return (string) $this->_call($this->country);
 	}
 
 	/**
@@ -498,7 +498,7 @@ class Payment extends Entity
 	 */
 	public function getIsoCountry(): string
 	{
-		return $this->_call($this->isoCountry);
+		return (string) $this->_call($this->isoCountry);
 	}
 
 	/**
@@ -520,7 +520,7 @@ class Payment extends Entity
 	 */
 	public function getState(): string
 	{
-		return $this->_call($this->state);
+		return (string) $this->_call($this->state);
 	}
 
 	/**
@@ -542,7 +542,7 @@ class Payment extends Entity
 	 */
 	public function getPhone(): string
 	{
-		return $this->_call($this->phone);
+		return (string) $this->_call($this->phone);
 	}
 
 	/**
@@ -564,7 +564,7 @@ class Payment extends Entity
 	 */
 	public function getMobile(): string
 	{
-		return $this->_call($this->mobile);
+		return (string)  $this->_call($this->mobile);
 	}
 
 	/**
@@ -586,7 +586,7 @@ class Payment extends Entity
 	 */
 	public function getFax(): string
 	{
-		return $this->_call($this->fax);
+		return (string) $this->_call($this->fax);
 	}
 
 	/**
@@ -608,7 +608,7 @@ class Payment extends Entity
 	 */
 	public function getEmail(): string
 	{
-		return $this->_call($this->email);
+		return (string) $this->_call($this->email);
 	}
 
 	/**
@@ -630,7 +630,7 @@ class Payment extends Entity
 	 */
 	public function getWebSite(): string
 	{
-		return $this->_call($this->website);
+		return (string) $this->_call($this->website);
 	}
 
 	/**
@@ -652,7 +652,7 @@ class Payment extends Entity
 	 */
 	public function getStatus(): bool
 	{
-		return $this->_call($this->status);
+		return (bool) $this->_call($this->status);
 	}
 
 	/**
