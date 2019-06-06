@@ -92,7 +92,7 @@ class Gift extends Entity
      */
     public function getMessage(): string
 	{
-        return $this->_call($this->message);
+        return (string) $this->_call($this->message);
     }
 
     /**
