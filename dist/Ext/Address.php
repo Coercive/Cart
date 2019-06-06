@@ -94,7 +94,7 @@ class Address extends Entity
      */
     public function getTitle(): string
 	{
-        return $this->_call($this->title);
+        return (string) $this->_call($this->title);
     }
 
     /**
@@ -160,7 +160,7 @@ class Address extends Entity
      */
     public function getGender(): string
 	{
-        return $this->_call($this->gender);
+        return (string) $this->_call($this->gender);
     }
 
     /**
@@ -182,7 +182,7 @@ class Address extends Entity
      */
     public function getCompany(): string
 	{
-        return $this->_call($this->company);
+        return (string) $this->_call($this->company);
     }
 
     /**
@@ -204,7 +204,7 @@ class Address extends Entity
      */
     public function getFirstName(): string
 	{
-        return $this->_call($this->firstName);
+        return (string) $this->_call($this->firstName);
     }
 
     /**
@@ -226,7 +226,7 @@ class Address extends Entity
      */
     public function getLastName(): string
 	{
-        return $this->_call($this->lastName);
+        return (string) $this->_call($this->lastName);
     }
 
     /**
@@ -248,7 +248,7 @@ class Address extends Entity
      */
     public function getAdditionalName(): string
 	{
-        return $this->_call($this->additionalName);
+        return (string) $this->_call($this->additionalName);
     }
 
     /**
@@ -270,7 +270,7 @@ class Address extends Entity
      */
     public function getAddress(): string
 	{
-        return $this->_call($this->address);
+        return (string) $this->_call($this->address);
     }
 
     /**
@@ -292,7 +292,7 @@ class Address extends Entity
      */
     public function getAdditionalAddress1(): string
 	{
-        return $this->_call($this->additionalAddress1);
+        return (string) $this->_call($this->additionalAddress1);
     }
 
     /**
@@ -314,7 +314,7 @@ class Address extends Entity
      */
     public function getAdditionalAddress2(): string
 	{
-        return $this->_call($this->additionalAddress2);
+        return (string) $this->_call($this->additionalAddress2);
     }
 
     /**
@@ -336,7 +336,7 @@ class Address extends Entity
      */
     public function getZip(): string
 	{
-        return $this->_call($this->zip);
+        return (string) $this->_call($this->zip);
     }
 
     /**
@@ -358,7 +358,7 @@ class Address extends Entity
      */
     public function getTown(): string
 	{
-        return $this->_call($this->town);
+        return (string) $this->_call($this->town);
     }
 
     /**
@@ -380,7 +380,7 @@ class Address extends Entity
      */
     public function getCountry(): string
 	{
-        return $this->_call($this->country);
+        return (string) $this->_call($this->country);
     }
 
     /**
@@ -402,7 +402,7 @@ class Address extends Entity
      */
     public function getIsoCountry(): string
 	{
-        return $this->_call($this->isoCountry);
+        return (string) $this->_call($this->isoCountry);
     }
 
     /**
@@ -424,7 +424,7 @@ class Address extends Entity
      */
     public function getPhone(): string
 	{
-        return $this->_call($this->phone);
+        return (string) $this->_call($this->phone);
     }
 
     /**
@@ -446,7 +446,7 @@ class Address extends Entity
      */
     public function getMobile(): string
 	{
-        return $this->_call($this->mobile);
+        return (string) $this->_call($this->mobile);
     }
 
     /**
@@ -468,7 +468,7 @@ class Address extends Entity
      */
     public function getFax(): string
 	{
-        return $this->_call($this->fax);
+        return (string) $this->_call($this->fax);
     }
 
     /**
@@ -490,7 +490,7 @@ class Address extends Entity
      */
     public function getEmail(): string
 	{
-        return $this->_call($this->email);
+        return (string) $this->_call($this->email);
     }
 
     /**
