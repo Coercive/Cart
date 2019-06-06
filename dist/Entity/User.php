@@ -178,7 +178,7 @@ class User extends Entity
      */
     public function getGender(): string
 	{
-        return $this->_call($this->gender);
+        return (string) $this->_call($this->gender);
     }
 
     /**
@@ -200,7 +200,7 @@ class User extends Entity
      */
     public function getCompany(): string
 	{
-        return $this->_call($this->company);
+        return (string) $this->_call($this->company);
     }
 
     /**
@@ -222,7 +222,7 @@ class User extends Entity
      */
     public function getFirstName(): string
 	{
-        return $this->_call($this->firstName);
+        return (string) $this->_call($this->firstName);
     }
 
     /**
@@ -244,7 +244,7 @@ class User extends Entity
      */
     public function getLastName(): string
 	{
-        return $this->_call($this->lastName);
+        return (string) $this->_call($this->lastName);
     }
 
     /**
@@ -266,7 +266,7 @@ class User extends Entity
      */
     public function getAdditionalName(): string
 	{
-        return $this->_call($this->additionalName);
+        return (string) $this->_call($this->additionalName);
     }
 
     /**
@@ -288,7 +288,7 @@ class User extends Entity
      */
     public function getAddress(): string
 	{
-        return $this->_call($this->address);
+        return (string) $this->_call($this->address);
     }
 
     /**
@@ -310,7 +310,7 @@ class User extends Entity
      */
     public function getAdditionalAddress1(): string
 	{
-        return $this->_call($this->additionalAddress1);
+        return (string) $this->_call($this->additionalAddress1);
     }
 
     /**
@@ -332,7 +332,7 @@ class User extends Entity
      */
     public function getAdditionalAddress2(): string
 	{
-        return $this->_call($this->additionalAddress2);
+        return (string) $this->_call($this->additionalAddress2);
     }
 
     /**
@@ -376,7 +376,7 @@ class User extends Entity
      */
     public function getTown(): string
 	{
-        return $this->_call($this->town);
+        return (string) $this->_call($this->town);
     }
 
     /**
@@ -508,7 +508,7 @@ class User extends Entity
      */
     public function getEmail(): string
 	{
-        return $this->_call($this->email);
+        return (string) $this->_call($this->email);
     }
 
     /**
