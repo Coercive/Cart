@@ -205,7 +205,7 @@ class Cart extends Entity
 	 */
 	public function getTitle(): string
 	{
-		return $this->_call($this->title);
+		return (string) $this->_call($this->title);
 	}
 
 	/**
@@ -249,7 +249,7 @@ class Cart extends Entity
 	 */
 	public function getAmount(): float
 	{
-		return $this->_call($this->amount);
+		return (float) $this->_call($this->amount);
 	}
 
 	/**
@@ -271,7 +271,7 @@ class Cart extends Entity
 	 */
 	public function getShippingAmount(): float
 	{
-		return $this->_call($this->shippingAmount);
+		return (float) $this->_call($this->shippingAmount);
 	}
 
 	/**
@@ -293,7 +293,7 @@ class Cart extends Entity
 	 */
 	public function getFullAmount(): float
 	{
-		return $this->_call($this->fullAmount);
+		return (float) $this->_call($this->fullAmount);
 	}
 
 	/**
@@ -315,7 +315,7 @@ class Cart extends Entity
 	 */
 	public function getAmountExcludingTaxes(): float
 	{
-		return $this->_call($this->amountExcludingTaxes);
+		return (float) $this->_call($this->amountExcludingTaxes);
 	}
 
 	/**
@@ -337,7 +337,7 @@ class Cart extends Entity
 	 */
 	public function getAmountIncludingTaxes(): float
 	{
-		return $this->_call($this->amountIncludingTaxes);
+		return (float) $this->_call($this->amountIncludingTaxes);
 	}
 
 	/**
@@ -359,7 +359,7 @@ class Cart extends Entity
 	 */
 	public function getAmountVat(): float
 	{
-		return $this->_call($this->amountVat);
+		return (float) $this->_call($this->amountVat);
 	}
 
 	/**
@@ -381,7 +381,7 @@ class Cart extends Entity
 	 */
 	public function getQuantity(): int
 	{
-		return $this->_call($this->quantity);
+		return (int) $this->_call($this->quantity);
 	}
 
 	/**
@@ -403,7 +403,7 @@ class Cart extends Entity
 	 */
 	public function getShippingUnitCost(): float
 	{
-		return $this->_call($this->shippingUnitCost);
+		return (float) $this->_call($this->shippingUnitCost);
 	}
 
 	/**
@@ -425,7 +425,7 @@ class Cart extends Entity
 	 */
 	public function getShippingGeoArea(): string
 	{
-		return $this->_call($this->shippingGeoArea);
+		return (string) $this->_call($this->shippingGeoArea);
 	}
 
 	/**
@@ -447,7 +447,7 @@ class Cart extends Entity
 	 */
 	public function getShippingZone(): string
 	{
-		return $this->_call($this->shippingZone);
+		return (string) $this->_call($this->shippingZone);
 	}
 
 	/**
@@ -469,7 +469,7 @@ class Cart extends Entity
 	 */
 	public function getShippingRef(): string
 	{
-		return $this->_call($this->shippingRef);
+		return (string) $this->_call($this->shippingRef);
 	}
 
 	/**
@@ -491,7 +491,7 @@ class Cart extends Entity
 	 */
 	public function getTermsOfSales(): bool
 	{
-		return $this->_call($this->termsOfSales);
+		return (bool) $this->_call($this->termsOfSales);
 	}
 
 	/**
@@ -513,7 +513,7 @@ class Cart extends Entity
 	 */
 	public function getTermsOfUse(): bool
 	{
-		return $this->_call($this->termsOfUse);
+		return (bool) $this->_call($this->termsOfUse);
 	}
 
 	/**
