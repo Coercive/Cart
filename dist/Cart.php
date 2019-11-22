@@ -16,7 +16,7 @@ use Coercive\Shop\Cart\Collection\Items;
  * Class Cart
  *
  * @package		Coercive\Shop\Cart
- * @link		@link https://github.com/Coercive/Cart
+ * @link		https://github.com/Coercive/Cart
  *
  * @author  	Anthony Moral <contact@coercive.fr>
  * @copyright   2019 Anthony Moral
