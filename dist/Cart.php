@@ -195,6 +195,9 @@ class Cart extends Entity
 	/** @var bool|callable */
 	private $termsOfUse = false;
 
+	/** @var string|callable */
+	private $message = '';
+
 ###########################################################################################################
 # ACCESSORS
 
@@ -526,5 +529,27 @@ class Cart extends Entity
 	public function setTermsOfUse($datas, string $type = self::TYPE_AUTO): Cart
 	{
 		return $this->_set($this->termsOfUse, $datas, $type);
+	}
+	
+	/**
+	 * GET MESSAGE
+	 *
+	 * @return string
+	 */
+	public function getMessage(): string
+	{
+		return (string) $this->_call($this->message);
+	}
+
+	/**
+	 * SET MESSAGE
+	 *
+	 * @param string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setMessage($datas, string $type = self::TYPE_AUTO): Cart
+	{
+		return $this->_set($this->message, $datas, $type);
 	}
 }
