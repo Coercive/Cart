@@ -16,8 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
-        "jeremeamia/superclosure": "^2.3"
+        "php": ">=7.1"
     },
     "autoload": {
         "psr-4": { "Coercive\\Shop\\Cart\\": "dist/" }

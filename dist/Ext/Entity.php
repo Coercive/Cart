@@ -1,10 +1,8 @@
 <?php
 namespace Coercive\Shop\Cart\Ext;
 
-use Closure;
 use Exception;
 use ReflectionMethod;
-use Coercive\Shop\Cart\Store\HandleClosure;
 
 /**
  * @see |Coercive\Shop\Cart\Cart
@@ -16,7 +14,6 @@ abstract class Entity
 
 	const TYPE_AUTO = 'TYPE_AUTO';
 	const TYPE_RAW = 'TYPE_RAW';
-	const TYPE_CLOSURE = 'TYPE_CLOSURE';
 	const TYPE_CLASS = 'TYPE_CLASS';
 
     /** @var bool */
@@ -36,8 +33,6 @@ abstract class Entity
 		switch ($field['type'] ?? '') {
 			case self::TYPE_RAW:
 				return $field['data'];
-			case self::TYPE_CLOSURE:
-				return call_user_func($field['data'], $this);
 			case self::TYPE_CLASS:
 				$class = $field['class'];
 				$method = $field['method'];
@@ -64,11 +59,7 @@ abstract class Entity
 	{
 		try {
 			if($type === self::TYPE_AUTO) {
-				if($datas instanceOf Closure) {
-					$type = self::TYPE_CLOSURE;
-					$datas = new HandleClosure($datas);
-				}
-				elseif(is_string($datas) && preg_match('`^([\\\a-z0-9_]+)::([a-z0-9_]+)$`i', $datas)) {
+				if(is_string($datas) && preg_match('`^([\\\a-z0-9_]+)::([a-z0-9_]+)$`i', $datas)) {
 					$type = self::TYPE_CLASS;
 				}
 				else {
@@ -79,12 +70,6 @@ abstract class Entity
 				case self::TYPE_RAW:
 					$field = [
 						'type' => self::TYPE_RAW,
-						'data' => $datas
-					];
-					break;
-				case self::TYPE_CLOSURE:
-					$field = [
-						'type' => self::TYPE_CLOSURE,
 						'data' => $datas
 					];
 					break;
