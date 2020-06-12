@@ -46,15 +46,7 @@ $oItem->Promo()
 
 $oItem = (new Item)
     ->setTitle('Tutu')
-    ->setPrice(function($oItem) {
-        /** @var Item $oItem*/
-        if($oItem->getQuantity() > 5) {
-            return 15;
-        }
-        else {
-            return 20;
-        }
-    })
+    ->setPrice('\MyClass\For\Calculate\PriceItem::price')
     ->setQuantity(3)
     ->setRef(777);
 $oCart->Items()->addItem($oItem);
