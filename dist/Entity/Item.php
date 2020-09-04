@@ -151,6 +151,9 @@ class Item extends Entity
     /** @var string|callable */
 	private $medium = '';
 
+    /** @var array|callable */
+	private $mediums = [];
+
     /** @var string|callable */
     private $image = '';
 
@@ -637,6 +640,29 @@ class Item extends Entity
 	public function setMedium($datas, string $type = self::TYPE_AUTO): Item
 	{
 		return $this->_set($this->medium, $datas, $type);
+	}
+
+	/**
+	 * GET MEDIUMS
+	 *
+	 * @return array
+	 */
+	public function getMediums(): array
+	{
+		$array = $this->_call($this->mediums);
+		return is_array($array) ? $array : [];
+	}
+
+	/**
+	 * SET MEDIUMS
+	 *
+	 * @param array|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setMediums($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->mediums, $datas, $type);
 	}
 
     /**
