@@ -27,6 +27,9 @@ class Payment extends Entity
     private $description = '';
 
     /** @var int|string|callable */
+    private $allowedModes = '';
+
+    /** @var int|string|callable */
     private $mode = '';
 
     /** @var int|string|callable */
@@ -203,6 +206,28 @@ class Payment extends Entity
     public function setDescription($datas, string $type = self::TYPE_AUTO): Payment
 	{
         return $this->_set($this->description, $datas, $type);
+    }
+
+    /**
+     * GET ALLOWED MODES
+     *
+     * @return int|string
+     */
+    public function getAllowedModes()
+	{
+        return $this->_call($this->allowedModes);
+    }
+
+    /**
+     * SET ALLOWED MODES
+     *
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setAllowedModes($datas, string $type = self::TYPE_AUTO): Payment
+	{
+        return $this->_set($this->allowedModes, $datas, $type);
     }
 
     /**
