@@ -28,6 +28,9 @@ class Item extends Entity
     /** @var Promo */
     private $promo = null;
 
+	/** @var Payment */
+	private $payment = null;
+
 	/**
 	 * SINGLETON BILLING
 	 *
@@ -87,6 +90,18 @@ class Item extends Entity
 	    if($promo) { return $this->promo = $promo; }
         return null === $this->promo ? $this->promo = new Promo : $this->promo;
     }
+
+	/**
+	 * SINGLETON PAYMENT
+	 *
+	 * @param Payment $payment [optional]
+	 * @return Payment
+	 */
+	public function Payment(Payment $payment = null): Payment
+	{
+		if($payment) { return $this->payment = $payment; }
+		return null === $this->payment ? $this->payment = new Payment : $this->payment;
+	}
 
 ###########################################################################################################
 # PROPERTIES
