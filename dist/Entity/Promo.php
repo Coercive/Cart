@@ -1,6 +1,8 @@
 <?php
 namespace Coercive\Shop\Cart\Entity;
 
+use Coercive\Shop\Cart\Collection\Items;
+use Coercive\Shop\Cart\Collection\Promos;
 use Coercive\Shop\Cart\Ext\Entity;
 
 /**
@@ -29,9 +31,77 @@ class Promo extends Entity
             return $price - $price * $percent;
         }
 
+        # NEW PRICE
+        if($newPrice = $this->getNewPrice()) {
+            return $newPrice;
+        }
+
         # INACTIVE
         return 0.0;
     }
+
+###########################################################################################################
+# BIND ITEMS
+
+	/** @var Gift */
+	private $gift = null;
+
+	/** @var Items */
+	private $items = null;
+
+	/** @var Promos */
+	private $promos = null;
+
+	/** @var User */
+	private $user = null;
+
+	/**
+	 * SINGLETON GIFT
+	 *
+	 * @param Gift $gift [optional]
+	 * @return Gift
+	 */
+	public function Gift(Gift $gift = null): Gift
+	{
+		if($gift) { return $this->gift = $gift; }
+		return null === $this->gift ? $this->gift = new Gift : $this->gift;
+	}
+
+	/**
+	 * SINGLETON COLLECTION ITEMS
+	 *
+	 * @param Items $items [optional]
+	 * @return Items
+	 */
+	public function Items(Items $items = null): Items
+	{
+		if($items) { return $this->items = $items; }
+		return null === $this->items ? $this->items = new Items : $this->items;
+	}
+
+	/**
+	 * SINGLETON COLLECTION PROMOS
+	 *
+	 * @param Promos $promos [optional]
+	 * @return Promos
+	 */
+	public function Promos(Promos $promos = null): Promos
+	{
+		if($promos) { return $this->promos = $promos; }
+		return null === $this->promos ? $this->promos = new Promos : $this->promos;
+	}
+
+	/**
+	 * SINGLETON USER
+	 *
+	 * @param User $user [optional]
+	 * @return User
+	 */
+	public function User(User $user = null): User
+	{
+		if($user) { return $this->user = $user; }
+		return null === $this->user ? $this->user = new User : $this->user;
+	}
 
 ###########################################################################################################
 # PROPERTIES
@@ -59,6 +129,39 @@ class Promo extends Entity
 
     /** @var int|float|callable */
     private $priceCut = 0;
+
+    /** @var int|float|callable */
+    private $newPrice = 0;
+
+	/** @var int|string|array|callable */
+	private $itemRefs = '';
+
+	/** @var bool|callable */
+	private $limitedInTime = false;
+
+	/** @var string|callable */
+	private $dateStart = '';
+
+	/** @var string|callable */
+	private $dateEnd = '';
+
+	/** @var bool|callable */
+	private $limitedOccurrences = false;
+
+	/** @var int|callable */
+	private $occurrence = 0;
+
+	/** @var int|callable */
+	private $offsetOccurrence = 0;
+
+	/** @var int|callable */
+	private $numberOfOccurrences = 0;
+
+	/** @var string|callable */
+	private $occurrenceDateStart = '';
+
+	/** @var string|callable */
+	private $occurrenceDateEnd = '';
 
 ###########################################################################################################
 # ACCESSORS
@@ -238,4 +341,246 @@ class Promo extends Entity
 	{
         return $this->_set($this->priceCut, $datas, $type);
     }
+
+    /**
+     * GET NEW PRICE
+     *
+     * @return int|float
+     */
+    public function getNewPrice()
+	{
+        return $this->_call($this->newPrice);
+    }
+
+    /**
+     * SET NEW PRICE
+     *
+     * @param int|float|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setNewPrice($datas, string $type = self::TYPE_AUTO): Promo
+	{
+        return $this->_set($this->newPrice, $datas, $type);
+    }
+
+	/**
+	 * GET ITEM REFERENCES
+	 *
+	 * @return int|string|array
+	 */
+	public function getItemRefs()
+	{
+		return $this->_call($this->itemRefs);
+	}
+
+	/**
+	 * SET ITEM REFERENCES
+	 *
+	 * @param int|string|array|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setItemRefs($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->itemRefs, $datas, $type);
+	}
+
+	/**
+	 * GET LIMITED IN TIME
+	 *
+	 * @return bool
+	 */
+	public function isLimitedInTime(): bool
+	{
+		return (bool) $this->_call($this->limitedInTime);
+	}
+
+	/**
+	 * SET LIMITED IN TIME
+	 *
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setLimitedInTime($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->limitedInTime, $datas, $type);
+	}
+
+	/**
+	 * GET DATE START
+	 *
+	 * @return string
+	 */
+	public function getDateStart(): string
+	{
+		return (string) $this->_call($this->dateStart);
+	}
+
+	/**
+	 * SET DATE START
+	 *
+	 * @param string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setDateStart($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->dateStart, $datas, $type);
+	}
+
+	/**
+	 * GET DATE END
+	 *
+	 * @return string
+	 */
+	public function getDateEnd(): string
+	{
+		return (string) $this->_call($this->dateEnd);
+	}
+
+	/**
+	 * SET DATE END
+	 *
+	 * @param string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setDateEnd($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->dateEnd, $datas, $type);
+	}
+
+	/**
+	 * GET LIMITED OCCURRENCES
+	 *
+	 * @return bool
+	 */
+	public function isLimitedOccurrences(): bool
+	{
+		return (bool) $this->_call($this->limitedOccurrences);
+	}
+
+	/**
+	 * SET LIMITED OCCURRENCES
+	 *
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setLimitedOccurrences($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->limitedOccurrences, $datas, $type);
+	}
+
+	/**
+	 * GET OCCURRENCE
+	 *
+	 * @return int
+	 */
+	public function getOccurrence(): int
+	{
+		return (int) $this->_call($this->occurrence);
+	}
+
+	/**
+	 * SET OCCURRENCE
+	 *
+	 * @param int|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setOccurrence($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->occurrence, $datas, $type);
+	}
+
+	/**
+	 * GET OFFSET OCCURRENCE
+	 *
+	 * @return int
+	 */
+	public function getOffsetOccurrence(): int
+	{
+		return (int) $this->_call($this->offsetOccurrence);
+	}
+
+	/**
+	 * SET OFFSET OCCURRENCE
+	 *
+	 * @param int|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setOffsetOccurrence($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->offsetOccurrence, $datas, $type);
+	}
+
+	/**
+	 * GET NUMBER OF OCCURRENCES
+	 *
+	 * @return int
+	 */
+	public function getNumberOfOccurrences(): int
+	{
+		return (int) $this->_call($this->numberOfOccurrences);
+	}
+
+	/**
+	 * SET NUMBER OF OCCURRENCES
+	 *
+	 * @param int|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setNumberOfOccurrences($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->numberOfOccurrences, $datas, $type);
+	}
+
+	/**
+	 * GET OCCURRENCE DATE START
+	 *
+	 * @return string
+	 */
+	public function getOccurrenceDateStart(): string
+	{
+		return (string) $this->_call($this->occurrenceDateStart);
+	}
+
+	/**
+	 * SET OCCURRENCE DATE START
+	 *
+	 * @param string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setOccurrenceDateStart($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->occurrenceDateStart, $datas, $type);
+	}
+
+	/**
+	 * GET OCCURRENCE DATE END
+	 *
+	 * @return string
+	 */
+	public function getOccurrenceDateEnd(): string
+	{
+		return (string) $this->_call($this->occurrenceDateEnd);
+	}
+
+	/**
+	 * SET OCCURRENCE DATE END
+	 *
+	 * @param string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setOccurrenceDateEnd($datas, string $type = self::TYPE_AUTO): Promo
+	{
+		return $this->_set($this->occurrenceDateEnd, $datas, $type);
+	}
 }

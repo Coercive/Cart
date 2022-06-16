@@ -1,6 +1,7 @@
 <?php
 namespace Coercive\Shop\Cart\Entity;
 
+use Coercive\Shop\Cart\Collection\Items;
 use Coercive\Shop\Cart\Ext\Entity;
 
 /**
@@ -11,8 +12,23 @@ class Gift extends Entity
 ###########################################################################################################
 # BIND ITEMS
 
+	/** @var Items */
+	private $items = null;
+
     /** @var User */
     private $user = null;
+
+	/**
+	 * SINGLETON COLLECTION ITEMS
+	 *
+	 * @param Items $items [optional]
+	 * @return Items
+	 */
+	public function Items(Items $items = null): Items
+	{
+		if($items) { return $this->items = $items; }
+		return null === $this->items ? $this->items = new Items : $this->items;
+	}
 
     /**
      * SINGLETON USER
