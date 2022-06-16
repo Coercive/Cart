@@ -31,34 +31,34 @@ include __DIR__ . "/dist/Shipping.php";
 include __DIR__ . "/dist/Billing.php";
 include __DIR__ . "/dist/Promo.php";
 
-$oCart = new Cart;
+$cart = new Cart;
 
-$oItem = (new Item)
+$item = (new Item)
     ->setTitle('Example 1')
     ->setPrice(10)
     ->setQuantity(1)
     ->setRef(666);
-$oCart->Items()->addItem($oItem, '#test123');
+$cart->Items()->addItem($item, '#test123');
 
-$oItem->Promo()
+$item->Promo()
     ->setToken('#123456789ABCD')
     ->setPriceCut(3);
 
-$oItem = (new Item)
+$item = (new Item)
     ->setTitle('Tutu')
     ->setPrice('\MyClass\For\Calculate\PriceItem::price')
     ->setQuantity(3)
     ->setRef(777);
-$oCart->Items()->addItem($oItem);
+$cart->Items()->addItem($item);
 
-$oCart->User()
+$cart->User()
     ->setRef(42)
     ->setLanguage('EN')
     ->setFirstName('Example FName')
     ->setLastName('Example LName')
     ->setEmail('example@coercive.fr');
 
-$oCart->Shipping()
+$cart->Shipping()
     ->setTitle('Example Shipping Title')
     ->setFirstName('Example FName')
     ->setLastName('Example LName')
@@ -68,7 +68,7 @@ $oCart->Shipping()
     ->setCountry('Example Country')
     ->setIsoCountry('EN');
 
-$oCart->Billing()
+$cart->Billing()
     ->setTitle('Example Billing Title')
     ->setFirstName('Example FName')
     ->setLastName('Example LName')
@@ -84,22 +84,22 @@ $oCart->Billing()
 
 <h1># EXAMPLE START #</h1>
 <br /><br />
-<p>User : <?= $oCart->User()->getEmail() ?></p>
-<p>Shipping : <?= $oCart->Shipping()->getTitle() ?></p>
-<p>Billing : <?= $oCart->Billing()->getTitle() ?></p>
+<p>User : <?= $cart->User()->getEmail() ?></p>
+<p>Shipping : <?= $cart->Shipping()->getTitle() ?></p>
+<p>Billing : <?= $cart->Billing()->getTitle() ?></p>
 <br /><?php
-foreach ($oCart->Items()->keys() as $mId):
-    $oItem = $oCart->Items()->getItem($mId); ?>
+foreach ($cart->Items()->keys() as $mId):
+    $item = $cart->Items()->getItem($mId); ?>
     <p>----------------------------------------</p>
-    <p>Title : <?= $oItem->getTitle() ?></p>
-    <p>Price : <?= $oItem->getPrice() ?></p>
-    <p>Quantity : <?= $oItem->getQuantity() ?></p>
-    <p>Ref : <?= $oItem->getRef() ?></p><?php
+    <p>Title : <?= $item->getTitle() ?></p>
+    <p>Price : <?= $item->getPrice() ?></p>
+    <p>Quantity : <?= $item->getQuantity() ?></p>
+    <p>Ref : <?= $item->getRef() ?></p><?php
 
-    if($oItem->Promo()->isModified()): ?>
-        <p>Token : <?= $oItem->Promo()->getToken() ?></p>
-        <p>Price cut : <?= $oItem->Promo()->getPriceCut() ?></p>
-        <p>New item price : <?= $oItem->Promo()->calc($oItem->getPrice()) ?></p><?php
+    if($item->Promo()->isModified()): ?>
+        <p>Token : <?= $item->Promo()->getToken() ?></p>
+        <p>Price cut : <?= $item->Promo()->getPriceCut() ?></p>
+        <p>New item price : <?= $item->Promo()->calc($item->getPrice()) ?></p><?php
     endif;
 
 endforeach ?>
@@ -107,10 +107,10 @@ endforeach ?>
 <h1># EXAMPLE END #</h1><?php
 
 # Storage in session
-$oSession = new Session;
-$oSession->store($oCart);
+$session = new Session;
+$session->store($cart);
 
 # Retrieve from session
-$oCart = $oSession->retrieve();
+$cart = $session->retrieve();
 
 ```
