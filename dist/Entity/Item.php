@@ -206,13 +206,25 @@ class Item extends Entity
 	private $amount = 0;
 
 	/** @var float|callable */
-	private $firstAmount = 0;
+	private $firstAmount = 0.0;
 
 	/** @var float|callable */
-	private $recurrentAmount = 0;
+	private $recurrentAmount = 0.0;
 
 	/** @var string|callable */
 	private $recurrentStart = '';
+
+	/** @var bool|callable */
+	private $firstOccurrences = false;
+
+	/** @var float|callable */
+	private $firstOccurrencesAmount = 0.0;
+
+	/** @var int|callable */
+	private $numberOfOccurrences = 0;
+
+	/** @var string|callable */
+	private $occurrenceDateEnd = '';
 
 ###########################################################################################################
 # ACCESSORS
@@ -1008,5 +1020,93 @@ class Item extends Entity
 	public function setRecurrentStart($datas, string $type = self::TYPE_AUTO): Item
 	{
 		return $this->_set($this->recurrentStart, $datas, $type);
+	}
+
+	/**
+	 * HAS FIRST OCCURRENCES
+	 *
+	 * @return bool
+	 */
+	public function hasFirstOccurrences(): bool
+	{
+		return (bool) $this->_call($this->firstOccurrences);
+	}
+
+	/**
+	 * SET FIRST OCCURRENCES
+	 *
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setFirstOccurrences($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->firstOccurrences, $datas, $type);
+	}
+
+	/**
+	 * GET FIRST OCCURRENCES AMOUNT
+	 *
+	 * @return float
+	 */
+	public function getFirstOccurrencesAmount(): float
+	{
+		return (float) $this->_call($this->firstOccurrencesAmount);
+	}
+
+	/**
+	 * SET FIRST OCCURRENCES AMOUNT
+	 *
+	 * @param float|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setFirstOccurrencesAmount($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->firstOccurrencesAmount, $datas, $type);
+	}
+
+	/**
+	 * GET NUMBER OF OCCURRENCES
+	 *
+	 * @return int
+	 */
+	public function getNumberOfOccurrences(): int
+	{
+		return (int) $this->_call($this->numberOfOccurrences);
+	}
+
+	/**
+	 * SET NUMBER OF OCCURRENCES
+	 *
+	 * @param int|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setNumberOfOccurrences($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->numberOfOccurrences, $datas, $type);
+	}
+
+	/**
+	 * GET OCCURRENCE DATE END
+	 *
+	 * @return string
+	 */
+	public function getOccurrencesDateEnd(): string
+	{
+		return (string) $this->_call($this->occurrenceDateEnd);
+	}
+
+	/**
+	 * SET OCCURRENCE DATE END
+	 *
+	 * @param string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setOccurrencesDateEnd($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->occurrenceDateEnd, $datas, $type);
 	}
 }
