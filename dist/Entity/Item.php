@@ -221,10 +221,10 @@ class Item extends Entity
 	private $firstOccurrencesAmount = 0.0;
 
 	/** @var int|callable */
-	private $numberOfOccurrences = 0;
+	private $numberOfFirstOccurrences = 0;
 
 	/** @var string|callable */
-	private $occurrenceDateEnd = '';
+	private $firstOccurrencesDateEnd = '';
 
 ###########################################################################################################
 # ACCESSORS
@@ -1067,46 +1067,46 @@ class Item extends Entity
 	}
 
 	/**
-	 * GET NUMBER OF OCCURRENCES
+	 * GET NUMBER OF FIRST OCCURRENCES
 	 *
 	 * @return int
 	 */
-	public function getNumberOfOccurrences(): int
+	public function getNumberOfFirstOccurrences(): int
 	{
-		return (int) $this->_call($this->numberOfOccurrences);
+		return (int) $this->_call($this->numberOfFirstOccurrences);
 	}
 
 	/**
-	 * SET NUMBER OF OCCURRENCES
+	 * SET NUMBER OF FIRST OCCURRENCES
 	 *
 	 * @param int|callable $datas
 	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setNumberOfOccurrences($datas, string $type = self::TYPE_AUTO): Item
+	public function setNumberOfFirstOccurrences($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->numberOfOccurrences, $datas, $type);
+		return $this->_set($this->numberOfFirstOccurrences, $datas, $type);
 	}
 
 	/**
-	 * GET OCCURRENCE DATE END
+	 * GET FIRST OCCURRENCES DATE END
 	 *
 	 * @return string
 	 */
-	public function getOccurrencesDateEnd(): string
+	public function getFirstOccurrencesDateEnd(): string
 	{
-		return (string) $this->_call($this->occurrenceDateEnd);
+		return (string) $this->_call($this->firstOccurrencesDateEnd);
 	}
 
 	/**
-	 * SET OCCURRENCE DATE END
+	 * SET FIRST OCCURRENCES DATE END
 	 *
 	 * @param string|callable $datas
 	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setOccurrencesDateEnd($datas, string $type = self::TYPE_AUTO): Item
+	public function setFirstOccurrencesDateEnd($datas, string $type = self::TYPE_AUTO): Item
 	{
-		return $this->_set($this->occurrenceDateEnd, $datas, $type);
+		return $this->_set($this->firstOccurrencesDateEnd, $datas, $type);
 	}
 }
