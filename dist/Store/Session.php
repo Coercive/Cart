@@ -68,10 +68,17 @@ class Session
     /**
      * EXIST CART IN SESSION
      *
+	 * @param bool $instanceOf [optional]
      * @return bool
      */
-    public function exist(): bool
+    public function exist(bool $instanceOf = false): bool
 	{
-        return !empty($_SESSION[$this->name]) && $_SESSION[$this->name] instanceof Cart;
+		if(empty($_SESSION[$this->name])) {
+			return false;
+		}
+		if($instanceOf) {
+			return unserialize($_SESSION[$this->name]) instanceof Cart;
+		}
+        return true;
     }
 }
