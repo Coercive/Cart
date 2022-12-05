@@ -115,6 +115,12 @@ class Item extends Entity
     /** @var string|callable */
     private $description = '';
 
+    /** @var int|callable */
+    private $duration = 0;
+
+	/** @var string|callable */
+	private $durationUnit = '';
+
     /** @var float|callable */
     private $price = 0;
 
@@ -294,6 +300,50 @@ class Item extends Entity
 	{
         return $this->_set($this->description, $datas, $type);
     }
+
+	/**
+	 * GET DURATION
+	 *
+	 * @return int
+	 */
+	public function getDuration(): int
+	{
+		return (int) $this->_call($this->duration);
+	}
+
+	/**
+	 * SET DURATION
+	 *
+	 * @param int|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setDuration($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->duration, $datas, $type);
+	}
+
+	/**
+	 * GET DURATION UNIT
+	 *
+	 * @return string
+	 */
+	public function getDurationUnit(): string
+	{
+		return (string) $this->_call($this->durationUnit);
+	}
+
+	/**
+	 * SET DURATION UNIT
+	 *
+	 * @param string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setDurationUnit($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->durationUnit, $datas, $type);
+	}
 
     /**
      * GET PRICE
