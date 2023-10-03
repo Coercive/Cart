@@ -32,7 +32,7 @@ class Session
 		if(!$serialized) {
 			return null;
 		}
-		$cart = unserialize($serialized, ['allowed_classes' => [Cart::class]]);
+		$cart = unserialize($serialized);
 		return $cart instanceof Cart ? $cart : null;
 	}
 
