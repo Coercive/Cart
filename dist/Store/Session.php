@@ -126,6 +126,9 @@ class Session
 	 */
 	public function import(string $serialized): ? Cart
 	{
-		return $_SESSION[$this->name] = $this->unserialize($serialized);
+		if($cart = $this->unserialize($serialized)) {
+			$_SESSION[$this->name] = $serialized;
+		}
+		return $cart;
 	}
 }
