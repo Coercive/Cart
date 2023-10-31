@@ -107,7 +107,16 @@ class Item extends Entity
 # PROPERTIES
 
     /** @var string|callable */
+    private $name = '';
+
+    /** @var string|callable */
+    private $subname = '';
+
+    /** @var string|callable */
     private $title = '';
+
+    /** @var string|callable */
+    private $subtitle = '';
 
     /** @var string|callable */
     private $resume = '';
@@ -168,6 +177,24 @@ class Item extends Entity
 
     /** @var string|callable */
     private $type = '';
+
+    /** @var string|callable */
+    private $subtype = '';
+
+    /** @var string|callable */
+    private $variant = '';
+
+    /** @var string|callable */
+    private $category = '';
+
+    /** @var string|callable */
+    private $subcategory = '';
+
+    /** @var string|callable */
+    private $brand = '';
+
+    /** @var string|callable */
+    private $affiliation = '';
 
     /** @var string|callable */
 	private $medium = '';
@@ -236,6 +263,50 @@ class Item extends Entity
 # ACCESSORS
 
     /**
+     * GET NAME
+     *
+     * @return string
+     */
+    public function getName(): string
+	{
+        return (string) $this->_call($this->name);
+    }
+
+    /**
+     * SET NAME
+     *
+     * @param string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setName($datas, string $type = self::TYPE_AUTO): Item
+	{
+        return $this->_set($this->name, $datas, $type);
+    }
+
+    /**
+     * GET SUBNAME
+     *
+     * @return string
+     */
+    public function getSubName(): string
+	{
+        return (string) $this->_call($this->subname);
+    }
+
+    /**
+     * SET SUBNAME
+     *
+     * @param string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setSubName($datas, string $type = self::TYPE_AUTO): Item
+	{
+        return $this->_set($this->subname, $datas, $type);
+    }
+
+    /**
      * GET TITLE
      *
      * @return string
@@ -255,6 +326,28 @@ class Item extends Entity
     public function setTitle($datas, string $type = self::TYPE_AUTO): Item
 	{
         return $this->_set($this->title, $datas, $type);
+    }
+
+    /**
+     * GET SUBTITLE
+     *
+     * @return string
+     */
+    public function getSubTitle(): string
+	{
+        return (string) $this->_call($this->subtitle);
+    }
+
+    /**
+     * SET SUBTITLE
+     *
+     * @param string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setSubTitle($datas, string $type = self::TYPE_AUTO): Item
+	{
+        return $this->_set($this->subtitle, $datas, $type);
     }
 
     /**
@@ -696,6 +789,138 @@ class Item extends Entity
 	{
         return $this->_set($this->type, $datas, $type);
     }
+
+    /**
+     * GET SUBTYPE
+     *
+     * @return int|string
+     */
+    public function getSubtype()
+	{
+        return $this->_call($this->subtype);
+    }
+
+    /**
+     * SET SUBTYPE
+     *
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setSubtype($datas, string $type = self::TYPE_AUTO): Item
+	{
+        return $this->_set($this->subtype, $datas, $type);
+    }
+
+    /**
+     * GET VARIANT
+     *
+     * @return int|string
+     */
+    public function getVariant()
+	{
+        return $this->_call($this->variant);
+    }
+
+    /**
+     * SET VARIANT
+     *
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setVariant($datas, string $type = self::TYPE_AUTO): Item
+	{
+        return $this->_set($this->variant, $datas, $type);
+    }
+
+    /**
+     * GET CATEGORY
+     *
+     * @return int|string
+     */
+    public function getCategory()
+	{
+        return $this->_call($this->category);
+    }
+
+    /**
+     * SET CATEGORY
+     *
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setCategory($datas, string $type = self::TYPE_AUTO): Item
+	{
+        return $this->_set($this->category, $datas, $type);
+    }
+
+    /**
+     * GET SUBCATEGORY
+     *
+     * @return int|string
+     */
+    public function getSubCategory()
+	{
+        return $this->_call($this->subcategory);
+    }
+
+    /**
+     * SET SUBCATEGORY
+     *
+     * @param int|string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setSubCategory($datas, string $type = self::TYPE_AUTO): Item
+	{
+        return $this->_set($this->subcategory, $datas, $type);
+    }
+
+	/**
+	 * GET BRAND
+	 *
+	 * @return int|string
+	 */
+	public function getBrand()
+	{
+		return $this->_call($this->brand);
+	}
+
+	/**
+	 * SET BRAND
+	 *
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setBrand($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->brand, $datas, $type);
+	}
+
+	/**
+	 * GET AFFILIATION
+	 *
+	 * @return int|string
+	 */
+	public function getAffiliation()
+	{
+		return $this->_call($this->affiliation);
+	}
+
+	/**
+	 * SET AFFILIATION
+	 *
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setAffiliation($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->affiliation, $datas, $type);
+	}
 
     /**
 	 * GET MEDIUM
