@@ -85,6 +85,15 @@ class Items extends Entity
     }
 
 	/**
+	 * @see Items::items()
+	 * @return Item[]
+	 */
+	public function all(): array
+	{
+		return $this->items();
+	}
+
+	/**
 	 * ALL ITEMS
 	 *
 	 * @return Item[]

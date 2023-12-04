@@ -86,6 +86,15 @@ class Promos extends Entity
     }
 
 	/**
+	 * @see Promos::promos()
+	 * @return Promo[]
+	 */
+	public function all(): array
+	{
+		return $this->promos();
+	}
+
+	/**
 	 * ALL PROMOS
 	 *
 	 * @return Promo[]
