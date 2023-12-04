@@ -84,6 +84,16 @@ class Items extends Entity
         }
     }
 
+	/**
+	 * ALL ITEMS
+	 *
+	 * @return Item[]
+	 */
+	public function items(): array
+	{
+		return $this->items;
+	}
+
     /**
      * KEYS
      *
