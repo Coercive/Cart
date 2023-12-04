@@ -22,7 +22,7 @@ class Items extends Entity
      * @return $this
      * @throws Exception
      */
-    public function add(Item $item, $key = null, $overwrite = false): Items
+    public function add(Item $item, $key = null, bool $overwrite = false): Items
 	{
         # Auto inc key
         if (null === $key) {
@@ -114,4 +114,19 @@ class Items extends Entity
 	{
         return array_key_exists($key, $this->items);
     }
+
+	/**
+	 * @param callable $function
+	 * @return $this
+	 * @throws Exception
+	 */
+	public function each(callable $function): self
+	{
+		foreach ($keys = $this->keys() as $key) {
+			if($item = $this->get($key)) {
+				$function($item, $key, $keys);
+			}
+		}
+		return $this;
+	}
 }

@@ -115,4 +115,19 @@ class Promos extends Entity
 	{
         return array_key_exists($key, $this->promos);
     }
+
+	/**
+	 * @param callable $function
+	 * @return $this
+	 * @throws Exception
+	 */
+	public function each(callable $function): self
+	{
+		foreach ($keys = $this->keys() as $key) {
+			if($promo = $this->get($key)) {
+				$function($promo, $key, $keys);
+			}
+		}
+		return $this;
+	}
 }
