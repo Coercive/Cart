@@ -13,28 +13,31 @@ class Item extends Entity
 ###########################################################################################################
 # BIND ITEMS
 
-	/** @var Billing */
+	/** @var Address|Billing|null */
 	private $billing = null;
 
-	/** @var Shipping */
+	/** @var Address|Shipping|null */
 	private $shipping = null;
 
-	/** @var Gift */
-	private $gift = null;
+	/** @var Gift|null */
+	private ? Gift $gift = null;
 
-	/** @var Promos */
-	private $promos = null;
+	/** @var Promos|null */
+	private ? Promos $promos = null;
 
-	/** @var Promo */
-	private $promo = null;
+	/** @var Promo|null */
+	private ? Promo $promo = null;
 
-	/** @var Payment */
-	private $payment = null;
+	/** @var Payment|null */
+	private ? Payment $payment = null;
+
+	/** @var Error|null */
+	private ? Error $error = null;
 
 	/**
 	 * SINGLETON BILLING
 	 *
-	 * @param Address $billing [optional]
+	 * @param Address|null $billing [optional]
 	 * @return Address|Billing
 	 */
 	public function Billing(Address $billing = null): Address
@@ -46,7 +49,7 @@ class Item extends Entity
 	/**
 	 * SINGLETON SHIPPING
 	 *
-	 * @param Address $shipping [optional]
+	 * @param Address|null $shipping [optional]
 	 * @return Address|Shipping
 	 */
 	public function Shipping(Address $shipping = null): Address
@@ -58,7 +61,7 @@ class Item extends Entity
 	/**
 	 * SINGLETON GIFT
 	 *
-	 * @param Gift $gift [optional]
+	 * @param Gift|null $gift [optional]
 	 * @return Gift
 	 */
 	public function Gift(Gift $gift = null): Gift
@@ -70,7 +73,7 @@ class Item extends Entity
 	/**
 	 * SINGLETON COLLECTION PROMOS
 	 *
-	 * @param Promos $promos [optional]
+	 * @param Promos|null $promos [optional]
 	 * @return Promos
 	 */
 	public function Promos(Promos $promos = null): Promos
@@ -82,7 +85,7 @@ class Item extends Entity
 	/**
 	 * SINGLETON PROMO
 	 *
-	 * @param Promo $promo [optional]
+	 * @param Promo|null $promo [optional]
 	 * @return Promo
 	 */
 	public function Promo(Promo $promo = null): Promo
@@ -94,13 +97,25 @@ class Item extends Entity
 	/**
 	 * SINGLETON PAYMENT
 	 *
-	 * @param Payment $payment [optional]
+	 * @param Payment|null $payment [optional]
 	 * @return Payment
 	 */
 	public function Payment(Payment $payment = null): Payment
 	{
 		if($payment) { return $this->payment = $payment; }
 		return null === $this->payment ? $this->payment = new Payment : $this->payment;
+	}
+
+	/**
+	 * SINGLETON ERROR
+	 *
+	 * @param Error|null $error [optional]
+	 * @return Error
+	 */
+	public function Error(Error $error = null): Error
+	{
+		if($error) { return $this->error = $error; }
+		return null === $this->error ? $this->error = new Error : $this->error;
 	}
 
 ###########################################################################################################

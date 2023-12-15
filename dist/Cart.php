@@ -3,6 +3,7 @@ namespace Coercive\Shop\Cart;
 
 use Coercive\Shop\Cart\Collection\Promos;
 use Coercive\Shop\Cart\Entity\Billing;
+use Coercive\Shop\Cart\Entity\Error;
 use Coercive\Shop\Cart\Entity\Gift;
 use Coercive\Shop\Cart\Entity\Payment;
 use Coercive\Shop\Cart\Entity\Promo;
@@ -27,84 +28,87 @@ class Cart extends Entity
 ###########################################################################################################
 # BIND ITEMS
 
-    /** @var User */
-    private $user = null;
+    /** @var User|null */
+    private ? User $user = null;
 
-    /** @var Items */
-    private $items = null;
+    /** @var Items|null */
+    private ? Items $items = null;
 
-    /** @var Shipping */
+	/** @var Address|Billing|null */
+	private $billing = null;
+
+    /** @var Address|Shipping|null */
     private $shipping = null;
 
-    /** @var Billing */
-    private $billing = null;
+    /** @var Gift|null */
+    private ? Gift $gift = null;
 
-    /** @var Gift */
-    private $gift = null;
+	/** @var Promos|null */
+	private ? Promos $promos = null;
 
-	/** @var Promos */
-	private $promos = null;
+    /** @var Promo|null */
+    private ? Promo $promo = null;
 
-    /** @var Promo */
-    private $promo = null;
+    /** @var Payment|null */
+    private ? Payment $payment = null;
 
-    /** @var Payment */
-    private $payment = null;
+	/** @var Error|null */
+	private ? Error $error = null;
 
-    /**
-     * SINGLETON USER
-     *
-     * @param User $user [optional]
-     * @return User
-     */
+	/**
+	 * SINGLETON USER
+	 *
+	 * @param User|null $user [optional]
+	 * @return User
+	 */
     public function User(User $user = null): User
 	{
     	if($user) { return $this->user = $user; }
         return null === $this->user ? $this->user = new User : $this->user;
     }
 
-    /**
-     * SINGLETON COLLECTION ITEMS
-     *
-     * @param Items $items [optional]
-     * @return Items
-     */
+	/**
+	 * SINGLETON COLLECTION ITEMS
+	 *
+	 * @param Items|null $items [optional]
+	 * @return Items
+	 */
     public function Items(Items $items = null): Items
 	{
 	    if($items) { return $this->items = $items; }
         return null === $this->items ? $this->items = new Items : $this->items;
     }
 
-    /**
-     * SINGLETON SHIPPING
-     *
-     * @param Address $shipping [optional]
-     * @return Address|Shipping
-     */
+	/**
+	 * SINGLETON SHIPPING
+	 *
+	 * @param Address|null $shipping [optional]
+	 * @return Address|Shipping
+	 */
     public function Shipping(Address $shipping = null): Address
 	{
 	    if($shipping) { return $this->shipping = $shipping; }
         return null === $this->shipping ? $this->shipping = new Shipping : $this->shipping;
     }
 
-    /**
-     * SINGLETON BILLING
-     *
-     * @param Address $billing [optional]
-     * @return Address|Billing
-     */
+	/**
+	 * SINGLETON BILLING
+	 *
+	 * @param Address|null $billing [optional]
+	 * @return Address|Billing
+	 */
     public function Billing(Address $billing = null): Address
 	{
 	    if($billing) { return $this->billing = $billing; }
         return null === $this->billing ? $this->billing = new Billing : $this->billing;
     }
 
-    /**
-     * SINGLETON GIFT
-     *
-     * @param Gift $gift [optional]
-     * @return Gift
-     */
+	/**
+	 * SINGLETON GIFT
+	 *
+	 * @param Gift|null $gift [optional]
+	 * @return Gift
+	 */
     public function Gift(Gift $gift = null): Gift
 	{
 	    if($gift) { return $this->gift = $gift; }
@@ -114,7 +118,7 @@ class Cart extends Entity
 	/**
 	 * SINGLETON COLLECTION PROMOS
 	 *
-	 * @param Promos $promos [optional]
+	 * @param Promos|null $promos [optional]
 	 * @return Promos
 	 */
 	public function Promos(Promos $promos = null): Promos
@@ -124,28 +128,40 @@ class Cart extends Entity
 	}
 
 	/**
-     * SINGLETON PROMO
-     *
-     * @param Promo $promo [optional]
-     * @return Promo
-     */
+	 * SINGLETON PROMO
+	 *
+	 * @param Promo|null $promo [optional]
+	 * @return Promo
+	 */
     public function Promo(Promo $promo = null): Promo
 	{
 	    if($promo) { return $this->promo = $promo; }
         return null === $this->promo ? $this->promo = new Promo : $this->promo;
     }
 
-    /**
-     * SINGLETON PAYMENT
-     *
-     * @param Payment $payment [optional]
-     * @return Payment
-     */
+	/**
+	 * SINGLETON PAYMENT
+	 *
+	 * @param Payment|null $payment [optional]
+	 * @return Payment
+	 */
     public function Payment(Payment $payment = null): Payment
 	{
 	    if($payment) { return $this->payment = $payment; }
         return null === $this->payment ? $this->payment = new Payment : $this->payment;
     }
+
+	/**
+	 * SINGLETON ERROR
+	 *
+	 * @param Error|null $error [optional]
+	 * @return Error
+	 */
+	public function Error(Error $error = null): Error
+	{
+		if($error) { return $this->error = $error; }
+		return null === $this->error ? $this->error = new Error : $this->error;
+	}
 
 ###########################################################################################################
 # PROPERTIES

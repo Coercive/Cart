@@ -11,7 +11,7 @@ use Coercive\Shop\Cart\Entity\Promo;
 class Promos extends Entity
 {
     /** @var array Promo list */
-    private $promos = [];
+    private array $promos = [];
 
     /**
      * ADD PROMO

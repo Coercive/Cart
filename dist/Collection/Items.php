@@ -11,7 +11,7 @@ use Coercive\Shop\Cart\Ext\Entity;
 class Items extends Entity
 {
     /** @var array Item list */
-    private $items = [];
+    private array $items = [];
 
     /**
      * ADD ITEM

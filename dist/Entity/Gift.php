@@ -12,16 +12,16 @@ class Gift extends Entity
 ###########################################################################################################
 # BIND ITEMS
 
-	/** @var Items */
-	private $items = null;
+	/** @var Items|null */
+	private ? Items $items = null;
 
-    /** @var User */
-    private $user = null;
+    /** @var User|null */
+    private ? User $user = null;
 
 	/**
 	 * SINGLETON COLLECTION ITEMS
 	 *
-	 * @param Items $items [optional]
+	 * @param Items|null $items [optional]
 	 * @return Items
 	 */
 	public function Items(Items $items = null): Items
@@ -30,12 +30,12 @@ class Gift extends Entity
 		return null === $this->items ? $this->items = new Items : $this->items;
 	}
 
-    /**
-     * SINGLETON USER
-     *
-     * @param User $user [optional]
-     * @return User
-     */
+	/**
+	 * SINGLETON USER
+	 *
+	 * @param User|null $user [optional]
+	 * @return User
+	 */
     public function User(User $user = null): User
 	{
     	if($user) { return $this->user = $user; }

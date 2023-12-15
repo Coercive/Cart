@@ -43,22 +43,22 @@ class Promo extends Entity
 ###########################################################################################################
 # BIND ITEMS
 
-	/** @var Gift */
-	private $gift = null;
+	/** @var Gift|null */
+	private ? Gift $gift = null;
 
-	/** @var Items */
-	private $items = null;
+	/** @var Items|null */
+	private ? Items $items = null;
 
-	/** @var Promos */
-	private $promos = null;
+	/** @var Promos|null */
+	private ? Promos $promos = null;
 
-	/** @var User */
-	private $user = null;
+	/** @var User|null */
+	private ? User $user = null;
 
 	/**
 	 * SINGLETON GIFT
 	 *
-	 * @param Gift $gift [optional]
+	 * @param Gift|null $gift [optional]
 	 * @return Gift
 	 */
 	public function Gift(Gift $gift = null): Gift
@@ -70,7 +70,7 @@ class Promo extends Entity
 	/**
 	 * SINGLETON COLLECTION ITEMS
 	 *
-	 * @param Items $items [optional]
+	 * @param Items|null $items [optional]
 	 * @return Items
 	 */
 	public function Items(Items $items = null): Items
@@ -82,7 +82,7 @@ class Promo extends Entity
 	/**
 	 * SINGLETON COLLECTION PROMOS
 	 *
-	 * @param Promos $promos [optional]
+	 * @param Promos|null $promos [optional]
 	 * @return Promos
 	 */
 	public function Promos(Promos $promos = null): Promos
@@ -94,7 +94,7 @@ class Promo extends Entity
 	/**
 	 * SINGLETON USER
 	 *
-	 * @param User $user [optional]
+	 * @param User|null $user [optional]
 	 * @return User
 	 */
 	public function User(User $user = null): User
