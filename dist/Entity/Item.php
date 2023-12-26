@@ -163,6 +163,9 @@ class Item extends Entity
 	/** @var float|callable */
 	private $unitPriceIncludingTaxes = 0;
 
+	/** @var bool|callable */
+	private $reduced = false;
+
 	/** @var float|callable */
 	private $reducedPrice = 0;
 
@@ -589,6 +592,28 @@ class Item extends Entity
 	public function setUnitPriceIncludingTaxes($datas, string $type = self::TYPE_AUTO): Item
 	{
 		return $this->_set($this->unitPriceIncludingTaxes, $datas, $type);
+	}
+
+	/**
+	 * IS REDUCED
+	 *
+	 * @return bool
+	 */
+	public function isReduced(): bool
+	{
+		return (bool) $this->_call($this->reduced);
+	}
+
+	/**
+	 * SET REDUCED
+	 *
+	 * @param bool|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setReduced($datas, string $type = self::TYPE_AUTO): Item
+	{
+		return $this->_set($this->reduced, $datas, $type);
 	}
 
 	/**
