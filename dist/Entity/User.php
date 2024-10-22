@@ -55,6 +55,9 @@ class User extends Entity
     private $subscriberCode = '';
 
     /** @var string|callable */
+    private $dateOfBirth = '';
+
+    /** @var string|callable */
     private $gender = '';
 
     /** @var string|callable */
@@ -169,6 +172,28 @@ class User extends Entity
     public function setSubscriberCode($datas, string $type = self::TYPE_AUTO): User
 	{
         return $this->_set($this->subscriberCode, $datas, $type);
+    }
+
+    /**
+     * GET DATE_OF_BIRTH
+     *
+     * @return string
+     */
+    public function getDateOfBirth(): string
+	{
+        return (string) $this->_call($this->dateOfBirth);
+    }
+
+    /**
+     * SET DATE_OF_BIRTH
+     *
+     * @param string|callable $datas
+	 * @param string $type [optional]
+     * @return $this
+     */
+    public function setDateOfBirth($datas, string $type = self::TYPE_AUTO): User
+	{
+        return $this->_set($this->dateOfBirth, $datas, $type);
     }
 
     /**
