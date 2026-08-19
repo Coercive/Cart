@@ -60,7 +60,6 @@ class Promos extends Entity
 	 * DELETE ALL PROMOS
 	 *
 	 * @return $this
-	 * @throws Exception
 	 */
 	public function clear(): Promos
 	{
