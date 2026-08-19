@@ -113,6 +113,21 @@ class ProgressBar
 		return $this->items;
 	}
 
+    /**
+     * @param bool $process [optional]
+     * @return ProgressItem|null
+     */
+    public function getCurrentItem(bool $process = true): ? ProgressItem
+    {
+        $i = $this->getCurrent();
+        foreach ($this->getItems($process) as $item) {
+            if($item->getStep() === $i) {
+                return $item;
+            }
+        }
+        return null;
+    }
+
 	/**
 	 * @param int $number
 	 * @return $this
