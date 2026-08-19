@@ -116,18 +116,45 @@ class ProgressBar
 	}
 
     /**
+     * @param int $step
+     * @param bool $process [optional]
+     * @return ProgressItem|null
+     */
+    public function getItem(int $step, bool $process = true): ? ProgressItem
+    {
+        foreach ($this->getItems($process) as $item) {
+            if($item->getStep() === $step) {
+                return $item;
+            }
+        }
+        return null;
+    }
+
+    /**
      * @param bool $process [optional]
      * @return ProgressItem|null
      */
     public function getCurrentItem(bool $process = true): ? ProgressItem
     {
-        $i = $this->getCurrent();
-        foreach ($this->getItems($process) as $item) {
-            if($item->getStep() === $i) {
-                return $item;
-            }
-        }
-        return null;
+        return $this->getItem($this->getCurrent(), $process);
+    }
+
+    /**
+     * @param bool $process [optional]
+     * @return ProgressItem|null
+     */
+    public function getPreviousItem(bool $process = true): ? ProgressItem
+    {
+        return $this->getItem($this->getCurrent() -1, $process);
+    }
+
+    /**
+     * @param bool $process [optional]
+     * @return ProgressItem|null
+     */
+    public function getNextItem(bool $process = true): ? ProgressItem
+    {
+        return $this->getItem($this->getCurrent() +1, $process);
     }
 
 	/**
