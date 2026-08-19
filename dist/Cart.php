@@ -2,6 +2,7 @@
 namespace Coercive\Shop\Cart;
 
 use Coercive\Shop\Cart\Collection\Promos;
+use Coercive\Shop\Cart\Component\Progress\ProgressBar;
 use Coercive\Shop\Cart\Entity\Billing;
 use Coercive\Shop\Cart\Entity\Error;
 use Coercive\Shop\Cart\Entity\Gift;
@@ -54,6 +55,9 @@ class Cart extends Entity
 
 	/** @var Error|null */
 	private ? Error $error = null;
+
+	/** @var ProgressBar|null */
+	private ? ProgressBar $progressBar = null;
 
 	/**
 	 * SINGLETON USER
@@ -161,6 +165,18 @@ class Cart extends Entity
 	{
 		if($error) { return $this->error = $error; }
 		return null === $this->error ? $this->error = new Error : $this->error;
+	}
+
+	/**
+	 * SINGLETON PROGRESSBAR
+	 *
+	 * @param ProgressBar|null $progressBar [optional]
+	 * @return ProgressBar
+	 */
+	public function ProgressBar(ProgressBar $progressBar = null): ProgressBar
+	{
+		if($progressBar) { return $this->progressBar = $progressBar; }
+		return null === $this->progressBar ? $this->progressBar = new ProgressBar : $this->progressBar;
 	}
 
 ###########################################################################################################
