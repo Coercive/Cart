@@ -11,6 +11,8 @@ class ProgressBar
 
 	private int $current = 0;
 
+	private int $total = 0;
+
 	private int $progress = 0;
 
 	/** @var string[] */
@@ -144,6 +146,24 @@ class ProgressBar
 	public function getCurrent(): int
 	{
 		return $this->current;
+	}
+
+	/**
+	 * @param int $number
+	 * @return $this
+	 */
+	public function setTotal(int $number): self
+	{
+		$this->total = $number;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getTotal(): int
+	{
+		return $this->total;
 	}
 
 	/**
