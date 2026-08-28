@@ -26,14 +26,14 @@ class Payment extends Entity
     /** @var string|callable */
     private $description = '';
 
-    /** @var int|string|callable */
-    private $allowedModes = '';
+    /** @var int[]|string[]|callable */
+    private $allowedModes = [];
 
     /** @var int|string|callable */
     private $mode = '';
 
-    /** @var int|string|callable */
-    private $allowedTypes = '';
+    /** @var int[]|string[]|callable */
+    private $allowedTypes = [];
 
     /** @var int|string|callable */
     private $type = '';
@@ -214,7 +214,7 @@ class Payment extends Entity
     /**
      * GET ALLOWED MODES
      *
-     * @return int|string
+     * @return int[]|string[]
      */
     public function getAllowedModes()
 	{
@@ -224,7 +224,7 @@ class Payment extends Entity
     /**
      * SET ALLOWED MODES
      *
-     * @param int|string|callable $datas
+     * @param int[]|string[]|callable $datas
 	 * @param string $type [optional]
      * @return $this
      */
@@ -258,7 +258,7 @@ class Payment extends Entity
     /**
      * GET ALLOWED TYPES
      *
-     * @return int|string
+     * @return int[]|string[]
      */
     public function getAllowedTypes()
 	{
@@ -268,7 +268,7 @@ class Payment extends Entity
     /**
      * SET ALLOWED TYPES
      *
-     * @param int|string|callable $datas
+     * @param int[]|string[]|callable $datas
 	 * @param string $type [optional]
      * @return $this
      */
