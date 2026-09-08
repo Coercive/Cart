@@ -1,6 +1,7 @@
 <?php
 namespace Coercive\Shop\Cart;
 
+use Coercive\Shop\Cart\Collection\Errors;
 use Coercive\Shop\Cart\Collection\Promos;
 use Coercive\Shop\Cart\Component\Progress\ProgressBar;
 use Coercive\Shop\Cart\Entity\Billing;
@@ -55,6 +56,15 @@ class Cart extends Entity
 
 	/** @var Error|null */
 	private ? Error $error = null;
+
+	/** @var Errors|null */
+	private ? Errors $errors = null;
+
+	/** @var Errors|null */
+	private ? Errors $warnings = null;
+
+	/** @var Errors|null */
+	private ? Errors $infos = null;
 
 	/** @var ProgressBar|null */
 	private ? ProgressBar $progressBar = null;
@@ -153,6 +163,42 @@ class Cart extends Entity
 	{
 	    if($payment) { return $this->payment = $payment; }
         return null === $this->payment ? $this->payment = new Payment : $this->payment;
+    }
+
+    /**
+     * SINGLETON COLLECTION ERRORS
+     *
+     * @param Errors|null $errors [optional]
+     * @return Errors
+     */
+    public function Errors(Errors $errors = null): Errors
+    {
+        if($errors) { return $this->errors = $errors; }
+        return null === $this->errors ? $this->errors = new Errors : $this->errors;
+    }
+
+    /**
+     * SINGLETON COLLECTION WARNINGS [ERRORS]
+     *
+     * @param Errors|null $errors [optional]
+     * @return Errors
+     */
+    public function Warnings(Errors $errors = null): Errors
+    {
+        if($errors) { return $this->warnings = $errors; }
+        return null === $this->warnings ? $this->warnings = new Errors : $this->warnings;
+    }
+
+    /**
+     * SINGLETON COLLECTION INFOS [ERRORS]
+     *
+     * @param Errors|null $errors [optional]
+     * @return Errors
+     */
+    public function Infos(Errors $errors = null): Errors
+    {
+        if($errors) { return $this->infos = $errors; }
+        return null === $this->infos ? $this->infos = new Errors : $this->infos;
     }
 
 	/**

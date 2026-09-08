@@ -17,6 +17,9 @@ class Error extends Entity
     /** @var int|string|callable */
     private $code = '';
 
+	/** @var int|string|callable */
+	private $level = '';
+
 	/** @var string|callable */
 	private $type = '';
 
@@ -102,6 +105,28 @@ class Error extends Entity
 	{
         return $this->_set($this->code, $datas, $type);
     }
+
+	/**
+	 * GET LEVEL
+	 *
+	 * @return int|string
+	 */
+	public function getLevel()
+	{
+		return $this->_call($this->level);
+	}
+
+	/**
+	 * SET LEVEL
+	 *
+	 * @param int|string|callable $datas
+	 * @param string $type [optional]
+	 * @return $this
+	 */
+	public function setLevel($datas, string $type = self::TYPE_AUTO): self
+	{
+		return $this->_set($this->level, $datas, $type);
+	}
 
 	/**
 	 * GET TYPE
