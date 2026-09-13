@@ -580,4 +580,46 @@ class Address extends Entity
 
         return $missing;
     }
+
+###########################################################################################################
+# EQUALITY CHECK
+
+    /**
+     * Fields considered when determining whether two addresses refer to the same destination.
+     * Intentionally excluded: ref, type (internal identifiers/categorization), gender, title
+     * (salutation/title, with no impact on the destination).
+     *
+     * @var string[]
+     */
+    private const IDENTITY_FIELDS = [
+        'getFirstName', 'getLastName', 'getCompany', 'getAdditionalName',
+        'getAddress', 'getAdditionalAddress1', 'getAdditionalAddress2',
+        'getZip', 'getTown', 'getCountry', 'getIsoCountry',
+    ];
+
+    /**
+     * IS SAME AS
+     *
+     * Compares this address with another to determine if they refer to the same destination
+     * (same recipient, same location). Useful for avoiding the entry of a redundant address
+     * in a third-party system (e.g., billing address identical to delivery address).
+     *
+     * @param Address $other
+     * @return bool
+     */
+    public function isSameAs(Address $other): bool
+    {
+        function _normalize(string $value): string
+        {
+            return mb_strtolower(trim(preg_replace('/\s+/', ' ', $value)));
+        }
+
+        foreach (self::IDENTITY_FIELDS as $getter) {
+            if (_normalize($this->$getter()) !== _normalize($other->$getter())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
