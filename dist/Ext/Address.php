@@ -11,8 +11,7 @@ class Address extends Entity
 ###########################################################################################################
 # BIND ITEMS
 
-	/** @var User */
-	private $user = null;
+	private ? User $user = null;
 
 	/**
 	 * SINGLETON USER
@@ -104,7 +103,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setTitle($datas, string $type = self::TYPE_AUTO)
+    public function setTitle($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->title, $datas, $type);
     }
@@ -126,7 +125,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setRef($datas, string $type = self::TYPE_AUTO)
+    public function setRef($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->ref, $datas, $type);
     }
@@ -148,7 +147,7 @@ class Address extends Entity
 	 * @param string $type [optional]
 	 * @return $this
 	 */
-	public function setType($datas, string $type = self::TYPE_AUTO)
+	public function setType($datas, string $type = self::TYPE_AUTO): self
 	{
 		return $this->_set($this->type, $datas, $type);
 	}
@@ -170,7 +169,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setGender($datas, string $type = self::TYPE_AUTO)
+    public function setGender($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->gender, $datas, $type);
     }
@@ -192,7 +191,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setCompany($datas, string $type = self::TYPE_AUTO)
+    public function setCompany($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->company, $datas, $type);
     }
@@ -214,7 +213,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setFirstName($datas, string $type = self::TYPE_AUTO)
+    public function setFirstName($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->firstName, $datas, $type);
     }
@@ -236,7 +235,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setLastName($datas, string $type = self::TYPE_AUTO)
+    public function setLastName($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->lastName, $datas, $type);
     }
@@ -258,7 +257,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setAdditionalName($datas, string $type = self::TYPE_AUTO)
+    public function setAdditionalName($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->additionalName, $datas, $type);
     }
@@ -280,7 +279,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setAddress($datas, string $type = self::TYPE_AUTO)
+    public function setAddress($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->address, $datas, $type);
     }
@@ -302,7 +301,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setAdditionalAddress1($datas, string $type = self::TYPE_AUTO)
+    public function setAdditionalAddress1($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->additionalAddress1, $datas, $type);
     }
@@ -324,7 +323,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setAdditionalAddress2($datas, string $type = self::TYPE_AUTO)
+    public function setAdditionalAddress2($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->additionalAddress2, $datas, $type);
     }
@@ -346,7 +345,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setZip($datas, string $type = self::TYPE_AUTO)
+    public function setZip($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->zip, $datas, $type);
     }
@@ -368,7 +367,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setTown($datas, string $type = self::TYPE_AUTO)
+    public function setTown($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->town, $datas, $type);
     }
@@ -390,7 +389,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setCountry($datas, string $type = self::TYPE_AUTO)
+    public function setCountry($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->country, $datas, $type);
     }
@@ -412,7 +411,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setIsoCountry($datas, string $type = self::TYPE_AUTO)
+    public function setIsoCountry($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->isoCountry, $datas, $type);
     }
@@ -434,7 +433,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setPhone($datas, string $type = self::TYPE_AUTO)
+    public function setPhone($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->phone, $datas, $type);
     }
@@ -456,7 +455,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setMobile($datas, string $type = self::TYPE_AUTO)
+    public function setMobile($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->mobile, $datas, $type);
     }
@@ -478,7 +477,7 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setFax($datas, string $type = self::TYPE_AUTO)
+    public function setFax($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->fax, $datas, $type);
     }
@@ -500,8 +499,85 @@ class Address extends Entity
 	 * @param string $type [optional]
      * @return $this
      */
-    public function setEmail($datas, string $type = self::TYPE_AUTO)
+    public function setEmail($datas, string $type = self::TYPE_AUTO): self
 	{
         return $this->_set($this->email, $datas, $type);
+    }
+
+###########################################################################################################
+# COMPLETENESS CHECK
+
+    /**
+     * ISO-3166-1 alpha-2 codes for countries/territories that do not use postal codes.
+     * Used to avoid requiring the ZIP field where it is not applicable.
+     *
+     * @var string[]
+     */
+    private const NO_ZIP_ISO_COUNTRIES = [
+        'AO', 'AG', 'AW', 'BS', 'BZ', 'BJ', 'BW', 'BF', 'BI', 'CM', 'CF', 'KM', 'CG', 'CD', 'CK', 'CI', 'DJ', 'DM',
+        'GQ', 'ER', 'FJ', 'GM', 'GH', 'GD', 'GY', 'HK', 'JM', 'KI', 'LY', 'MO', 'MW', 'ML', 'MR', 'NR', 'NU', 'QA',
+        'RW', 'KN', 'LC', 'ST', 'SC', 'SL', 'SB', 'SO', 'SR', 'SY', 'TL', 'TG', 'TK', 'TO', 'TT', 'TV', 'UG', 'AE',
+        'VU', 'YE', 'ZW',
+    ];
+
+    /**
+     * IS COMPLETE
+     *
+     * An address is considered complete if it contains at least:
+     *  - a recipient (surname + first name, or a company name if applicable)
+     *  - an address line
+     *  - a postal code
+     *  - a city
+     *  - a country (name or ISO code)
+     *
+     * @param bool $requirePhone [optional] useful if shipping
+     * @return bool
+     */
+    public function isComplete(bool $requirePhone = false): bool
+    {
+        return [] === $this->getMissingFields($requirePhone);
+    }
+
+    /**
+     * GET MISSING FIELDS
+     *
+     * List of missing fields preventing the address from being considered complete.
+     *
+     * @param bool $requirePhone [optional] useful if shipping
+     * @return string[]
+     */
+    public function getMissingFields(bool $requirePhone = false): array
+    {
+        $missing = [];
+
+        $hasFullName = '' !== trim($this->getFirstName()) && '' !== trim($this->getLastName());
+        $hasCompany = '' !== trim($this->getCompany());
+        if (!$hasFullName && !$hasCompany) {
+            $missing[] = 'recipient';
+        }
+
+        if ('' === trim($this->getAddress())) {
+            $missing[] = 'address';
+        }
+
+        $iso = strtoupper(trim($this->getIsoCountry()));
+        $zipRequired = !in_array($iso, self::NO_ZIP_ISO_COUNTRIES, true);
+        if ($zipRequired && '' === trim($this->getZip())) {
+            $missing[] = 'zip';
+        }
+
+        if ('' === trim($this->getTown())) {
+            $missing[] = 'town';
+        }
+
+        if ('' === trim($this->getCountry()) && '' === trim($this->getIsoCountry())) {
+            $missing[] = 'country';
+        }
+
+        if ($requirePhone && '' === trim($this->getPhone()) && '' === trim($this->getMobile())) {
+            $missing[] = 'phone';
+        }
+
+        return $missing;
     }
 }
